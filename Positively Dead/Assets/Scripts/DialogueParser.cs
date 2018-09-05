@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class DialogueParser : MonoBehaviour {
 
@@ -8,7 +9,7 @@ public class DialogueParser : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Debug.Log("scene has loaded");
 	}
 	
 	// Update is called once per frame
