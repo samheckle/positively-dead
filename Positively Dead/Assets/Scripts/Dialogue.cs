@@ -46,28 +46,66 @@ public class Dialogue {
 
     public int PossibleResponses
     {
-        get { return responseOptions.Count; }
+        get {
+            if (responseOptions == null)
+            {
+                return 0;
+            }
+            return responseOptions.Count;
+        }
     }
 
-    // Use this for initialization
-    public Dialogue (string speakerName, string text, float speed, List<Dialogue> dialogueOptions = null, List<string> responseOptions = null) {
+    /// <summary>
+    /// Constructor that only takes dialogue text and a speed.
+    /// </summary>
+    /// <param name="speakerName">Name of character speaking</param>
+    /// <param name="text">Dialogue text</param>
+    /// <param name="speed">Speed to write the text to the screen</param>
+    public Dialogue (string speakerName, string text, float speed) {
+        this.speakerName = speakerName;
+        this.text = text;
+        this.textSpeed = speed;
+        this.dialogueOptions = new List<Dialogue>(2);
+        this.responseOptions = new List<string>(2);
+    }
+
+    /// <summary>
+    /// Constructor that allows the user to add lists of dialogue
+    /// </summary>
+    /// <param name="speakerName">Name of character speaking</param>
+    /// <param name="text">Dialogue text</param>
+    /// <param name="speed">Speed to write the text to the screen</param>
+    /// <param name="dialogueOptions">List of all possible next dialogues</param>
+    /// <param name="responseOptions">List of possible player responses</param>
+    public Dialogue (string speakerName, string text, float speed, List<Dialogue> dialogueOptions, List<string> responseOptions) {
         this.speakerName = speakerName;
         this.text = text;
         this.textSpeed = speed;
         this.dialogueOptions = dialogueOptions;
         this.responseOptions = responseOptions;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    /// <summary>
+    /// Constructor that accepts one dialogue and response
+    /// </summary>
+    /// <param name="speakerName">Name of character speaking</param>
+    /// <param name="text">Dialogue text</param>
+    /// <param name="speed">Speed to write the text to the screen</param>
+    /// <param name="nextDialogue">The next dialogue</param>
+    /// <param name="response">The player response</param>
+    public Dialogue (string speakerName, string text, float speed, Dialogue nextDialogue, string response = "Continue") {
+        this.speakerName = speakerName;
+        this.text = text;
+        this.textSpeed = speed;
+        this.dialogueOptions = new List<Dialogue>(1) { nextDialogue };
+        this.responseOptions = new List<string>(1) { response };
+    }
 
     /// <summary>
     /// Returns a response to the dialogue given an index
     /// </summary>
     public Dialogue NextDialogue (int index = 0) {
-        if (dialogueOptions != null) {
+        if (dialogueOptions != null && dialogueOptions.Count > index) {
             return dialogueOptions[index];
         } else {
             return null;

@@ -51,7 +51,6 @@ public class Typewriter : MonoBehaviour {
         animComplete = false;
 		for (int i = 0; i < finalText.Length + 1; i++) {
 			animText.text = finalText.Substring(0, i);
-            Debug.Log("wut");
 			yield return new WaitForSeconds(typeDelay);
 		}
         animComplete = true;

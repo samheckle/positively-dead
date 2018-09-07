@@ -10,7 +10,6 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogueManager : MonoBehaviour {
     
-    private int currDialogue;
     private List<Dialogue> dialogues;
     private Typewriter typer;
 
@@ -32,7 +31,6 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         typer = gameObject.GetComponent<Typewriter>();
-        currDialogue = 0;
         button1.SetActive(false);
         button2.SetActive(false);
 
@@ -53,6 +51,10 @@ public class DialogueManager : MonoBehaviour {
         DisplayDialogue(currentDialogue);
 	}
 
+    /// <summary>
+    /// Displays a dialogue to the screen
+    /// </summary>
+    /// <param name="dialogue">The dialogue to display</param>
     void DisplayDialogue (Dialogue dialogue)
     {
         typer.typeDelay = dialogue.TextSpeed;
@@ -60,6 +62,10 @@ public class DialogueManager : MonoBehaviour {
         speakerName.text = dialogue.SpeakerName;
     }
 
+    /// <summary>
+    /// Sets the next dialogue on button click
+    /// </summary>
+    /// <param name="index">Index of next dialogue</param>
     public void OnClick(int index) {
         currentDialogue = currentDialogue.NextDialogue(index);
         DisplayDialogue(currentDialogue);
@@ -69,7 +75,7 @@ public class DialogueManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (typer.animComplete) {
+        if (typer.animComplete && currentDialogue.PossibleResponses > 0) {
             button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
             button1.SetActive(true);
             if (currentDialogue.PossibleResponses > 1) {
@@ -78,4 +84,11 @@ public class DialogueManager : MonoBehaviour {
             }
         }
 	}
+
+    /// <summary>
+    /// Loads a scene from the given file
+    /// </summary>
+    void LoadScene(string fileName) {
+
+    }
 }
