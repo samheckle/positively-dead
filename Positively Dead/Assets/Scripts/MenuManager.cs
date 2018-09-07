@@ -1,20 +1,32 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     // Attributes
     GameObject[] islandObjects;
-    GameObject menuObject;
-    GameObject startObject;
+    GameObject menuObject, startObject;
+    GameObject menuIMG, worldIMG;
+    public Button norseButton, egyptButton, diyuButton;
 
     // Use this for initialization
     void Start()
     {
-        Time.timeScale = 1.0f;
+        // Instantiate
         islandObjects = GameObject.FindGameObjectsWithTag("Island");
         menuObject = GameObject.FindGameObjectWithTag("Menu");
         startObject = GameObject.FindGameObjectWithTag("Start");
+        menuIMG = GameObject.FindGameObjectWithTag("MenuIMG");
+        worldIMG = GameObject.FindGameObjectWithTag("WSIMG");
+
+        // Give each button its own event listener
+        Button btn1 = norseButton.GetComponent<Button>();
+        btn1.onClick.AddListener(NorseOnClick);
+        Button btn2 = egyptButton.GetComponent<Button>();
+        btn2.onClick.AddListener(EgyptOnClick);
+        Button btn3 = diyuButton.GetComponent<Button>();
+        btn3.onClick.AddListener(DiyuOnClick);
         HideIslands();
     }
 
@@ -27,6 +39,8 @@ public class MenuManager : MonoBehaviour
         }
         menuObject.SetActive(true);
         startObject.SetActive(false);
+        menuIMG.SetActive(false);
+        worldIMG.SetActive(true);
     }
 
     // Hides the island options and the menu buttion
@@ -38,25 +52,36 @@ public class MenuManager : MonoBehaviour
         }
         menuObject.SetActive(false);
         startObject.SetActive(true);
+        menuIMG.SetActive(true);
+        worldIMG.SetActive(false);
     }
 
     // Returns the game to the Main Menu
     public void MainMenu()
     {
+        Debug.Log("Main Menu");
         SceneManager.LoadScene(0);
     }
 
-    // Loads inputted level
-    public void LoadLevel()
+    // Goes to the Norse Scene
+    public void NorseOnClick()
     {
-        // Brings game back to main menu        
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Debug.Log("Going to Norse!");
+        SceneManager.LoadScene(1);
+    }
 
-        else
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    // Goes to the Egypt Scene
+    public void EgyptOnClick()
+    {
+        Debug.Log("Going to Egypt!");
+        SceneManager.LoadScene(2);
+    }
 
-        menuObject.SetActive(false);
+    // Goes to the Diyu Scene
+    public void DiyuOnClick()
+    {
+        Debug.Log("Going to Diyu!");
+        SceneManager.LoadScene(3);
     }
 
     // Quits the Game

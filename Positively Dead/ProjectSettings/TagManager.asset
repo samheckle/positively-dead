@@ -7,6 +7,8 @@ TagManager:
   - Start
   - Island
   - Menu
+  - MenuIMG
+  - WSIMG
   layers:
   - Default
   - TransparentFX

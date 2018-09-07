@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
     // Returns the game to the Main Menu
     public void MainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex * 0);
+        SceneManager.LoadScene(0);
     }
 
     // Loads inputted level
