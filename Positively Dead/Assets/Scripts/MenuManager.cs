@@ -60,7 +60,10 @@ public class MenuManager : MonoBehaviour
     public void MainMenu()
     {
         Debug.Log("Main Menu");
-        SceneManager.LoadScene(0);
+        menuIMG.SetActive(true);
+        worldIMG.SetActive(false);
+        startObject.SetActive(true);
+        menuObject.SetActive(false);
     }
 
     // Goes to the Norse Scene
