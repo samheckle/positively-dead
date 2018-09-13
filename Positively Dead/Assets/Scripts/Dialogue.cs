@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 /// <summary>
 /// Author: Nikolas Whiteside
@@ -99,6 +100,19 @@ public class Dialogue {
         this.textSpeed = speed;
         this.dialogueOptions = new List<Dialogue>(1) { nextDialogue };
         this.responseOptions = new List<string>(1) { response };
+    }
+
+    [JsonConstructor]
+    public Dialogue (string speakerName, string text, float textSpeed, List<string> responseOptions, List<Dialogue> dialogueOptions) {
+        this.speakerName = speakerName;
+        this.text = text;
+        this.textSpeed = textSpeed;
+        this.responseOptions = responseOptions;
+        this.dialogueOptions = dialogueOptions;
+    }
+
+    public void AddDialogueOptions (Dialogue option) {
+        dialogueOptions.Add(option);
     }
 
     /// <summary>
