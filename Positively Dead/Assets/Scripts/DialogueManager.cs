@@ -1,7 +1,9 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 /// <summary>
 /// Author: Nikolas Whiteside
@@ -10,10 +12,10 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogueManager : MonoBehaviour {
     
-    private List<Dialogue> dialogues;
+    //Types dialogue text to screen
     private Typewriter typer;
-
-    // Single dialogue node
+    
+    //The current dialogue node
     private Dialogue currentDialogue;
 
     [SerializeField]
@@ -34,22 +36,25 @@ public class DialogueManager : MonoBehaviour {
         button1.SetActive(false);
         button2.SetActive(false);
 
-		Debug.Log("scene has loaded");
-        /* 
-         * Open file based on scene name
-         * Parse through for character name, text and speed
-         * Save each block as it's own dialogue object in the dictionary
-         * FOR SAKE OF DEMO - kickstart dialogue runthrough
-         */
-        Dialogue temp = new Dialogue("Nik", "Eskrrt, nah much bruh, what's tight fam?", 0.01f, new List<Dialogue>() { new Dialogue("Nik", "Suck my asshole", 0.01f) }, new List<string>() { "Goodnight sir" });
-        dialogues = new List<Dialogue>() { temp, new Dialogue("Nik", "Aight, be that way bitch.", 0.01f) };
-
-        currentDialogue = new Dialogue("Nik", "Yo, what's up?", 0.05f, dialogues, null);
-        currentDialogue.ResponseOptions = new List<string>() { "What's good son?", "Fuck off!" };
-        dialogues.Add(new Dialogue("Nik", "*Leaves and goes to Target where he lives*", 0.1f));
+        LoadScene(sceneName);
 
         DisplayDialogue(currentDialogue);
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (typer.animComplete && currentDialogue.PossibleResponses > 0)
+        {
+            button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
+            button1.SetActive(true);
+            if (currentDialogue.PossibleResponses > 1)
+            {
+                button2.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[1];
+                button2.SetActive(true);
+            }
+        }
+    }
 
     /// <summary>
     /// Displays a dialogue to the screen
@@ -72,23 +77,18 @@ public class DialogueManager : MonoBehaviour {
         button1.SetActive(false);
         button2.SetActive(false);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (typer.animComplete && currentDialogue.PossibleResponses > 0) {
-            button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
-            button1.SetActive(true);
-            if (currentDialogue.PossibleResponses > 1) {
-                button2.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[1];
-                button2.SetActive(true);
-            }
-        }
-	}
 
     /// <summary>
     /// Loads a scene from the given file
     /// </summary>
-    void LoadScene(string fileName) {
-
+    void LoadScene(string filename)
+    {
+        filename = "Assets/DialogueScripts/" + filename;
+        using (StreamReader r = new StreamReader(filename))
+        {
+            string json = r.ReadToEnd();
+            List<Dialogue> items = JsonConvert.DeserializeObject<List<Dialogue>>(json);
+            currentDialogue = items[0];
+        }
     }
 }
