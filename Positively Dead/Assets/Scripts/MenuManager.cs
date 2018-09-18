@@ -5,10 +5,11 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     // Attributes
-    GameObject[] islandObjects;
-    GameObject menuObject, startObject;
-    GameObject menuIMG, worldIMG;
-    public Button norseButton, egyptButton, diyuButton;
+    GameObject[] islandObjects;                             
+    GameObject menuObject, startObject;                     
+    GameObject menuIMG, worldIMG;                           
+    public Button norseBtn, egyptBtn, diyuBtn;              
+    static bool norseClicked, egyptClicked, diyuClicked;    
 
     // Use this for initialization
     void Start()
@@ -20,17 +21,18 @@ public class MenuManager : MonoBehaviour
         menuIMG = GameObject.FindGameObjectWithTag("MenuIMG");
         worldIMG = GameObject.FindGameObjectWithTag("WSIMG");
 
-        // Give each button its own event listener
-        Button btn1 = norseButton.GetComponent<Button>();
+        // Create buttons to add event listeners for the proper function
+        Button btn1 = norseBtn.GetComponent<Button>();
         btn1.onClick.AddListener(NorseOnClick);
-        Button btn2 = egyptButton.GetComponent<Button>();
+        Button btn2 = egyptBtn.GetComponent<Button>();
         btn2.onClick.AddListener(EgyptOnClick);
-        Button btn3 = diyuButton.GetComponent<Button>();
+        Button btn3 = diyuBtn.GetComponent<Button>();
         btn3.onClick.AddListener(DiyuOnClick);
         HideIslands();
     }
 
     // Shows the island options and the menu buttion
+    // Buttons will be active depending if they've been clicked on before
     public void ShowIslands()
     {
         foreach(GameObject g in islandObjects)
@@ -41,6 +43,13 @@ public class MenuManager : MonoBehaviour
         startObject.SetActive(false);
         menuIMG.SetActive(false);
         worldIMG.SetActive(true);
+
+        if (norseClicked)
+            norseBtn.interactable = false;
+        if (egyptClicked)
+            egyptBtn.interactable = false;
+        if (diyuClicked)
+            diyuBtn.interactable = false;
     }
 
     // Hides the island options and the menu buttion
@@ -59,7 +68,6 @@ public class MenuManager : MonoBehaviour
     // Returns the game to the Main Menu
     public void MainMenu()
     {
-        Debug.Log("Main Menu");
         menuIMG.SetActive(true);
         worldIMG.SetActive(false);
         startObject.SetActive(true);
@@ -69,25 +77,25 @@ public class MenuManager : MonoBehaviour
     // Goes to the Norse Scene
     public void NorseOnClick()
     {
-        Debug.Log("Going to Norse!");
+        norseClicked = true;
         SceneManager.LoadScene(1);
     }
 
     // Goes to the Egypt Scene
     public void EgyptOnClick()
     {
-        Debug.Log("Going to Egypt!");
+        egyptClicked = true;
         SceneManager.LoadScene(2);
     }
 
     // Goes to the Diyu Scene
     public void DiyuOnClick()
     {
-        Debug.Log("Going to Diyu!");
+        diyuClicked = true;
         SceneManager.LoadScene(3);
     }
 
-    // Quits the Game
+    // Quits the Game (place holder function if needed)
     public void Quit()
     {
         Application.Quit();
