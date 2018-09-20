@@ -33,7 +33,6 @@ public class PlayerContoller : MonoBehaviour
 
     void MovePlayer()
     {
-        Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
         if (Input.GetButton("Left"))
         {
             if (player.transform.position.x < -20.0f)
