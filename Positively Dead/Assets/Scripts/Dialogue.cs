@@ -56,6 +56,18 @@ public class Dialogue {
         }
     }
 
+    public int PossibleDialogues
+    {
+        get
+        {
+            if (responseOptions == null)
+            {
+                return 0;
+            }
+            return dialogueOptions.Count;
+        }
+    }
+
     /// <summary>
     /// Constructor that only takes dialogue text and a speed.
     /// </summary>

@@ -44,11 +44,11 @@ public class DialogueManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (typer.animComplete && currentDialogue.PossibleResponses > 0)
+        if (typer.animComplete && currentDialogue.ResponseCount > 0)
         {
             button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
             button1.SetActive(true);
-            if (currentDialogue.PossibleResponses > 1)
+            if (currentDialogue.ResponseCount > 1)
             {
                 button2.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[1];
                 button2.SetActive(true);
@@ -72,6 +72,10 @@ public class DialogueManager : MonoBehaviour {
     /// </summary>
     /// <param name="index">Index of next dialogue</param>
     public void OnClick(int index) {
+        //If the index is beyond the number of options, display the default option
+        if (index >= currentDialogue.DialogueCount) index = 0;
+
+        //Display the dialogue at index and deactivate the buttons
         currentDialogue = currentDialogue.NextDialogue(index);
         DisplayDialogue(currentDialogue);
         button1.SetActive(false);
