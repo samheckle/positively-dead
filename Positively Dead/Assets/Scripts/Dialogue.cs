@@ -22,6 +22,8 @@ public class Dialogue {
     private List<Dialogue> dialogueOptions;
     private List<string> responseOptions;
 
+    private bool endsScene;
+
     public string Text {
         get { return text; }
         set { text = value; }
@@ -45,7 +47,7 @@ public class Dialogue {
         set { responseOptions = value; }
     }
 
-    public int PossibleResponses
+    public int ResponseCount
     {
         get {
             if (responseOptions == null)
@@ -56,7 +58,7 @@ public class Dialogue {
         }
     }
 
-    public int PossibleDialogues
+    public int DialogueCount
     {
         get
         {
@@ -65,6 +67,14 @@ public class Dialogue {
                 return 0;
             }
             return dialogueOptions.Count;
+        }
+    }
+
+    public bool EndsScene
+    {
+        get
+        {
+            return endsScene;
         }
     }
 
@@ -115,12 +125,13 @@ public class Dialogue {
     }
 
     [JsonConstructor]
-    public Dialogue (string speakerName, string text, float textSpeed, List<string> responseOptions, List<Dialogue> dialogueOptions) {
+    public Dialogue (string speakerName, string text, float textSpeed, List<string> responseOptions, List<Dialogue> dialogueOptions, bool endsScene = false) {
         this.speakerName = speakerName;
         this.text = text;
         this.textSpeed = textSpeed;
         this.responseOptions = responseOptions;
         this.dialogueOptions = dialogueOptions;
+        this.endsScene = endsScene;
     }
 
     public void AddDialogueOptions (Dialogue option) {

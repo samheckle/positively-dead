@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: testScript.json
+  nextScene: MainMenu
   dialogueBox: {fileID: 165582394}
   speakerName: {fileID: 804751972}
   button1: {fileID: 1506598793}

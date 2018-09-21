@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 
 /// <summary>
@@ -20,6 +21,9 @@ public class DialogueManager : MonoBehaviour {
 
     [SerializeField]
     private string sceneName;
+
+    [SerializeField]
+    private string nextScene;
 
     [SerializeField]
     private Text dialogueBox;
@@ -72,11 +76,18 @@ public class DialogueManager : MonoBehaviour {
     /// </summary>
     /// <param name="index">Index of next dialogue</param>
     public void OnClick(int index) {
+        //If this is the end of the scene, then load the next unity scene
+        if (currentDialogue.EndsScene)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+
         //If the index is beyond the number of options, display the default option
         if (index >= currentDialogue.DialogueCount) index = 0;
 
         //Display the dialogue at index and deactivate the buttons
         currentDialogue = currentDialogue.NextDialogue(index);
+
         DisplayDialogue(currentDialogue);
         button1.SetActive(false);
         button2.SetActive(false);

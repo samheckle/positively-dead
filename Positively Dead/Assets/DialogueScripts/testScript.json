@@ -36,8 +36,11 @@
                                 "speakerName":"Kyle",
                                 "text":"Nice to meet you!",
                                 "textSpeed":0.01,
-                                "responseOptions":null,
-                                "dialogueOptions":null
+                                "responseOptions": [
+                                    "Continue to Menu"
+                                ],
+                                "dialogueOptions": null,
+                                "endsScene":true
                             }
                         ]
                     }
@@ -47,8 +50,11 @@
                 "speakerName": "Mark",
                 "text": "This is some sample dialogue from Mark.",
                 "textSpeed": 0.01,
-                "responseOptions": null,
-                "dialogueOptions": null
+                "responseOptions": [
+                    "Continue to Menu"
+                ],
+                "dialogueOptions": null,
+                "endsScene":true
             }
         ]
     }
