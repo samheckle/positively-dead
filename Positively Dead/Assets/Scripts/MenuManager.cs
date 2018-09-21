@@ -7,9 +7,9 @@ public class MenuManager : MonoBehaviour
     // Attributes
     GameObject[] islandObjects;                             
     GameObject menuObject, startObject;                     
-    GameObject menuIMG, worldIMG;                           
+    GameObject menuIMG, worldIMG;
     public Button norseBtn, egyptBtn, diyuBtn;              
-    static bool norseClicked, egyptClicked, diyuClicked;    
+    static bool norseClicked, egyptClicked, diyuClicked;
 
     // Use this for initialization
     void Start()
@@ -35,21 +35,21 @@ public class MenuManager : MonoBehaviour
     // Buttons will be active depending if they've been clicked on before
     public void ShowIslands()
     {
-        foreach(GameObject g in islandObjects)
-        {
-            g.SetActive(true);
-        }
-        menuObject.SetActive(true);
-        startObject.SetActive(false);
-        menuIMG.SetActive(false);
-        worldIMG.SetActive(true);
-
         if (norseClicked)
             norseBtn.interactable = false;
         if (egyptClicked)
             egyptBtn.interactable = false;
         if (diyuClicked)
             diyuBtn.interactable = false;
+
+        foreach (GameObject g in islandObjects)
+        {
+            g.SetActive(true);
+        }
+        menuObject.SetActive(true);
+        startObject.SetActive(false);
+        menuIMG.SetActive(false);
+        worldIMG.SetActive(true);        
     }
 
     // Hides the island options and the menu buttion

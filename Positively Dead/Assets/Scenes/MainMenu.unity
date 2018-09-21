@@ -324,8 +324,8 @@ RectTransform:
   m_Children:
   - {fileID: 176416714}
   - {fileID: 520410957}
-  - {fileID: 432894743}
   - {fileID: 1562469784}
+  - {fileID: 432894743}
   - {fileID: 1653897329}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -349,6 +349,7 @@ MonoBehaviour:
   norseBtn: {fileID: 520410958}
   egyptBtn: {fileID: 432894744}
   diyuBtn: {fileID: 1562469785}
+  FadeRate: 0
 --- !u!1 &432894742
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,11 +381,11 @@ RectTransform:
   m_Children:
   - {fileID: 822290641}
   m_Father: {fileID: 405395594}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -246.81, y: -313}
+  m_AnchoredPosition: {x: 634, y: 263}
   m_SizeDelta: {x: 75, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432894744
@@ -525,7 +526,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 13839e9b81f73664e8a9f3f362a1a189, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6901cd3e2dc3d240bc5d8fea61058cb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1
@@ -699,7 +700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -703.77, y: 224.02}
+  m_AnchoredPosition: {x: -661, y: 263}
   m_SizeDelta: {x: 75, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &520410958
@@ -1098,7 +1099,7 @@ Transform:
   m_LocalScale: {x: 1.155, y: 0.925, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1375310797
 GameObject:
@@ -1160,7 +1161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1507044739
 GameObject:
@@ -1268,11 +1269,11 @@ RectTransform:
   m_Children:
   - {fileID: 1677372120}
   m_Father: {fileID: 405395594}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 506, y: 264}
+  m_AnchoredPosition: {x: -8, y: -311}
   m_SizeDelta: {x: 75, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562469785
@@ -1586,6 +1587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2024441900}
   - component: {fileID: 2024441899}
+  - component: {fileID: 2024441901}
   m_Layer: 0
   m_Name: Menu 3
   m_TagString: MenuIMG
@@ -1650,5 +1652,23 @@ Transform:
   m_LocalScale: {x: 1.155, y: 0.925, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2024441901
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024441898}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90aa7fd1e5e815042aaa595e9c54af5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
