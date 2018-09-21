@@ -21,8 +21,11 @@
                         "speakerName": "Kurtis",
                         "text": "This is some sample dialogue from Kurtis.",
                         "textSpeed": 0.01,
-                        "responseOptions": null,
-                        "dialogueOptions": null
+                        "responseOptions": [
+                            "Continue to Menu"
+                        ],
+                        "dialogueOptions": null,
+                        "endsScene":true
                     },
                     {
                         "speakerName": "Kyle",
