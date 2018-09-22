@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour {
 
     public GameObject button1;
     public GameObject button2;
+    public GameObject advanceButton;
 
 	// Use this for initialization
 	void Start () {
@@ -47,12 +48,23 @@ public class DialogueManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (typer.animComplete && currentDialogue.ResponseCount > 0) {
-            button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
-            button1.SetActive(true);
-            if (currentDialogue.ResponseCount > 1) {
-                button2.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[1];
-                button2.SetActive(true);
+        if (typer.animComplete) {
+            switch (currentDialogue.ResponseCount) {
+                case 0:
+                    advanceButton.SetActive(true);
+                    break;
+                case 1:
+                    button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
+                    button1.SetActive(true);
+                    break;
+                case 2:
+                    button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
+                    button2.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[1];
+                    button1.SetActive(true);
+                    button2.SetActive(true);
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -96,8 +108,18 @@ public class DialogueManager : MonoBehaviour {
     /// </summary>
     public void OnScreenTap ()
     {
-        if (!button1.active && !button2.active) {
-                
+        //If this is the end of the scene, then load the next unity scene
+        if (currentDialogue.EndsScene)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+        else
+        {
+            //Display the dialogue at index and deactivate the buttons
+            currentDialogue = currentDialogue.NextDialogue(0);
+
+            DisplayDialogue(currentDialogue);
+            advanceButton.SetActive(false);
         }
     }
 

@@ -19,13 +19,19 @@
                 "dialogueOptions": [
                     {
                         "speakerName": "Kurtis",
-                        "text": "This is some sample dialogue from Kurtis.",
-                        "textSpeed": 0.01,
-                        "responseOptions": [
-                            "Continue to Menu"
-                        ],
-                        "dialogueOptions": null,
-                        "endsScene":true
+                        "text": "Click anywhere to continue from this dialogue.",
+                        "textSpeed": 0.005,
+                        "dialogueOptions": [
+                            {
+                                "speakerName": "Kurtis",
+                                "text": "This is some sample dialogue from Kurtis.",
+                                "textSpeed": 0.01,
+                                "responseOptions": [
+                                    "Continue"
+                                ],
+                                "endsScene":true
+                            }
+                        ]
                     },
                     {
                         "speakerName": "Kyle",
