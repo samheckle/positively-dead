@@ -22,31 +22,36 @@ public class Dialogue {
     private List<Dialogue> dialogueOptions;
     private List<string> responseOptions;
 
+    private bool endsScene;
+
+    private bool isLeaf;
+
     public string Text {
         get { return text; }
         set { text = value; }
     }
 
-    public string SpeakerName
-    {
+    public string SpeakerName {
         get { return speakerName; }
         set { speakerName = value; }
     }
 
-    public float TextSpeed
-    {
+    public float TextSpeed {
         get { return textSpeed; }
         set { textSpeed = value; }
     }
 
-    public List<string> ResponseOptions
-    {
+    public List<string> ResponseOptions {
         get { return responseOptions; }
         set { responseOptions = value; }
     }
-
-    public int PossibleResponses
+    public List<Dialogue> DialogueOptions
     {
+        get { return dialogueOptions; }
+    }
+
+
+    public int ResponseCount {
         get {
             if (responseOptions == null)
             {
@@ -54,6 +59,25 @@ public class Dialogue {
             }
             return responseOptions.Count;
         }
+    }
+
+    public int DialogueCount {
+        get {
+            if (responseOptions == null) {
+                return 0;
+            }
+            return dialogueOptions.Count;
+        }
+    }
+
+    public bool EndsScene {
+        get {
+            return endsScene;
+        }
+    }
+
+    public bool IsLeaf {
+        get { return isLeaf; }
     }
 
     /// <summary>
@@ -103,15 +127,25 @@ public class Dialogue {
     }
 
     [JsonConstructor]
-    public Dialogue (string speakerName, string text, float textSpeed, List<string> responseOptions, List<Dialogue> dialogueOptions) {
+    public Dialogue (string speakerName, string text, float textSpeed, List<string> responseOptions, List<Dialogue> dialogueOptions = null, bool endsScene = false, bool isLeaf = false) {
         this.speakerName = speakerName;
         this.text = text;
         this.textSpeed = textSpeed;
         this.responseOptions = responseOptions;
         this.dialogueOptions = dialogueOptions;
+        this.endsScene = endsScene;
+        this.isLeaf = isLeaf;
     }
 
-    public void AddDialogueOptions (Dialogue option) {
+    /// <summary>
+    /// Adds a new dialogue option to the dialogueOptions list.
+    /// Will initialize the list if it is currently null.
+    /// </summary>
+    /// <param name="option">The dialogue to be added</param>
+    public void AddDialogueOption (Dialogue option) {
+        if (dialogueOptions == null) {
+            dialogueOptions = new List<Dialogue>();
+        }
         dialogueOptions.Add(option);
     }
 

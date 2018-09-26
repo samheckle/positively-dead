@@ -29,18 +29,15 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// For when the game needs to be paused
     /// </summary>
-    // Controls the pausing of the scene
     public void PauseControl()
     {
         if (Time.timeScale == 1)
         {
-            Debug.Log("Pause");
             Time.timeScale = 0;
             ShowPaused();
         }
         else if (Time.timeScale == 0)
         {
-            Debug.Log("Play");
             Time.timeScale = 1;
             HidePaused();
         }
@@ -71,9 +68,10 @@ public class UIManager : MonoBehaviour
         menuObject.SetActive(false);
     }
 
-    // Returns the game to the Main Menu
+    // Returns the game to the Main Menu and sets the time scale back to 1
     public void MainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
