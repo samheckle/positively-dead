@@ -198,7 +198,6 @@ GameObject:
   - component: {fileID: 53046586}
   - component: {fileID: 53046588}
   - component: {fileID: 53046587}
-  - component: {fileID: 53046589}
   m_Layer: 5
   m_Name: Score
   m_TagString: ScoreTxt
@@ -214,14 +213,14 @@ RectTransform:
   m_GameObject: {fileID: 53046585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 287091845}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: 254.5}
+  m_AnchoredPosition: {x: -314.7, y: 156.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53046587
@@ -236,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.057849795, g: 0.6620498, b: 0.9433962, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -248,8 +247,8 @@ MonoBehaviour:
     m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 1
-    m_MinSize: 1
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -264,17 +263,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 53046585}
   m_CullTransparentMesh: 0
---- !u!114 &53046589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 53046585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0ec34e8d9b3ac4989700e7d99a70a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &287091841
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,9 +308,9 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 200
+  m_ScaleFactor: 1.5
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -380,9 +368,8 @@ GameObject:
   - component: {fileID: 650448573}
   - component: {fileID: 650448576}
   - component: {fileID: 650448575}
-  - component: {fileID: 650448574}
   m_Layer: 5
-  m_Name: Score (1)
+  m_Name: Objective
   m_TagString: ObjectiveTxt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,27 +383,16 @@ RectTransform:
   m_GameObject: {fileID: 650448572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99987304, y: 0.99987304, z: 0.99987304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287091845}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: 210.11}
+  m_AnchoredPosition: {x: -315.7, y: 99.89997}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &650448574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 650448572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0ec34e8d9b3ac4989700e7d99a70a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &650448575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.057849795, g: 0.6620498, b: 0.9433962, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -438,11 +414,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 26
     m_FontStyle: 1
     m_BestFit: 1
-    m_MinSize: 1
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -497,6 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c7ab86a96f7c2479cc65bcaf38d4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   foodSprites:
   - {fileID: 21300000, guid: 56930f28f742bf546926e9cb4b842946, type: 3}
   - {fileID: 21300000, guid: 4b65d3f9601d8604c9b5d925c9103c5c, type: 3}
@@ -507,8 +484,8 @@ MonoBehaviour:
   foodObjects: []
   foodSpeeds: []
   requiredScore: 0
-  level: 0
   currentScore: 0
+  level: 0
 --- !u!1 &1402791237
 GameObject:
   m_ObjectHideFlags: 0
