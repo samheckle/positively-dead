@@ -7,6 +7,8 @@ TagManager:
   - ScoreTxt
   - Food
   - ObjectiveTxt
+  - Small Child
+  - Death
   layers:
   - Default
   - TransparentFX

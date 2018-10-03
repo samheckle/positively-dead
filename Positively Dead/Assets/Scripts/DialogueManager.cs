@@ -31,9 +31,14 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField]
     private Text speakerName;
 
+    //Continue buttons
     public GameObject button1;
     public GameObject button2;
     public GameObject advanceButton;
+
+    //Character images
+    public GameObject characterLeft;
+    public GameObject characterRight;
 
 	// Use this for initialization
 	void Start () {
@@ -76,7 +81,44 @@ public class DialogueManager : MonoBehaviour {
     void DisplayDialogue (Dialogue dialogue) {
         typer.typeDelay = dialogue.TextSpeed;
         typer.finalText = dialogue.Text;
+
+        //If there is a new speaker, swap their images
+        if (speakerName.text != "" && speakerName.text != dialogue.SpeakerName) {
+            StartCoroutine(CharacterSwap(dialogue.SpeakerName));
+        }
+
         speakerName.text = dialogue.SpeakerName;
+    }
+
+    /// <summary>
+    /// Swaps character images based on who is speaking
+    /// </summary>
+    IEnumerator CharacterSwap (string name) {
+        float startime = Time.time;
+        Vector3 char1start = characterLeft.transform.position;
+        Vector3 char2start = characterRight.transform.position;
+        Vector3 direction = Vector3.zero;
+
+        if (name == characterLeft.tag)
+        {
+            direction = new Vector3(1f, 0, 0);
+        }
+        else if (name == characterRight.tag)
+        {
+            direction = new Vector3(-1f, 0, 0);
+        }
+
+        Vector3 char1end = char1start + direction;
+
+        while (char1start != char1end && ((Time.time - startime) * 4f) < 1f)
+        {
+            float move = Mathf.Lerp(0, 1, (Time.time - startime) * 4f);
+
+            characterLeft.transform.position += direction * move;
+            characterRight.transform.position += direction * move;
+
+            yield return null;
+        }
     }
 
     /// <summary>
