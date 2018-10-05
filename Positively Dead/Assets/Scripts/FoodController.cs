@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FoodController : MonoBehaviour
@@ -62,7 +63,7 @@ public class FoodController : MonoBehaviour
             newFood.tag = "Food";
 
             // Give the food object a speed
-            float randY = Random.Range(-20.0f, 0.0f);
+            float randY = Random.Range(-250.0f, 0.0f);
             foodSpeeds.Add(randY);
 
             // Add the food object to the list of 'active' falling food objects
@@ -74,7 +75,7 @@ public class FoodController : MonoBehaviour
     {
         for(int i = 0; i < foodObjects.Count; i++)
         {
-            foodObjects[i].GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, foodSpeeds[i]));
+            foodObjects[i].GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, foodSpeeds[i]) * Time.deltaTime);
         }
     }
 
@@ -150,6 +151,11 @@ public class FoodController : MonoBehaviour
     void IncrementLevel()
     {
         level++;
+
+        if(level > 3)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
 
         // clear any objective information currently stored in the dictionaries
         requiredFoodObjects.Clear(); 
