@@ -1,28 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FoodController : MonoBehaviour
 {
+    public GameObject player;
     public List<Sprite> foodSprites; // the list of possible food objects that are available
 
     public List<GameObject> foodObjects; // the list of food objects that are currently falling on screen
     public List<float> foodSpeeds;
 
     public Dictionary<string, int> requiredFoodObjects; // the foods the player needs to catch to complete the round
+    public Dictionary<string, int> collectedFoodObjects; // the foods the player needs to catch to complete the round
     public int requiredScore;
-    public int level;
     public int currentScore;
+    private Text scoreTxt;
+    public int level;
 
 
     void Start ()
     {
-        level = 1; // start the game at level 1
+        level = 0;
         currentScore = 0;
         requiredScore = 0;
+        player = GameObject.FindGameObjectWithTag("Player");
         requiredFoodObjects = new Dictionary<string, int>();
-        SetObjective(); // set level 1's objective
+        collectedFoodObjects = new Dictionary<string, int>();
+        scoreTxt = GameObject.FindGameObjectWithTag("ScoreTxt").GetComponent<Text>();
+        IncrementLevel(); // Start the game
 	}
 	
 	// Update is called once per frame
@@ -35,7 +42,7 @@ public class FoodController : MonoBehaviour
 
     void SpawnFoodObjects()
     {
-        if(foodObjects.Count < 10)
+        if(foodObjects.Count < 15)
         {
             GameObject newFood = new GameObject();
 
@@ -56,7 +63,7 @@ public class FoodController : MonoBehaviour
             newFood.tag = "Food";
 
             // Give the food object a speed
-            float randY = Random.Range(-20.0f, 0.0f);
+            float randY = Random.Range(-250.0f, 0.0f);
             foodSpeeds.Add(randY);
 
             // Add the food object to the list of 'active' falling food objects
@@ -68,7 +75,7 @@ public class FoodController : MonoBehaviour
     {
         for(int i = 0; i < foodObjects.Count; i++)
         {
-            foodObjects[i].GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, foodSpeeds[i]));
+            foodObjects[i].GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, foodSpeeds[i]) * Time.deltaTime);
         }
     }
 
@@ -93,15 +100,68 @@ public class FoodController : MonoBehaviour
             }
         }
 
-        Text scoreTxt = GameObject.FindGameObjectWithTag("ScoreTxt").GetComponent<Text>();
+        // Check player collision's against require food objects to update score
+        for (int i = 0; i < foodObjects.Count; i++)
+        {
+            List<string> keyList = new List<string>(requiredFoodObjects.Keys);
+            for(int j = 0; j < keyList.Count; j++)
+            {
+                if (foodObjects[i].GetComponent<SpriteRenderer>().sprite.name.Equals(keyList[j]) && collectedFoodObjects[keyList[j]] < requiredFoodObjects[keyList[j]])
+                {
+                    if (foodObjects[i].GetComponent<PolygonCollider2D>().IsTouching(player.GetComponent<PolygonCollider2D>()))
+                    {
+                        collectedFoodObjects[keyList[j]] += 1;
+                        GameObject fallenFood = foodObjects[i];
+                        foodObjects.Remove(fallenFood);
+                        foodSpeeds.Remove(i);
+                        Destroy(fallenFood);
+                        currentScore++;
+                    }
+                }
+            }
+        }
+
+        DisplayScore();
+    }
+
+    void DisplayScore()
+    {
+        List<string> keyList = new List<string>(collectedFoodObjects.Keys);
+
+        if (level == 1)
+        {
+            scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]];
+        }
+        else if (level == 2)
+        {
+            scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                             "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                             "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]];
+        }
+        else if(level == 3)
+        {
+            scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+        }
     }
 
     void IncrementLevel()
     {
         level++;
-        requiredFoodObjects.Clear(); // clear any objectives currently stored in the dictionary
 
-        // Delete all falling food objects
+        if(level > 3)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        // clear any objective information currently stored in the dictionaries
+        requiredFoodObjects.Clear(); 
+        collectedFoodObjects.Clear();
+
+        // Delete all current food objects
         for (int i = 0; i < foodObjects.Count; i++)
         {
             GameObject food = foodObjects[i];
@@ -115,72 +175,119 @@ public class FoodController : MonoBehaviour
 
         // Redetermine the objective to be harder (more food)
         SetObjective();
+
+        // Freeze game for 3 seconds and countdown
+        
     }
 
     void SetObjective()
     {
         if (level == 1) // first level will have 2 food types
         {
-            int firstFoodType = Random.Range(0, foodSprites.Count);
-            int secondFoodType = Random.Range(0, foodSprites.Count);
+            List<int> foodTypes = RandomFoodListGenerator(2);         
+
             int firstFoodAmnt = Random.Range(2, 5);
             int secondFoodAmnt = Random.Range(2, 5);
             requiredScore = firstFoodAmnt + secondFoodAmnt;
 
-            Sprite firstFood = foodSprites[firstFoodType];
-            Sprite secondFood = foodSprites[secondFoodType];
+
+            Sprite firstFood = foodSprites[foodTypes[0]];
+            Sprite secondFood = foodSprites[foodTypes[1]];
 
             requiredFoodObjects.Add(firstFood.name, firstFoodAmnt);
             requiredFoodObjects.Add(secondFood.name, secondFoodAmnt);
+            collectedFoodObjects.Add(firstFood.name, 0);
+            collectedFoodObjects.Add(secondFood.name, 0);
+
 
             Text objectiveTxt = GameObject.FindGameObjectWithTag("ObjectiveTxt").GetComponent<Text>();
-            objectiveTxt.text = "Objective: Collect " + firstFoodAmnt + " " + firstFood.name + "\nCollect " + secondFoodAmnt + " " + secondFood.name;
+            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + " " + firstFood.name + "\nCollect " + secondFoodAmnt + " " + secondFood.name;
         }
         else if (level == 2) // second level will have 3 food types
         {
-            int firstFoodType = Random.Range(0, foodSprites.Count);
-            int secondFoodType = Random.Range(0, foodSprites.Count);
-            int thirdFoodType = Random.Range(0, foodSprites.Count);
+            List<int> foodTypes = RandomFoodListGenerator(3);
+
             int firstFoodAmnt = Random.Range(3, 6);
             int secondFoodAmnt = Random.Range(3, 6);
             int thirdFoodAmnt = Random.Range(3, 6);
             requiredScore = firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt;
 
-            Sprite firstFood = foodSprites[firstFoodType];
-            Sprite secondFood = foodSprites[secondFoodType];
-            Sprite thirdFood = foodSprites[thirdFoodType];
+            Sprite firstFood = foodSprites[foodTypes[0]];
+            Sprite secondFood = foodSprites[foodTypes[1]];
+            Sprite thirdFood = foodSprites[foodTypes[2]];
 
             requiredFoodObjects.Add(firstFood.name, firstFoodAmnt);
             requiredFoodObjects.Add(secondFood.name, secondFoodAmnt);
             requiredFoodObjects.Add(thirdFood.name, thirdFoodAmnt);
+            collectedFoodObjects.Add(firstFood.name, 0);
+            collectedFoodObjects.Add(secondFood.name, 0);
+            collectedFoodObjects.Add(thirdFood.name, 0);
+            
 
             Text objectiveTxt = GameObject.FindGameObjectWithTag("ObjectiveTxt").GetComponent<Text>();
-            objectiveTxt.text = "Objective: Collect " + firstFoodAmnt + " " + firstFood.name + "\nCollect " + secondFoodAmnt + " " + secondFood.name + "\nCollect " + thirdFoodAmnt + " " + thirdFood.name;
+            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + " " + firstFood.name + "\nCollect " + secondFoodAmnt + " " + secondFood.name + "\nCollect " + thirdFoodAmnt + " " + thirdFood.name;
         }
         else if (level == 3) // third level will have 4 food types
         {
-            int firstFoodType = Random.Range(0, foodSprites.Count);
-            int secondFoodType = Random.Range(0, foodSprites.Count);
-            int thirdFoodType = Random.Range(0, foodSprites.Count);
-            int fourthFoodType = Random.Range(0, foodSprites.Count);
+            List<int> foodTypes = RandomFoodListGenerator(4);
+
             int firstFoodAmnt = Random.Range(5, 8);
             int secondFoodAmnt = Random.Range(5, 8);
             int thirdFoodAmnt = Random.Range(5, 8);
             int fourthFoodAmnt = Random.Range(5, 8);
             requiredScore = firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt + fourthFoodAmnt;
 
-            Sprite firstFood = foodSprites[firstFoodType];
-            Sprite secondFood = foodSprites[secondFoodType];
-            Sprite thirdFood = foodSprites[thirdFoodType];
-            Sprite fourthFood = foodSprites[fourthFoodType];
+            Sprite firstFood = foodSprites[foodTypes[0]];
+            Sprite secondFood = foodSprites[foodTypes[1]];
+            Sprite thirdFood = foodSprites[foodTypes[2]];
+            Sprite fourthFood = foodSprites[foodTypes[3]];
 
             requiredFoodObjects.Add(firstFood.name, firstFoodAmnt);
             requiredFoodObjects.Add(secondFood.name, secondFoodAmnt);
             requiredFoodObjects.Add(thirdFood.name, thirdFoodAmnt);
             requiredFoodObjects.Add(fourthFood.name, fourthFoodAmnt);
+            collectedFoodObjects.Add(firstFood.name, 0);
+            collectedFoodObjects.Add(secondFood.name, 0);
+            collectedFoodObjects.Add(thirdFood.name, 0);
+            collectedFoodObjects.Add(fourthFood.name, 0);
 
             Text objectiveTxt = GameObject.FindGameObjectWithTag("ObjectiveTxt").GetComponent<Text>();
-            objectiveTxt.text = "Objective: Collect " + firstFoodAmnt + " " + firstFood.name + "\nCollect " + secondFoodAmnt + " " + secondFood.name + "\nCollect " + thirdFoodAmnt + " " + thirdFood.name + "\nCollect " + fourthFoodAmnt + " " + fourthFood.name;
+            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + " " + firstFood.name + "\nCollect " + secondFoodAmnt + " " + secondFood.name + "\nCollect " + thirdFoodAmnt + " " + thirdFood.name + "\nCollect " + fourthFoodAmnt + " " + fourthFood.name;
+        }
+    }
+
+    List<int> RandomFoodListGenerator(int listSize)
+    {
+        List<int> validNumbers = new List<int>();
+        List<int> levelNumbers = new List<int>(listSize);
+
+        for(int i = 0; i < foodSprites.Count; i++)
+        {
+            validNumbers.Add(i);
+        }
+
+        for (int i = 0; i < levelNumbers.Capacity; i++)
+        {
+            int index = Random.Range(0, validNumbers.Count);
+            levelNumbers.Add(validNumbers[index]);
+            validNumbers.RemoveAt(index);
+        }
+
+        return levelNumbers;
+    }
+
+    // https://forum.unity.com/threads/solved-slow-everything-but-the-player.323965/
+    float timer = 0;
+    IEnumerator ResumeAfterNSeconds(float timePeriod)
+    {
+        yield return new WaitForEndOfFrame();
+        timer += Time.unscaledDeltaTime;
+        if (timer < timePeriod)
+            StartCoroutine(ResumeAfterNSeconds(3.0f));
+        else
+        {
+            Time.timeScale = 1;                //Resume
+            timer = 0;
         }
     }
 }
