@@ -18,19 +18,6 @@ public class PlayerContoller : MonoBehaviour
         MovePlayer();
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        List<GameObject> foodObjectsCopy = GameObject.Find("GameManager").GetComponent<FoodController>().foodObjects;
-        if(collision.gameObject.tag.Equals("Food"))
-        {
-            Debug.Log("Collision with Food");
-            GameObject fallenFood = foodObjectsCopy.Find(x => x.gameObject == collision.gameObject);
-            foodObjectsCopy.Remove(fallenFood);
-            Destroy(fallenFood);
-            ScoreManager.score += 1;
-        }
-    }
-
     void MovePlayer()
     {
         if (Input.GetButton("Left"))
