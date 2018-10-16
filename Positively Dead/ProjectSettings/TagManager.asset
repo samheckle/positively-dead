@@ -9,6 +9,10 @@ TagManager:
   - ObjectiveTxt
   - Small Child
   - Death
+  - Image1
+  - Image2
+  - Image3
+  - Image4
   layers:
   - Default
   - TransparentFX
