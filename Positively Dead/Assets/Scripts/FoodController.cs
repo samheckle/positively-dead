@@ -91,7 +91,7 @@ public class FoodController : MonoBehaviour
         // Destroy food objects that fall to the floor and aren't caught
         for(int i = 0; i < foodObjects.Count; i++)
         {
-            if (foodObjects[i].transform.position.y < -9.0f)
+            if (foodObjects[i].transform.position.y < -10.0f)
             {
                 GameObject fallenFood = foodObjects[i];
                 foodObjects.Remove(fallenFood);
@@ -132,12 +132,78 @@ public class FoodController : MonoBehaviour
         {
             scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
                             "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]];
+
+            // Changes the color of the required food objects once they are completed
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "</color>\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]];
+            }
+            else if (collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n<color=#00C0FF>" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] + "</color>";
+            }
+
+            // Both Objectives Completed
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] + "</color>";
+            }
         }
         else if (level == 2)
         {
             scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
                              "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
                              "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]];
+
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                             "</color>\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                             "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]];
+            }
+            else if (collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                             "\n<color=#00C0FF>" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                             "</color>\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]];
+            }
+            else if (collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                             "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                             "\n<color=#00C0FF>" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] + "</color>";
+            }
+
+            // Two Completed Objectives
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                             "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                             "</color>\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]];
+            }
+            else if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                             "</color>\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                             "\n<color=#00C0FF>" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] + "</color>";
+            }
+            else if (collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                             "\n<color=#00C0FF>" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                             "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] + "</color>";
+            }
+
+            // All Objectives Completed
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                             "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                             "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] + "</color>";
+            }
         }
         else if(level == 3)
         {
@@ -145,6 +211,118 @@ public class FoodController : MonoBehaviour
                             "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
                             "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
                             "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "</color>\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+            }
+            else if (collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n<color=#00C0FF>" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "</color>\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+            }
+            else if (collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n<color=#00C0FF>" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "</color>\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+            }
+            else if (collectedFoodObjects[keyList[3]] == requiredFoodObjects[keyList[3]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n<color=#00C0FF>" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]] + "</color>";
+            }
+
+            // Two Completed Objectives
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "</color>\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+            }
+            else if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "</color>\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n<color=#00C0FF>" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "</color>\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+            }
+            else if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[3]] == requiredFoodObjects[keyList[3]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "</color>\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n<color=#00C0FF>" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]] + "</color>";
+            }
+            else if (collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n<color=#00C0FF>" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "</color>\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+            }
+            else if (collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]] && collectedFoodObjects[keyList[3]] == requiredFoodObjects[keyList[3]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n<color=#00C0FF>" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "</color>\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n<color=#00C0FF>" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]] + "</color>";
+            }
+            else if (collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]] && collectedFoodObjects[keyList[3]] == requiredFoodObjects[keyList[3]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n<color=#00C0FF>" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]] + "</color>";
+            }
+
+            // Three Completed Objectives
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "</color>\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]];
+            }
+            else if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]] && collectedFoodObjects[keyList[3]] == requiredFoodObjects[keyList[3]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "</color>\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n<color=#00C0FF>" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]] + "</color>";
+            }
+            else if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]] && collectedFoodObjects[keyList[3]] == requiredFoodObjects[keyList[3]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "</color>\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n<color=#00C0FF>" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]] + "</color>";
+            }
+            else if (collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]] && collectedFoodObjects[keyList[3]] == requiredFoodObjects[keyList[3]])
+            {
+                scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n<color=#00C0FF>" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]] + "</color>";
+            }
+
+            // All Objectives Completed
+            if (collectedFoodObjects[keyList[0]] == requiredFoodObjects[keyList[0]] && collectedFoodObjects[keyList[1]] == requiredFoodObjects[keyList[1]] && collectedFoodObjects[keyList[2]] == requiredFoodObjects[keyList[2]] && collectedFoodObjects[keyList[3]] == requiredFoodObjects[keyList[3]])
+            {
+                scoreTxt.text = "SCORE\n<color=#00C0FF>" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
+                            "\n" + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
+                            "\n" + keyList[2] + ": " + collectedFoodObjects[keyList[2]] + "/" + requiredFoodObjects[keyList[2]] +
+                            "\n" + keyList[3] + ": " + collectedFoodObjects[keyList[3]] + "/" + requiredFoodObjects[keyList[3]] + "</color>";
+            }
         }
     }
 
@@ -210,7 +388,7 @@ public class FoodController : MonoBehaviour
             int firstFoodAmnt = Random.Range(3, 6);
             int secondFoodAmnt = Random.Range(3, 6);
             int thirdFoodAmnt = Random.Range(3, 6);
-            requiredScore = firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt;
+            requiredScore = (firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt) + currentScore;
 
             Sprite firstFood = foodSprites[foodTypes[0]];
             Sprite secondFood = foodSprites[foodTypes[1]];
@@ -235,7 +413,7 @@ public class FoodController : MonoBehaviour
             int secondFoodAmnt = Random.Range(5, 8);
             int thirdFoodAmnt = Random.Range(5, 8);
             int fourthFoodAmnt = Random.Range(5, 8);
-            requiredScore = firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt + fourthFoodAmnt;
+            requiredScore = (firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt + fourthFoodAmnt) + currentScore;
 
             Sprite firstFood = foodSprites[foodTypes[0]];
             Sprite secondFood = foodSprites[foodTypes[1]];
