@@ -17,6 +17,7 @@ public class Dialogue {
 
     // Animation information
     private float textSpeed;
+    private int karma;
 
     // Dialogue tree options
     private List<Dialogue> dialogueOptions;
@@ -39,6 +40,11 @@ public class Dialogue {
     public float TextSpeed {
         get { return textSpeed; }
         set { textSpeed = value; }
+    }
+
+    public int Karma
+    {
+        get { return karma; }
     }
 
     public List<string> ResponseOptions {
@@ -127,10 +133,11 @@ public class Dialogue {
     }
 
     [JsonConstructor]
-    public Dialogue (string speakerName, string text, float textSpeed, List<string> responseOptions, List<Dialogue> dialogueOptions = null, bool endsScene = false, bool isLeaf = false) {
+    public Dialogue (string speakerName, string text, float textSpeed, int karma, List<string> responseOptions, List<Dialogue> dialogueOptions = null, bool endsScene = false, bool isLeaf = false) {
         this.speakerName = speakerName;
         this.text = text;
         this.textSpeed = textSpeed;
+        this.karma = karma;
         this.responseOptions = responseOptions;
         this.dialogueOptions = dialogueOptions;
         this.endsScene = endsScene;
