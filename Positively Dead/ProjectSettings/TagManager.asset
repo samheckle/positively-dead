@@ -13,6 +13,14 @@ TagManager:
   - Image2
   - Image3
   - Image4
+  - Image5
+  - Image6
+  - Image7
+  - Image8
+  - Image9
+  - Level1Images
+  - Level2Images
+  - Level3Images
   layers:
   - Default
   - TransparentFX

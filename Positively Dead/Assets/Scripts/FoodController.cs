@@ -22,6 +22,14 @@ public class FoodController : MonoBehaviour
     private Image img2;
     private Image img3;
     private Image img4;
+    private Image img5;
+    private Image img6;
+    private Image img7;
+    private Image img8;
+    private Image img9;
+    private GameObject lvl1;
+    private GameObject lvl2;
+    private GameObject lvl3;
 
     void Start ()
     {
@@ -36,6 +44,14 @@ public class FoodController : MonoBehaviour
         img2 = GameObject.FindGameObjectWithTag("Image2").GetComponent<Image>();
         img3 = GameObject.FindGameObjectWithTag("Image3").GetComponent<Image>();
         img4 = GameObject.FindGameObjectWithTag("Image4").GetComponent<Image>();
+        img5 = GameObject.FindGameObjectWithTag("Image5").GetComponent<Image>();
+        img6 = GameObject.FindGameObjectWithTag("Image6").GetComponent<Image>();
+        img7 = GameObject.FindGameObjectWithTag("Image7").GetComponent<Image>();
+        img8 = GameObject.FindGameObjectWithTag("Image8").GetComponent<Image>();
+        img9 = GameObject.FindGameObjectWithTag("Image9").GetComponent<Image>();
+        lvl1 = GameObject.FindGameObjectWithTag("Level1Images");
+        lvl2 = GameObject.FindGameObjectWithTag("Level2Images");
+        lvl3 = GameObject.FindGameObjectWithTag("Level3Images");
         IncrementLevel(); // Start the game
 	}
 	
@@ -388,6 +404,9 @@ public class FoodController : MonoBehaviour
     {
         if (level == 1) // first level will have 2 food types
         {
+            lvl2.SetActive(false);
+            lvl3.SetActive(false);
+
             List<int> foodTypes = RandomFoodListGenerator(2);         
 
             int firstFoodAmnt = Random.Range(2, 5);
@@ -448,12 +467,12 @@ public class FoodController : MonoBehaviour
                     img2.sprite = foodSprites[2];
                     break;
             }
-
-            img3.color = new Color(img3.color.r, img3.color.g, img3.color.b, 0.0f);
-            img4.color = new Color(img4.color.r, img4.color.g, img4.color.b, 0.0f);
         }
         else if (level == 2) // second level will have 3 food types
         {
+            lvl1.SetActive(false);
+            lvl2.SetActive(true);
+
             List<int> foodTypes = RandomFoodListGenerator(3);
 
             int firstFoodAmnt = Random.Range(3, 6);
@@ -473,96 +492,79 @@ public class FoodController : MonoBehaviour
             collectedFoodObjects.Add(thirdFood.name, 0);            
 
             Text objectiveTxt = GameObject.FindGameObjectWithTag("ObjectiveTxt").GetComponent<Text>();
-            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + "       " + " | Collect " + secondFoodAmnt + "        " + " | Collect " + thirdFoodAmnt + "        ";
+            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + "     " + " | Collect " + secondFoodAmnt + "     " + " | Collect " + thirdFoodAmnt + "          ";
 
             switch (firstFood.name)
             {
                 case "Apple":
-                    img1.sprite = foodSprites[0];
-                    img1.transform.position = new Vector3(131, img1.transform.position.y, img1.transform.position.z);
+                    img3.sprite = foodSprites[0];
                     break;
                 case "Fish":
-                    img1.sprite = foodSprites[1];
-                    img1.transform.position = new Vector3(131, img1.transform.position.y, img1.transform.position.z);
+                    img3.sprite = foodSprites[1];
                     break;
                 case "Pig":
-                    img1.sprite = foodSprites[3];
-                    img1.transform.position = new Vector3(131, img1.transform.position.y, img1.transform.position.z);
+                    img3.sprite = foodSprites[3];
                     break;
                 case "Roast":
-                    img1.sprite = foodSprites[4];
-                    img1.transform.position = new Vector3(131, img1.transform.position.y, img1.transform.position.z);
+                    img3.sprite = foodSprites[4];
                     break;
                 case "Roll":
-                    img1.sprite = foodSprites[5];
-                    img1.transform.position = new Vector3(131, img1.transform.position.y, img1.transform.position.z);
+                    img3.sprite = foodSprites[5];
                     break;
                 case "Stew":
-                    img1.sprite = foodSprites[2];
-                    img1.transform.position = new Vector3(131, img1.transform.position.y, img1.transform.position.z);
+                    img3.sprite = foodSprites[2];
                     break;
             }
 
             switch (secondFood.name)
             {
                 case "Apple":
-                    img2.sprite = foodSprites[0];
-                    img2.transform.position = new Vector3(250, img2.transform.position.y, img2.transform.position.z);
+                    img4.sprite = foodSprites[0];
                     break;
                 case "Fish":
-                    img2.sprite = foodSprites[1];
-                    img2.transform.position = new Vector3(250, img2.transform.position.y, img2.transform.position.z);
+                    img4.sprite = foodSprites[1];
                     break;
                 case "Pig":
-                    img2.sprite = foodSprites[3];
-                    img2.transform.position = new Vector3(250, img2.transform.position.y, img2.transform.position.z);
+                    img4.sprite = foodSprites[3];
                     break;
                 case "Roast":
-                    img2.sprite = foodSprites[4];
-                    img2.transform.position = new Vector3(250, img2.transform.position.y, img2.transform.position.z);
+                    img4.sprite = foodSprites[4];
                     break;
                 case "Roll":
-                    img2.sprite = foodSprites[5];
-                    img2.transform.position = new Vector3(250, img2.transform.position.y, img2.transform.position.z);
+                    img4.sprite = foodSprites[5];
                     break;
                 case "Stew":
-                    img2.sprite = foodSprites[2];
-                    img2.transform.position = new Vector3(250, img2.transform.position.y, img2.transform.position.z);
+                    img4.sprite = foodSprites[2];
                     break;
             }
 
             switch (thirdFood.name)
             {
                 case "Apple":
-                    img3.sprite = foodSprites[0];
-                    img3.rectTransform.position = new Vector3(370, img3.rectTransform.position.y, img3.rectTransform.position.z);
+                    img5.sprite = foodSprites[0];
                     break;
                 case "Fish":
-                    img3.sprite = foodSprites[1];
-                    img3.rectTransform.position = new Vector3(370, img3.rectTransform.position.y, img3.rectTransform.position.z);
+                    img5.sprite = foodSprites[1];
                     break;
                 case "Pig":
-                    img3.sprite = foodSprites[3];
-                    img3.rectTransform.position = new Vector3(370, img3.rectTransform.position.y, img3.rectTransform.position.z);
+                    img5.sprite = foodSprites[3];
                     break;
                 case "Roast":
-                    img3.sprite = foodSprites[4];
-                    img3.rectTransform.position = new Vector3(370, img3.rectTransform.position.y, img3.rectTransform.position.z);
+                    img5.sprite = foodSprites[4];
                     break;
                 case "Roll":
-                    img3.sprite = foodSprites[5];
-                    img3.rectTransform.position = new Vector3(370, img3.rectTransform.position.y, img3.rectTransform.position.z);
+                    img5.sprite = foodSprites[5];
                     break;
                 case "Stew":
-                    img3.sprite = foodSprites[2];
-                    img3.rectTransform.position = new Vector3(370, img3.rectTransform.position.y, img3.rectTransform.position.z);
+                    img5.sprite = foodSprites[2];
                     break;
             }
-
-            img3.color = new Color(img3.color.r, img3.color.g, img3.color.b, 100.0f);
         }
         else if (level == 3) // third level will have 4 food types
         {
+            lvl2.SetActive(false);
+            lvl3.SetActive(true);
+
             List<int> foodTypes = RandomFoodListGenerator(4);
 
             int firstFoodAmnt = Random.Range(5, 8);
@@ -586,97 +588,95 @@ public class FoodController : MonoBehaviour
             collectedFoodObjects.Add(fourthFood.name, 0);
 
             Text objectiveTxt = GameObject.FindGameObjectWithTag("ObjectiveTxt").GetComponent<Text>();
-            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + "       " + " | Collect " + secondFoodAmnt + "        " + " | Collect " + thirdFoodAmnt + "        " + " | Collect " + fourthFoodAmnt + "        ";
+            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + "     " + " | Collect " + secondFoodAmnt + "      " + " | Collect " + thirdFoodAmnt + "      " + " | Collect " + fourthFoodAmnt + "      ";
 
             switch (firstFood.name)
             {
                 case "Apple":
-                    img1.sprite = foodSprites[0];
+                    img6.sprite = foodSprites[0];
                     break;
                 case "Fish":
-                    img1.sprite = foodSprites[1];
+                    img6.sprite = foodSprites[1];
                     break;
                 case "Pig":
-                    img1.sprite = foodSprites[3];
+                    img6.sprite = foodSprites[3];
                     break;
                 case "Roast":
-                    img1.sprite = foodSprites[4];
+                    img6.sprite = foodSprites[4];
                     break;
                 case "Roll":
-                    img1.sprite = foodSprites[5];
+                    img6.sprite = foodSprites[5];
                     break;
                 case "Stew":
-                    img1.sprite = foodSprites[2];
+                    img6.sprite = foodSprites[2];
                     break;
             }
 
             switch (secondFood.name)
             {
                 case "Apple":
-                    img2.sprite = foodSprites[0];
+                    img7.sprite = foodSprites[0];
                     break;
                 case "Fish":
-                    img2.sprite = foodSprites[1];
+                    img7.sprite = foodSprites[1];
                     break;
                 case "Pig":
-                    img2.sprite = foodSprites[3];
+                    img7.sprite = foodSprites[3];
                     break;
                 case "Roast":
-                    img2.sprite = foodSprites[4];
+                    img7.sprite = foodSprites[4];
                     break;
                 case "Roll":
-                    img2.sprite = foodSprites[5];
+                    img7.sprite = foodSprites[5];
                     break;
                 case "Stew":
-                    img2.sprite = foodSprites[2];
+                    img7.sprite = foodSprites[2];
                     break;
             }
 
             switch (thirdFood.name)
             {
                 case "Apple":
-                    img3.sprite = foodSprites[0];
+                    img8.sprite = foodSprites[0];
                     break;
                 case "Fish":
-                    img3.sprite = foodSprites[1];
+                    img8.sprite = foodSprites[1];
                     break;
                 case "Pig":
-                    img3.sprite = foodSprites[3];
+                    img8.sprite = foodSprites[3];
                     break;
                 case "Roast":
-                    img3.sprite = foodSprites[4];
+                    img8.sprite = foodSprites[4];
                     break;
                 case "Roll":
-                    img3.sprite = foodSprites[5];
+                    img8.sprite = foodSprites[5];
                     break;
                 case "Stew":
-                    img3.sprite = foodSprites[2];
+                    img8.sprite = foodSprites[2];
                     break;
             }
 
             switch (fourthFood.name)
             {
                 case "Apple":
-                    img4.sprite = foodSprites[0];
+                    img9.sprite = foodSprites[0];
                     break;
                 case "Fish":
-                    img4.sprite = foodSprites[1];
+                    img9.sprite = foodSprites[1];
                     break;
                 case "Pig":
-                    img4.sprite = foodSprites[3];
+                    img9.sprite = foodSprites[3];
                     break;
                 case "Roast":
-                    img4.sprite = foodSprites[4];
+                    img9.sprite = foodSprites[4];
                     break;
                 case "Roll":
-                    img4.sprite = foodSprites[5];
+                    img9.sprite = foodSprites[5];
                     break;
                 case "Stew":
-                    img4.sprite = foodSprites[2];
+                    img9.sprite = foodSprites[2];
                     break;
             }
-
-            img4.color = new Color(img4.color.r, img4.color.g, img4.color.b, 100.0f);
         }
     }
 
