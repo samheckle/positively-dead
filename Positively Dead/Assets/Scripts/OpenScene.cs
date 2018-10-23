@@ -4,12 +4,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
-/// Handles all scene transitions in the game.
 /// Author: Nikolas Whiteside
-/// Date: 10/12/2018
+/// Handles all scene transitions in the game. 
 /// </summary>
-public class OpenScene : MonoBehaviour {
-
+public class OpenScene : MonoBehaviour
+{
     private bool loadScene = false;
 
     [SerializeField]
@@ -26,12 +25,14 @@ public class OpenScene : MonoBehaviour {
         loadingPanel.SetActive(false);
     }
 
-    IEnumerator LoadScene() {
+    IEnumerator LoadScene()
+    {
         yield return new WaitForSeconds(3);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
-        while(!asyncLoad.isDone) {
+        while (!asyncLoad.isDone)
+        {
             yield return null;
         }
     }
@@ -66,11 +67,12 @@ public class OpenScene : MonoBehaviour {
         }
     }
 
-	/// <summary>
-	/// Toggles the display of a canvas on or off.
-	/// </summary>
-	/// <param name="canvasName">The canvas to display.</param>
-	public void DisplayCanvas(Canvas myCanvas) {
-		myCanvas.gameObject.SetActive (!myCanvas.gameObject.activeInHierarchy);
-	}
+    /// <summary>
+    /// Toggles the display of a canvas on or off.
+    /// </summary>
+    /// <param name="canvasName">The canvas to display.</param>
+    public void DisplayCanvas(Canvas myCanvas)
+    {
+        myCanvas.gameObject.SetActive(!myCanvas.gameObject.activeInHierarchy);
+    }
 }

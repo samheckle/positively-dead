@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 /// <summary>
 /// Author: Nikolas Whiteside
-/// Description: Manages a group of dialogue for a particular scene.
+/// Manages a group of dialogue for a particular scene.
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {

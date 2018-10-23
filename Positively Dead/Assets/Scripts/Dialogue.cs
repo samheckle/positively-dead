@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 /// <summary>
 /// Author: Nikolas Whiteside
-/// Description: A data container for dialogue.
+/// A data container for dialogue.
 /// </summary>
 public class Dialogue
 {
