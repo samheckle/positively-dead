@@ -8,14 +8,12 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     // Attributes
-    // GameObject[] pauseObjects;
     GameObject menuObject;
 
     // Use this for initialization
     void Start()
     {
         Time.timeScale = 1.0f;
-        //pauseObjects = GameObject.FindGameObjectsWithTag("");
         menuObject = GameObject.FindGameObjectWithTag("Menu");
         HidePaused();
     }
@@ -31,7 +29,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// For when the game needs to be paused
+    /// Pauses the game
     /// </summary>
     public void PauseControl()
     {
@@ -47,8 +45,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-    // Shows objects with ShowOnPause tag
+    /// <summary>
+    /// Shows objects with ShowOnPause tag
+    /// </summary> 
     public void ShowPaused()
     {
         /*
@@ -60,7 +59,9 @@ public class UIManager : MonoBehaviour
         menuObject.SetActive(true);
     }
 
-    // Hides objects with ShowOnPause tag
+    /// <summary>
+    /// Hides objects with ShowOnPause tag
+    /// </summary>
     public void HidePaused()
     {
         /*
@@ -72,27 +73,18 @@ public class UIManager : MonoBehaviour
         menuObject.SetActive(false);
     }
 
-    // Returns the game to the Main Menu and sets the time scale back to 1
+    /// <summary>
+    /// Returns Game to Main Menu
+    /// </summary>
     public void MainMenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
-    // Loads inputted level
-    public void LoadLevel()
-    {
-        // Brings game back to main menu        
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
-        else
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
-        menuObject.SetActive(false);
-    }
-
-    // Quits the Game
+    /// <summary>
+    /// Quits out the game
+    /// </summary>
     public void Quit()
     {
         Application.Quit();

@@ -22,10 +22,10 @@ public class FoodController : MonoBehaviour
     public GameObject player;
 
     // The list of possible food objects that are available
-    public List<Sprite> foodSprites; 
+    public List<Sprite> foodSprites;
 
     // The list of food objects that are currently falling on screen
-    public List<GameObject> foodObjects; 
+    public List<GameObject> foodObjects;
 
     public List<float> foodSpeeds;
 
@@ -33,9 +33,9 @@ public class FoodController : MonoBehaviour
     public Dictionary<string, int> requiredFoodObjects;
 
     // The foods the player needs to catch to complete the round
-    public Dictionary<string, int> collectedFoodObjects; 
+    public Dictionary<string, int> collectedFoodObjects;
     public int requiredScore;
-    public int currentScore;    
+    public int currentScore;
     public int level;
 
     void Start()
@@ -47,7 +47,7 @@ public class FoodController : MonoBehaviour
         collectedFoodObjects = new Dictionary<string, int>();
         foodImages = new List<Image>();
         levelObjects = new List<GameObject>();
-        player = GameObject.FindGameObjectWithTag("Player");        
+        player = GameObject.FindGameObjectWithTag("Player");
         scoreTxt = GameObject.FindGameObjectWithTag("ScoreTxt").GetComponent<Text>();
         for (int i = 1; i < 10; i++)
         {
