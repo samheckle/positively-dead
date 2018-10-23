@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour {
 
     //The karma built during this scene
     private int playerKarma;
+ 
+    private OpenScene loadSceneManager;
 
     [SerializeField]
     private string sceneName;
@@ -46,6 +48,7 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         typer = gameObject.GetComponent<Typewriter>();
+        loadSceneManager = gameObject.GetComponent<OpenScene>();
         button1.SetActive(false);
         button2.SetActive(false);
 
@@ -160,7 +163,7 @@ public class DialogueManager : MonoBehaviour {
         //If this is the end of the scene, then load the next unity scene
         if (currentDialogue.EndsScene)
         {
-            SceneManager.LoadScene(nextScene);
+            loadSceneManager.TriggerLoad(nextScene);
         }
         else
         {
