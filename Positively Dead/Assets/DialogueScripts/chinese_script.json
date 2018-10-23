@@ -1,0 +1,16 @@
+[{
+    "speakerName": "Death",
+    "text": "This is Valhalla. It’s frickin’ frigid out here. I get why everyone dresses in furs, but boy could I go for a T. T. Legume coat right now. And Legume loafers. Mmmmm I feel toasty already.",
+    "textSpeed": 0.01,
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "This is Odin’s domain. We could go see Freya, but Fólkvangr is kind of far from here. The celestial plane of the afterlife isn’t super organized like you think it would be.",
+        "textSpeed": 0.01,
+        "dialogueOptions": [{
+            "speakerName": "Guy",
+            "text": "But anyway, Odin takes in warriors that have died in battle, but its 2018 and I think he should be getting a little more lenient with his policy. Ragnarok hasn’t happened yet.",
+            "textSpeed": 0.01
+            
+        }]
+    }]
+}]
