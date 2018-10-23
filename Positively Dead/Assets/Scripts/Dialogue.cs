@@ -1,16 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 /// <summary>
 /// Author: Nikolas Whiteside
-/// Date: September 6, 2018
 /// Description: A data container for dialogue.
 /// </summary>
-public class Dialogue {
-
+public class Dialogue
+{
     // Dialogue information
     private string text = "";
     private string speakerName = "";
@@ -27,17 +23,20 @@ public class Dialogue {
 
     private bool isLeaf;
 
-    public string Text {
+    public string Text
+    {
         get { return text; }
         set { text = value; }
     }
 
-    public string SpeakerName {
+    public string SpeakerName
+    {
         get { return speakerName; }
         set { speakerName = value; }
     }
 
-    public float TextSpeed {
+    public float TextSpeed
+    {
         get { return textSpeed; }
         set { textSpeed = value; }
     }
@@ -47,7 +46,8 @@ public class Dialogue {
         get { return karma; }
     }
 
-    public List<string> ResponseOptions {
+    public List<string> ResponseOptions
+    {
         get { return responseOptions; }
         set { responseOptions = value; }
     }
@@ -56,9 +56,10 @@ public class Dialogue {
         get { return dialogueOptions; }
     }
 
-
-    public int ResponseCount {
-        get {
+    public int ResponseCount
+    {
+        get
+        {
             if (responseOptions == null)
             {
                 return 0;
@@ -67,22 +68,28 @@ public class Dialogue {
         }
     }
 
-    public int DialogueCount {
-        get {
-            if (responseOptions == null) {
+    public int DialogueCount
+    {
+        get
+        {
+            if (responseOptions == null)
+            {
                 return 0;
             }
             return dialogueOptions.Count;
         }
     }
 
-    public bool EndsScene {
-        get {
+    public bool EndsScene
+    {
+        get
+        {
             return endsScene;
         }
     }
 
-    public bool IsLeaf {
+    public bool IsLeaf
+    {
         get { return isLeaf; }
     }
 
@@ -92,7 +99,8 @@ public class Dialogue {
     /// <param name="speakerName">Name of character speaking</param>
     /// <param name="text">Dialogue text</param>
     /// <param name="speed">Speed to write the text to the screen</param>
-    public Dialogue (string speakerName, string text, float speed) {
+    public Dialogue(string speakerName, string text, float speed)
+    {
         this.speakerName = speakerName;
         this.text = text;
         this.textSpeed = speed;
@@ -108,7 +116,8 @@ public class Dialogue {
     /// <param name="speed">Speed to write the text to the screen</param>
     /// <param name="dialogueOptions">List of all possible next dialogues</param>
     /// <param name="responseOptions">List of possible player responses</param>
-    public Dialogue (string speakerName, string text, float speed, List<Dialogue> dialogueOptions, List<string> responseOptions) {
+    public Dialogue(string speakerName, string text, float speed, List<Dialogue> dialogueOptions, List<string> responseOptions)
+    {
         this.speakerName = speakerName;
         this.text = text;
         this.textSpeed = speed;
@@ -124,7 +133,8 @@ public class Dialogue {
     /// <param name="speed">Speed to write the text to the screen</param>
     /// <param name="nextDialogue">The next dialogue</param>
     /// <param name="response">The player response</param>
-    public Dialogue (string speakerName, string text, float speed, Dialogue nextDialogue, string response = "Continue") {
+    public Dialogue(string speakerName, string text, float speed, Dialogue nextDialogue, string response = "Continue")
+    {
         this.speakerName = speakerName;
         this.text = text;
         this.textSpeed = speed;
@@ -133,7 +143,8 @@ public class Dialogue {
     }
 
     [JsonConstructor]
-    public Dialogue (string speakerName, string text, float textSpeed, int karma, List<string> responseOptions, List<Dialogue> dialogueOptions = null, bool endsScene = false, bool isLeaf = false) {
+    public Dialogue(string speakerName, string text, float textSpeed, int karma, List<string> responseOptions, List<Dialogue> dialogueOptions = null, bool endsScene = false, bool isLeaf = false)
+    {
         this.speakerName = speakerName;
         this.text = text;
         this.textSpeed = textSpeed;
@@ -149,8 +160,10 @@ public class Dialogue {
     /// Will initialize the list if it is currently null.
     /// </summary>
     /// <param name="option">The dialogue to be added</param>
-    public void AddDialogueOption (Dialogue option) {
-        if (dialogueOptions == null) {
+    public void AddDialogueOption(Dialogue option)
+    {
+        if (dialogueOptions == null)
+        {
             dialogueOptions = new List<Dialogue>();
         }
         dialogueOptions.Add(option);
@@ -159,10 +172,14 @@ public class Dialogue {
     /// <summary>
     /// Returns a response to the dialogue given an index
     /// </summary>
-    public Dialogue NextDialogue (int index = 0) {
-        if (dialogueOptions != null && dialogueOptions.Count > index) {
+    public Dialogue NextDialogue(int index = 0)
+    {
+        if (dialogueOptions != null && dialogueOptions.Count > index)
+        {
             return dialogueOptions[index];
-        } else {
+        }
+        else
+        {
             return null;
         }
     }

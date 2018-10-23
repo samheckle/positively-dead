@@ -31,7 +31,7 @@ public class FoodController : MonoBehaviour
     private GameObject lvl2;
     private GameObject lvl3;
 
-    void Start ()
+    void Start()
     {
         level = 0;
         currentScore = 0;
@@ -53,19 +53,19 @@ public class FoodController : MonoBehaviour
         lvl2 = GameObject.FindGameObjectWithTag("Level2Images");
         lvl3 = GameObject.FindGameObjectWithTag("Level3Images");
         IncrementLevel(); // Start the game
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         SpawnFoodObjects();
         MoveFoodObjects();
         CheckCollisions();
-	}
+    }
 
     void SpawnFoodObjects()
     {
-        if(foodObjects.Count < 15)
+        if (foodObjects.Count < 15)
         {
             GameObject newFood = new GameObject();
 
@@ -73,7 +73,7 @@ public class FoodController : MonoBehaviour
             newFood.AddComponent(typeof(SpriteRenderer));
             int randNum = Random.Range(0, foodSprites.Count);
             newFood.GetComponent<SpriteRenderer>().sprite = foodSprites[randNum];
-            
+
             // Assign the food a random X value so that they scatter as they fall
             float randX = Random.Range(-20.0f, 20.0f);
             newFood.transform.position = new Vector3(randX, 12.0f, 0.0f);
@@ -96,7 +96,7 @@ public class FoodController : MonoBehaviour
 
     void MoveFoodObjects()
     {
-        for(int i = 0; i < foodObjects.Count; i++)
+        for (int i = 0; i < foodObjects.Count; i++)
         {
             foodObjects[i].GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, foodSpeeds[i]) * Time.deltaTime);
         }
@@ -105,14 +105,14 @@ public class FoodController : MonoBehaviour
     void CheckCollisions()
     {
         // Check the score to see if the player has completed the objective
-        if(currentScore == requiredScore)
+        if (currentScore == requiredScore)
         {
             IncrementLevel();
         }
 
 
         // Destroy food objects that fall to the floor and aren't caught
-        for(int i = 0; i < foodObjects.Count; i++)
+        for (int i = 0; i < foodObjects.Count; i++)
         {
             if (foodObjects[i].transform.position.y < -10.0f)
             {
@@ -127,7 +127,7 @@ public class FoodController : MonoBehaviour
         for (int i = 0; i < foodObjects.Count; i++)
         {
             List<string> keyList = new List<string>(requiredFoodObjects.Keys);
-            for(int j = 0; j < keyList.Count; j++)
+            for (int j = 0; j < keyList.Count; j++)
             {
                 if (foodObjects[i].GetComponent<SpriteRenderer>().sprite.name.Equals(keyList[j]) && collectedFoodObjects[keyList[j]] < requiredFoodObjects[keyList[j]])
                 {
@@ -166,7 +166,7 @@ public class FoodController : MonoBehaviour
 
             CheckCollected();
         }
-        else if(level == 3)
+        else if (level == 3)
         {
             scoreTxt.text = "SCORE\n" + keyList[0] + ": " + collectedFoodObjects[keyList[0]] + "/" + requiredFoodObjects[keyList[0]] +
                             " | " + keyList[1] + ": " + collectedFoodObjects[keyList[1]] + "/" + requiredFoodObjects[keyList[1]] +
@@ -372,13 +372,13 @@ public class FoodController : MonoBehaviour
     {
         level++;
 
-        if(level > 3)
+        if (level > 3)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         // clear any objective information currently stored in the dictionaries
-        requiredFoodObjects.Clear(); 
+        requiredFoodObjects.Clear();
         collectedFoodObjects.Clear();
 
         // Delete all current food objects
@@ -397,7 +397,7 @@ public class FoodController : MonoBehaviour
         SetObjective();
 
         // Freeze game for 3 seconds and countdown
-        
+
     }
 
     void SetObjective()
@@ -407,7 +407,7 @@ public class FoodController : MonoBehaviour
             lvl2.SetActive(false);
             lvl3.SetActive(false);
 
-            List<int> foodTypes = RandomFoodListGenerator(2);         
+            List<int> foodTypes = RandomFoodListGenerator(2);
 
             int firstFoodAmnt = Random.Range(2, 5);
             int secondFoodAmnt = Random.Range(2, 5);
@@ -489,7 +489,7 @@ public class FoodController : MonoBehaviour
             requiredFoodObjects.Add(thirdFood.name, thirdFoodAmnt);
             collectedFoodObjects.Add(firstFood.name, 0);
             collectedFoodObjects.Add(secondFood.name, 0);
-            collectedFoodObjects.Add(thirdFood.name, 0);            
+            collectedFoodObjects.Add(thirdFood.name, 0);
 
             Text objectiveTxt = GameObject.FindGameObjectWithTag("ObjectiveTxt").GetComponent<Text>();
             objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + "     " + " | Collect " + secondFoodAmnt + "     " + " | Collect " + thirdFoodAmnt + "          ";
@@ -685,7 +685,7 @@ public class FoodController : MonoBehaviour
         List<int> validNumbers = new List<int>();
         List<int> levelNumbers = new List<int>(listSize);
 
-        for(int i = 0; i < foodSprites.Count; i++)
+        for (int i = 0; i < foodSprites.Count; i++)
         {
             validNumbers.Add(i);
         }
