@@ -9,6 +9,7 @@ TagManager:
   - ObjectiveTxt
   - Small Child
   - Death
+  - Tile
   layers:
   - Default
   - TransparentFX
