@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Author: JaJuan Webster
+/// Manages UI in the game
+/// </summary>
 public class UIManager : MonoBehaviour
 {
     // Attributes
