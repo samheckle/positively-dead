@@ -19,6 +19,9 @@ public class DialogueManager : MonoBehaviour {
     //The current dialogue node
     private Dialogue currentDialogue;
 
+    //The karma built during this scene
+    private int playerKarma;
+ 
     private OpenScene loadSceneManager;
 
     [SerializeField]
@@ -48,6 +51,8 @@ public class DialogueManager : MonoBehaviour {
         loadSceneManager = gameObject.GetComponent<OpenScene>();
         button1.SetActive(false);
         button2.SetActive(false);
+
+        playerKarma = 0;
 
         LoadScene(sceneName);
 
@@ -129,6 +134,8 @@ public class DialogueManager : MonoBehaviour {
     /// </summary>
     /// <param name="index">Index of next dialogue</param>
     public void OnClick (int index) {
+
+        updateKarma(currentDialogue.EndsScene);
         //If this is the end of the scene, then load the next unity scene
         if (currentDialogue.EndsScene) {
             SceneManager.LoadScene(nextScene);
@@ -139,7 +146,6 @@ public class DialogueManager : MonoBehaviour {
 
             //Display the dialogue at index and deactivate the buttons
             currentDialogue = currentDialogue.NextDialogue(index);
-            Debug.Log(currentDialogue.DialogueOptions);
 
             DisplayDialogue(currentDialogue);
             button1.SetActive(false);
@@ -153,6 +159,7 @@ public class DialogueManager : MonoBehaviour {
     /// </summary>
     public void OnScreenTap ()
     {
+        updateKarma(currentDialogue.EndsScene);
         //If this is the end of the scene, then load the next unity scene
         if (currentDialogue.EndsScene)
         {
@@ -198,6 +205,24 @@ public class DialogueManager : MonoBehaviour {
             }*/
 
             currentDialogue = items[0];
+        }
+    }
+
+    /// <summary>
+    /// Updates the player's Karma value and updates the playerPrefs if it is the end of the scene
+    /// </summary>
+    void updateKarma(bool endsScene)
+    {
+        playerKarma += currentDialogue.Karma;
+        if (endsScene)
+        {
+            if(PlayerPrefs.HasKey("Karma"))
+            {
+                PlayerPrefs.SetInt("Karma", PlayerPrefs.GetInt("Karma") + playerKarma);
+            } else
+            {
+                PlayerPrefs.SetInt("Karma", playerKarma);
+            }
         }
     }
 }
