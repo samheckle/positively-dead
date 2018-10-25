@@ -13,7 +13,6 @@ public class MenuManager : MonoBehaviour
     GameObject menuObject, startObject;
     GameObject menuIMG, worldIMG;
     public Button norseBtn, egyptBtn, diyuBtn;
-    static bool norseClicked, egyptClicked, diyuClicked;
 
     // Use this for initialization
     void Start()
@@ -40,13 +39,6 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void ShowIslands()
     {
-        if (norseClicked)
-            norseBtn.interactable = false;
-        if (egyptClicked)
-            egyptBtn.interactable = false;
-        if (diyuClicked)
-            diyuBtn.interactable = false;
-
         foreach (GameObject g in islandObjects)
         {
             g.SetActive(true);
@@ -55,6 +47,9 @@ public class MenuManager : MonoBehaviour
         startObject.SetActive(false);
         menuIMG.SetActive(false);
         worldIMG.SetActive(true);
+
+        diyuBtn.interactable = false;
+        egyptBtn.interactable = false;
     }
 
     /// <summary>
@@ -88,8 +83,9 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void NorseOnClick()
     {
-        norseClicked = true;
+        norseBtn.interactable = false;
         SceneManager.LoadScene("Island 1 - NORSE", LoadSceneMode.Single);
+        diyuBtn.interactable = true;
     }
 
     /// <summary>
@@ -97,8 +93,9 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void DiyuOnClick()
     {
-        diyuClicked = true;
+        diyuBtn.interactable = false;
         SceneManager.LoadScene("Island 2 - DIYU", LoadSceneMode.Single);
+        egyptBtn.interactable = true;
     }
 
     /// <summary>
@@ -106,7 +103,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void EgyptOnClick()
     {
-        egyptClicked = true;
+        egyptBtn.interactable = false;
         SceneManager.LoadScene("Island 3 - EGYPT", LoadSceneMode.Single);
     }
 }
