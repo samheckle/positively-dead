@@ -85,9 +85,54 @@ public class SwipeTrail : MonoBehaviour
         {
             // Clear the screen of the path, reset the hitObjects List and mvoe the player to the last valid tile they were holding their click on
             this.GetComponent<TrailRenderer>().time = 0;
-            player.transform.position = hitObjects[hitObjects.Count - 1].transform.position;
-            hitObjects.Clear();
+            MovePlayer();
+            //player.transform.position = hitObjects[hitObjects.Count - 1].transform.position;
+            
         }
 
+    }
+
+    /// <summary>
+    /// Moves the player smoothly along the tiles that the player selected with their swipe
+    /// </summary>
+    void MovePlayer()
+    {
+        while(hitObjects.Count > 0)
+        {
+            // Check if the player is not currently on the tile at the front of the list
+            if(player.transform.position != hitObjects[0].transform.position)
+            {
+                if(player.transform.position.x != hitObjects[0].transform.position.x)
+                {
+                    if(player.transform.position.x > hitObjects[0].transform.position.x)
+                    {
+                        player.transform.position -= new Vector3(0.1f * Time.deltaTime, 0.0f);
+                    }
+                    else
+                    {
+                        player.transform.position += new Vector3(0.1f * Time.deltaTime, 0.0f);
+                    }
+                }
+                if(player.transform.position.y != hitObjects[0].transform.position.y)
+                {
+                    if (player.transform.position.y > hitObjects[0].transform.position.y)
+                    {
+                        player.transform.position -= new Vector3(0.0f, 0.1f * Time.deltaTime);
+                    }
+                    else
+                    {
+                        player.transform.position += new Vector3(0.0f, 0.1f * Time.deltaTime);
+                    }
+                }
+            }
+
+            // Remove the current front of the list whenever the player has reached that position.
+            if (player.transform.position == hitObjects[0].transform.position)
+            {
+                hitObjects.RemoveAt(0);
+            }
+        }
+
+        hitObjects.Clear();
     }
 }
