@@ -11,8 +11,8 @@ public class MenuManager : MonoBehaviour
     // Attributes
     GameObject[] islandObjects;
     GameObject menuObject, startObject;
-    GameObject menuIMG, worldIMG;
-    public Button norseBtn, egyptBtn, diyuBtn;
+    GameObject menuIMG, worldIMG, grimIMG;
+    public Button norseBtn, egyptBtn, diyuBtn, continueBtn;
 
     // Use this for initialization
     void Start()
@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
         startObject = GameObject.FindGameObjectWithTag("Start");
         menuIMG = GameObject.FindGameObjectWithTag("MenuIMG");
         worldIMG = GameObject.FindGameObjectWithTag("WSIMG");
+        grimIMG = GameObject.FindGameObjectWithTag("Grim");
 
         // Create buttons to add event listeners for the proper function
         Button btn1 = norseBtn.GetComponent<Button>();
@@ -31,7 +32,16 @@ public class MenuManager : MonoBehaviour
         btn2.onClick.AddListener(EgyptOnClick);
         Button btn3 = diyuBtn.GetComponent<Button>();
         btn3.onClick.AddListener(DiyuOnClick);
+        continueBtn = GameObject.FindGameObjectWithTag("Continue").GetComponent<Button>();
         HideIslands();
+    }
+
+    public void StartScene()
+    {
+        menuIMG.SetActive(false);
+        grimIMG.SetActive(true);
+        continueBtn.gameObject.SetActive(true);
+        startObject.SetActive(false);
     }
 
     /// <summary>
@@ -39,17 +49,18 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void ShowIslands()
     {
+
         foreach (GameObject g in islandObjects)
         {
             g.SetActive(true);
         }
         menuObject.SetActive(true);
-        startObject.SetActive(false);
-        menuIMG.SetActive(false);
         worldIMG.SetActive(true);
+        grimIMG.SetActive(false);
 
         diyuBtn.interactable = false;
         egyptBtn.interactable = false;
+        continueBtn.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -60,11 +71,14 @@ public class MenuManager : MonoBehaviour
         foreach (GameObject g in islandObjects)
         {
             g.SetActive(false);
-        }
+        }        
         menuObject.SetActive(false);
         startObject.SetActive(true);
         menuIMG.SetActive(true);
         worldIMG.SetActive(false);
+        grimIMG.SetActive(false);
+
+        continueBtn.gameObject.SetActive(false);
     }
 
     /// <summary>
