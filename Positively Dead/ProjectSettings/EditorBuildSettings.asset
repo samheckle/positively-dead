@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Island 3 - EGYPT.unity
     guid: fd0ac836f01b00b4eaef49a2282f3b61
+  - enabled: 1
+    path: Assets/Scenes/ChineseMinigame.unity
+    guid: 1bc266d8dca042c4987a1feeb188ba45
   m_configObjects: {}
