@@ -34,12 +34,12 @@ public class SwipeTrail : MonoBehaviour
             if (hit.collider != null)
             {
                 // If this is the first tile in the list, check to see that it is where the player is
-                if(hitObjects.Count == 0)
+                if (hitObjects.Count == 0)
                 {
                     // If they have the same Y (same row)
-                    if(hit.collider.gameObject.transform.position.y == player.transform.position.y)
+                    if (Mathf.Abs(hit.collider.gameObject.transform.position.y - player.transform.position.y) <= 0.1f)
                     {
-                        if(hit.collider.gameObject.transform.position.x == player.transform.position.x)
+                        if (Mathf.Abs(hit.collider.gameObject.transform.position.x - player.transform.position.x) <= 0.1f)
                         {
                             if (!hitObjects.Contains(hit.collider.gameObject))
                             {
@@ -49,12 +49,12 @@ public class SwipeTrail : MonoBehaviour
                         }
                     }
                 }
-                else if(hitObjects.Count >= 1)// If there are other tiles already existing in the list, check to see if the next tile is adjacent to the previous
+                else if (hitObjects.Count >= 1)// If there are other tiles already existing in the list, check to see if the next tile is adjacent to the previous
                 {
                     // If they have the same Y (same row)
-                    if (hit.collider.gameObject.transform.position.y == hitObjects[hitObjects.Count-1].transform.position.y)
+                    if (Mathf.Abs(hit.collider.gameObject.transform.position.y - hitObjects[hitObjects.Count - 1].transform.position.y) <= 0.1f)
                     {
-                        if (Mathf.Abs(Mathf.Abs(hit.collider.gameObject.transform.position.x) - Mathf.Abs(hitObjects[hitObjects.Count-1].transform.position.x)) <= 3.3f)
+                        if (Mathf.Abs(Mathf.Abs(hit.collider.gameObject.transform.position.x) - Mathf.Abs(hitObjects[hitObjects.Count - 1].transform.position.x)) <= 3.3f)
                         {
                             // If there are other tiles already existing in the list, check to see if the next tile is adjacent to the previous
                             if (!hitObjects.Contains(hit.collider.gameObject))
@@ -65,9 +65,9 @@ public class SwipeTrail : MonoBehaviour
                         }
                     }
                     // If they have the same X (same column)
-                    else if (hit.collider.gameObject.transform.position.x == hitObjects[hitObjects.Count-1].transform.position.x)
+                    else if (Mathf.Abs(hit.collider.gameObject.transform.position.x - hitObjects[hitObjects.Count - 1].transform.position.x) <= 0.1f)
                     {
-                        if (Mathf.Abs(Mathf.Abs(hit.collider.gameObject.transform.position.y) - Mathf.Abs(hitObjects[hitObjects.Count-1].transform.position.y)) <= 3.3f)
+                        if (Mathf.Abs(Mathf.Abs(hit.collider.gameObject.transform.position.y) - Mathf.Abs(hitObjects[hitObjects.Count - 1].transform.position.y)) <= 3.3f)
                         {
                             // If there are other tiles already existing in the list, check to see if the next tile is adjacent to the previous
                             if (!hitObjects.Contains(hit.collider.gameObject))
@@ -78,7 +78,7 @@ public class SwipeTrail : MonoBehaviour
                         }
                     }
                 }
-                
+
             }
         }
         else
@@ -86,8 +86,6 @@ public class SwipeTrail : MonoBehaviour
             // Clear the screen of the path, reset the hitObjects List and mvoe the player to the last valid tile they were holding their click on
             this.GetComponent<TrailRenderer>().time = 0;
             MovePlayer();
-            //player.transform.position = hitObjects[hitObjects.Count - 1].transform.position;
-            
         }
 
     }
@@ -97,42 +95,40 @@ public class SwipeTrail : MonoBehaviour
     /// </summary>
     void MovePlayer()
     {
-        while(hitObjects.Count > 0)
+        // Check if the player is not currently on the tile at the front of the list
+        if (hitObjects.Count > 0)
         {
-            // Check if the player is not currently on the tile at the front of the list
-            if(player.transform.position != hitObjects[0].transform.position)
+            if (player.transform.position != hitObjects[0].transform.position)
             {
-                if(player.transform.position.x != hitObjects[0].transform.position.x)
+                if (player.transform.position.x != hitObjects[0].transform.position.x)
                 {
-                    if(player.transform.position.x > hitObjects[0].transform.position.x)
+                    if (player.transform.position.x > hitObjects[0].transform.position.x)
                     {
-                        player.transform.position -= new Vector3(0.1f * Time.deltaTime, 0.0f);
+                        player.transform.position -= new Vector3(2f * Time.deltaTime, 0.0f);
                     }
                     else
                     {
-                        player.transform.position += new Vector3(0.1f * Time.deltaTime, 0.0f);
+                        player.transform.position += new Vector3(2f * Time.deltaTime, 0.0f);
                     }
                 }
-                if(player.transform.position.y != hitObjects[0].transform.position.y)
+                if (player.transform.position.y != hitObjects[0].transform.position.y)
                 {
                     if (player.transform.position.y > hitObjects[0].transform.position.y)
                     {
-                        player.transform.position -= new Vector3(0.0f, 0.1f * Time.deltaTime);
+                        player.transform.position -= new Vector3(0.0f, 2f * Time.deltaTime);
                     }
                     else
                     {
-                        player.transform.position += new Vector3(0.0f, 0.1f * Time.deltaTime);
+                        player.transform.position += new Vector3(0.0f, 2f * Time.deltaTime);
                     }
                 }
             }
 
             // Remove the current front of the list whenever the player has reached that position.
-            if (player.transform.position == hitObjects[0].transform.position)
+            if (Vector3.Distance(player.transform.position,hitObjects[0].transform.position) <= 0.01f)
             {
                 hitObjects.RemoveAt(0);
             }
         }
-
-        hitObjects.Clear();
     }
 }
