@@ -1,0 +1,83 @@
+[{
+    "speakerName": "Death",
+    "text": "This is Valhalla. It’s frickin’ frigid out here. I get why everyone dresses in furs, but boy could I go for a T. T. Legume coat right now. And Legume loafers. Mmmmm I feel toasty already.",
+    "textSpeed": 0.01,
+    "karma": 1,
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "This is Odin’s domain. We could go see Freya, but Fólkvangr is kind of far from here. The celestial plane of the afterlife isn’t super organized like you think it would be.",
+        "textSpeed": 0.01,
+        "karma": 1,
+        "dialogueOptions": [{
+            "speakerName": "Death",
+            "text": "But anyway, Odin takes in warriors that have died in battle, but its 2018 and I think he should be getting a little more lenient with his policy. Ragnarok hasn’t happened yet.",
+            "textSpeed": 0.01,
+            "karma": 1,
+            "dialogueOptions": [{
+                "speakerName": "Small Child",
+                "text": "c-c-c-c-c-can you h-h-h-h-help m-m-m-me?",
+                "textSpeed": 0.01,
+                "karma": 1,
+                "dialogueOptions": [{
+                    "speakerName": "Death",
+                    "text": "Oh no, a poor lost soul. I dunno how this one died in battle, normally they look at lot more gruesome than this. ",
+                    "textSpeed": 0.01,
+                    "karma": 1,
+                    "dialogueOptions": [{
+                        "speakerName": "Small Child",
+                        "text": "I n-n-n-n-need to get into V-v-v-v-valhalla, but the g-g-g-g-giants w-w-w-w-won’t let me in. ",
+                        "textSpeed": 0.01,
+                        "karma": 1,
+                        "dialogueOptions": [{
+                            "speakerName": "Death",
+                            "text": "It’s cool that the afterlife give you omnipotent communication. ",
+                            "textSpeed": 0.01,
+                            "karma": 1,
+                            "responseOptions": [
+                                "..."
+                            ],
+                            "dialogueOptions": [{
+                                "speakerName": "Death",
+                                "text": "Oh, it’s fine. He can’t hear me. I can say whatever I please.",
+                                "textSpeed": 0.01,
+                                "karma": 1,
+                                "responseOptions": [
+                                    "..."
+                                ],
+                                "dialogueOptions": [{
+                                    "speakerName": "Death",
+                                    "text": "Well, if you care THAT much, why don’t you help him?",
+                                    "textSpeed": 0.01,
+                                    "karma": 1,
+                                    "responseOptions": [
+                                        "..."
+                                    ],
+                                    "dialogueOptions": [{
+                                        "speakerName": "Small Child",
+                                        "text": "I tried to save a arctic fox from being hit by a car…..I got hit instead. Something thought I was worthy of coming to Valhalla, but the giants won’t open the gates for me. I need to prove to them I’m worthy. ",
+                                        "textSpeed": 0.01,
+                                        "karma": 1,
+                                        "responseOptions": [
+                                            "That’s super unfortunate. I think you deserve it.",
+                                            "Wow what a chump. "
+                                        ],
+                                        "dialogueOptions": [{
+                                            "speakerName": "Small Child",
+                                            "text": "I think there is an eating competition happening soon. Can you help me eat more than the giants? I think I can do it, but I need help.                                            ",
+                                            "textSpeed": 0.01,
+                                            "karma": -4,
+                                            "responseOptions": [
+                                                "to minigame!"
+                                            ],
+                                            "endsScene":true
+                                        }]
+                                    }]
+                                }]
+                            }]
+                        }]
+                    }]
+                }]
+            }]
+        }]
+    }]
+}]

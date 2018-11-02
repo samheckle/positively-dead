@@ -219,14 +219,15 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     void LoadScene(string filename)
     {
-        filename = "Assets/DialogueScripts/" + filename;
-        using (StreamReader r = new StreamReader(filename))
-        {
-            string json = r.ReadToEnd();
-            List<Dialogue> items = JsonConvert.DeserializeObject<List<Dialogue>>(json);
+        filename = Application.streamingAssetsPath + "/" + filename;
+        Debug.Log(filename);
+        WWW reader = new WWW(filename);
+        while (!reader.isDone) { }
 
-            currentDialogue = items[0];
-        }
+        string jsonString = reader.text;
+        List<Dialogue> items = JsonConvert.DeserializeObject<List<Dialogue>>(jsonString);
+
+        currentDialogue = items[0];
     }
 
     /// <summary>

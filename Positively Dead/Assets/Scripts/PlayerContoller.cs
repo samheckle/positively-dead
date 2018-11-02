@@ -25,6 +25,9 @@ public class PlayerContoller : MonoBehaviour
     /// </summary>
     void MovePlayer()
     {
+        // Handles tilt controls with the accelerometer
+        player.transform.Translate(Input.acceleration.x, 0.0f, 0.0f);
+
         if (Input.GetButton("Left"))
         {
             if (player.transform.position.x < -20.0f)
