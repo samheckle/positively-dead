@@ -186,6 +186,7 @@ public class DialogueManager : MonoBehaviour
             currentDialogue = currentDialogue.NextDialogue(index);
 
             DisplayDialogue(currentDialogue);
+            advanceButton.SetActive(false);
             button1.SetActive(false);
             button2.SetActive(false);
         }
@@ -211,6 +212,8 @@ public class DialogueManager : MonoBehaviour
 
             DisplayDialogue(currentDialogue);
             advanceButton.SetActive(false);
+            button1.SetActive(false);
+            button2.SetActive(false);
         }
     }
 
