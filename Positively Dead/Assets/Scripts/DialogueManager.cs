@@ -142,11 +142,11 @@ public class DialogueManager : MonoBehaviour
         Vector3 char2start = characterRight.transform.position;
         Vector3 direction = Vector3.zero;
 
-        if (name == characterLeft.tag)
+        if (name == characterLeft.name)
         {
             direction = new Vector3(1f, 0, 0);
         }
-        else if (name == characterRight.tag)
+        else if (name == characterRight.name)
         {
             direction = new Vector3(-1f, 0, 0);
         }
@@ -223,7 +223,12 @@ public class DialogueManager : MonoBehaviour
     void LoadScene(string filename)
     {
         filename = Application.streamingAssetsPath + "/" + filename;
-        Debug.Log(filename);
+
+        if (Application.platform != RuntimePlatform.Android)
+        {
+            filename = "file://" + filename;
+        }
+
         WWW reader = new WWW(filename);
         while (!reader.isDone) { }
 
