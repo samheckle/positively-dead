@@ -1264,7 +1264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: chinese_script.json
-  nextScene: NorseMinigame
+  nextScene: ChineseMinigame
   dialogueBox: {fileID: 1681576018}
   speakerName: {fileID: 159996616}
   background: {fileID: 1909654580}
