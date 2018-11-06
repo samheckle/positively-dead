@@ -9,7 +9,8 @@ TagManager:
   - ObjectiveTxt
   - Small Child
   - Death
-  - Tile
+  - Walk Tile
+  - Trap Tile
   layers:
   - Default
   - TransparentFX

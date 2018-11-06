@@ -2,19 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwipeTrail : MonoBehaviour
+public class SwipePath : MonoBehaviour
 {
     public List<GameObject> hitObjects;
     GameObject player;
 
+    Vector3 startPosition;
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        startPosition = player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
+    {
+        DrawPath();
+    }
+
+    /// <summary>
+    /// Draws a path along the player's cursor/finger and moves the player along that path.
+    /// </summary>
+    void DrawPath()
     {
         if (((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || Input.GetMouseButton(0)))
         {
@@ -87,7 +97,6 @@ public class SwipeTrail : MonoBehaviour
             this.GetComponent<TrailRenderer>().time = 0;
             MovePlayer();
         }
-
     }
 
     /// <summary>
@@ -127,8 +136,24 @@ public class SwipeTrail : MonoBehaviour
             // Remove the current front of the list whenever the player has reached that position.
             if (Vector3.Distance(player.transform.position,hitObjects[0].transform.position) <= 0.01f)
             {
-                hitObjects.RemoveAt(0);
+                // "Kill" the player by resetting them to the start if they walk over a trap tile
+                if (hitObjects[0].tag.Equals("Trap Tile"))
+                {
+                    player.transform.position = startPosition;
+                    hitObjects.Clear();
+                    this.gameObject.GetComponent<TrailRenderer>().enabled = false;
+                    this.transform.position = player.transform.position;
+                    this.gameObject.GetComponent<TrailRenderer>().enabled = true;
+                }
+                else
+                {
+                    hitObjects.RemoveAt(0);
+                }
             }
+        }
+        else
+        {
+            this.transform.position = player.transform.position;
         }
     }
 }
