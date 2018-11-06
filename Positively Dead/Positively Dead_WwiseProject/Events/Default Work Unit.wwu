@@ -3,15 +3,43 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play" ID="{8018A57E-CD0B-4D83-A423-67BC667E16B1}">
+				<Event Name="IntroPlay" ID="{8018A57E-CD0B-4D83-A423-67BC667E16B1}">
 					<ChildrenList>
+						<Action Name="" ID="{B264DCD1-E45A-4FF3-A552-38267057C3B4}" ShortID="77283651">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
 						<Action Name="" ID="{A438E7CF-87C1-4854-B5A0-1FB71F7585ED}" ShortID="583473311">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Intro01" ID="{9E9BD00E-3D40-4B0D-9BA7-43B5F65A778D}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+									<ObjectRef Name="Intro" ID="{AD0AB563-191C-41B0-91F3-470E3BB7731A}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ChinesePlay" ID="{D0CD7EBB-099E-4F43-8660-06935EB8E6D7}">
+					<ChildrenList>
+						<Action Name="" ID="{1EB488AB-F682-4B0B-AB6C-DCC859124D91}" ShortID="35944018">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{5968821F-3AEE-4DBA-A207-EF09A20CD985}" ShortID="247807726">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Chinese" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

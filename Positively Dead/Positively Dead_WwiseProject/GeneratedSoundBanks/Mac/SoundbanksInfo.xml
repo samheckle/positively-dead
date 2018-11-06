@@ -11,24 +11,29 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1125500713" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music\Intro</ObjectPath>
-			<ShortName>Intro</ShortName>
-			<Path>Intro.bnk</Path>
-			<IncludedEvents>
-				<Event Id="1256202815" Name="Play" ObjectPath="\Events\Default Work Unit\Play"/>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="58286141" Language="SFX">
-					<ShortName>Intro01.wav</ShortName>
-					<Path>SFX/Intro01_8956FC97.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3991942870" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music</ObjectPath>
+			<ShortName>Music</ShortName>
+			<Path>Music.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3769467276" Name="ChinesePlay" ObjectPath="\Events\Default Work Unit\ChinesePlay"/>
+				<Event Id="131922971" Name="IntroPlay" ObjectPath="\Events\Default Work Unit\IntroPlay"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="492868150" Language="SFX">
+					<ShortName>chinese03.wav</ShortName>
+					<Path>SFX/chinese03_8956FC97.wem</Path>
+				</File>
+				<File Id="530089285" Language="SFX">
+					<ShortName>Intro03.wav</ShortName>
+					<Path>SFX/Intro03_8956FC97.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

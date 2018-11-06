@@ -267,12 +267,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerList: f7e1664c
   useOtherObject: 0
-  bankName: Intro
+  bankName: Music
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
   unloadTriggerList: 
-  valueGuid: 8a7b99ba1d1e3142904b4f0a99de190d
+  valueGuid: c94389619924b34aba288c54439fbf5d
 --- !u!4 &211469862
 Transform:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   actionOnEventType: 0
   curveInterpolation: 4
   enableActionOnEvent: 0
-  eventID: 1256202815
+  eventID: 131922971
   m_callbackData: {fileID: 0}
   playingId: 0
   soundEmitterObject: {fileID: 0}

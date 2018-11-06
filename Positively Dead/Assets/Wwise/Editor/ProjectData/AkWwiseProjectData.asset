@@ -17,51 +17,61 @@ MonoBehaviour:
   m_lastPopulateTimePsrt1: 0
   AcousticTextureWwu:
   - Guid: '{B5BC0C2B-68D8-48D0-8E38-8AACF69B313D}'
-    m_lastTimePart2: -1999233233
-    m_lastTimePsrt1: 1466572160
+    m_lastTimePart2: -1999223788
+    m_lastTimePsrt1: -2114505856
     ParentPhysicalPath: 
     PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
     List: []
   AuxBusWwu:
   - Guid: '{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}'
-    m_lastTimePart2: -1999233233
-    m_lastTimePsrt1: 1456572160
+    m_lastTimePart2: -1999223788
+    m_lastTimePsrt1: -2114505856
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
     List: []
   BankWwu:
   - Guid: '{1A543FE4-643D-41D7-A5AA-D84E69D0A8A2}'
-    m_lastTimePart2: -1999233232
-    m_lastTimePsrt1: -793362432
+    m_lastTimePart2: -1999223785
+    m_lastTimePsrt1: 715559552
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks/Default Work Unit.wwu
     List:
-    - Guid: 8a7b99ba1d1e3142904b4f0a99de190d
-      ID: 1125500713
-      Name: Intro
-      Path: Default Work Unit/Music/Intro
+    - Guid: c94389619924b34aba288c54439fbf5d
+      ID: -303024426
+      Name: Music
+      Path: Default Work Unit/Music
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Music
-        ObjectType: 4
-      - ElementName: Intro
         ObjectType: 7
   EventWwu:
   - Guid: '{435687BC-D8D4-4805-8469-6AE5F4472CA0}'
-    m_lastTimePart2: -1999233230
-    m_lastTimePsrt1: 21670272
+    m_lastTimePart2: -1999223786
+    m_lastTimePsrt1: 1400526848
     ParentPhysicalPath: 
     PhysicalPath: Events/Default Work Unit.wwu
     List:
-    - Guid: 7ea518800bcd834da42367bc667e16b1
-      ID: 1256202815
-      Name: Play
-      Path: Default Work Unit/Play
+    - Guid: bb7ecdd09e09434f866006935eb8e6d7
+      ID: -525500020
+      Name: ChinesePlay
+      Path: Default Work Unit/ChinesePlay
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Play
+      - ElementName: ChinesePlay
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 7ea518800bcd834da42367bc667e16b1
+      ID: 131922971
+      Name: IntroPlay
+      Path: Default Work Unit/IntroPlay
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: IntroPlay
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
@@ -70,34 +80,31 @@ MonoBehaviour:
   - /Positively Dead_WwiseProject
   - /Positively Dead_WwiseProject/Events
   - /Positively Dead_WwiseProject/Events/Default Work Unit
-  - /Positively Dead_WwiseProject/SoundBanks
-  - /Positively Dead_WwiseProject/SoundBanks/Default Work Unit
-  - /Positively Dead_WwiseProject/SoundBanks/Default Work Unit/Music
   RtpcWwu:
   - Guid: '{EC110B3D-441B-430B-9A9F-6E775A005B47}'
-    m_lastTimePart2: -1999233233
-    m_lastTimePsrt1: 1456572160
+    m_lastTimePart2: -1999223788
+    m_lastTimePsrt1: -2114505856
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters/Default Work Unit.wwu
     List: []
   StateWwu:
   - Guid: '{96F88C47-5F73-4136-A602-2938F4EC0D8A}'
-    m_lastTimePart2: -1999233233
-    m_lastTimePsrt1: 1466572160
+    m_lastTimePart2: -1999223788
+    m_lastTimePsrt1: -2114505856
     ParentPhysicalPath: 
     PhysicalPath: States/Default Work Unit.wwu
     List: []
   SwitchWwu:
   - Guid: '{A3D309FC-7B3B-469D-BE25-5E0A057E56C3}'
-    m_lastTimePart2: -1999233233
-    m_lastTimePsrt1: 1456572160
+    m_lastTimePart2: -1999223788
+    m_lastTimePsrt1: -2114505856
     ParentPhysicalPath: 
     PhysicalPath: Switches/Default Work Unit.wwu
     List: []
   TriggerWwu:
   - Guid: '{533773F3-4B0B-4D2E-A2D0-1108ABD481BD}'
-    m_lastTimePart2: -1999233233
-    m_lastTimePsrt1: 1456572160
+    m_lastTimePart2: -1999223788
+    m_lastTimePsrt1: -2114505856
     ParentPhysicalPath: 
     PhysicalPath: Triggers/Default Work Unit.wwu
     List: []
