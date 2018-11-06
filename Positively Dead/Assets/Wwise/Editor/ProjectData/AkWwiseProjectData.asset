@@ -68,6 +68,11 @@ MonoBehaviour:
       minDuration: 0
   ExpandedItems:
   - /Positively Dead_WwiseProject
+  - /Positively Dead_WwiseProject/Events
+  - /Positively Dead_WwiseProject/Events/Default Work Unit
+  - /Positively Dead_WwiseProject/SoundBanks
+  - /Positively Dead_WwiseProject/SoundBanks/Default Work Unit
+  - /Positively Dead_WwiseProject/SoundBanks/Default Work Unit/Music
   RtpcWwu:
   - Guid: '{EC110B3D-441B-430B-9A9F-6E775A005B47}'
     m_lastTimePart2: -1999233233
