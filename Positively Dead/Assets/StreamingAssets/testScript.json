@@ -1,0 +1,70 @@
+[
+    {
+        "speakerName": "Nik",
+        "text": "This is some sample dialogue",
+        "textSpeed": 0.01,
+        "responseOptions": [
+            "Continue with Kyle",
+            "Continue with Mark"
+        ],
+        "dialogueOptions": [
+            {
+                "speakerName": "Kyle",
+                "text": "This is some sample text from Kyle.",
+                "textSpeed": 0.01,
+                "responseOptions": [
+                    "Continue with Kurtis",
+                    "Talk with Kyle"
+                ],
+                "dialogueOptions": [
+                    {
+                        "speakerName": "Kurtis",
+                        "text": "Click anywhere to continue from this dialogue.",
+                        "textSpeed": 0.005,
+                        "dialogueOptions": [
+                            {
+                                "speakerName": "Kurtis",
+                                "text": "This is some sample dialogue from Kurtis.",
+                                "textSpeed": 0.01,
+                                "responseOptions": [
+                                    "Continue"
+                                ],
+                                "endsScene":true
+                            }
+                        ]
+                    },
+                    {
+                        "speakerName": "Kyle",
+                        "text": "Hey, I'm Kyle!",
+                        "textSpeed": 0.01,
+                        "responseOptions": [
+                            "Hi Kyle!"
+                        ],
+                        "dialogueOptions": [
+                            {
+                                "speakerName":"Kyle",
+                                "text":"Nice to meet you!",
+                                "textSpeed":0.01,
+                                "responseOptions": [
+                                    "Continue to Menu"
+                                ],
+                                "dialogueOptions": null,
+                                "endsScene":true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "speakerName": "Mark",
+                "text": "This is some sample dialogue from Mark.",
+                "textSpeed": 0.01,
+                "responseOptions": [
+                    "Continue to Menu"
+                ],
+                "dialogueOptions": null,
+                "endsScene":true
+            }
+        ]
+    }
+]
