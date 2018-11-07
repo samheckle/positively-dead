@@ -219,9 +219,6 @@ public class FoodController : MonoBehaviour
             Destroy(food);
         }
 
-        // Re-center the player's basket
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0.0f, -8.5f, 0.0f);
-
         // Redetermine the objective to be harder (more food)
         SetObjective();
 

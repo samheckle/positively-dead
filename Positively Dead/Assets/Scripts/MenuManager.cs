@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 /// <summary>
 /// Author: JaJuan Webster
@@ -8,14 +7,10 @@ using UnityEngine.UI;
 /// </summary>
 public class MenuManager : MonoBehaviour
 {
-    // Attributes
-    GameObject startObject;
-
     // Use this for initialization
     void Start()
     {
-        // Instantiate
-        startObject = GameObject.FindGameObjectWithTag("Start");
+
     }
 
     /// <summary>

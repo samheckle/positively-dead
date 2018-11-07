@@ -9,16 +9,12 @@ using UnityEngine.UI;
 public class MapSelection : MonoBehaviour
 {
     // Attributes
-    GameObject menuObject;
     public Button norseBtn, egyptBtn, diyuBtn;
     static bool norseClicked, egyptClicked, diyuClicked;
 
     // Use this for initialization
     void Start()
     {
-        // Instantiate
-        menuObject = GameObject.FindGameObjectWithTag("Menu");
-
         // Create buttons to add event listeners for the proper function
         Button btn1 = norseBtn.GetComponent<Button>();
         btn1.onClick.AddListener(NorseOnClick);

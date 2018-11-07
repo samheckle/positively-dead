@@ -8,17 +8,25 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     // Attributes
-    GameObject menuObject;
+    GameObject[] pauseObjects;
+    GameObject scoreboard;
+    SpriteRenderer backgroundImage;
 
-    // Use this for initialization
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
     void Start()
     {
         Time.timeScale = 1.0f;
-        menuObject = GameObject.FindGameObjectWithTag("Menu");
+        pauseObjects = GameObject.FindGameObjectsWithTag("Menu");
+        scoreboard = GameObject.FindGameObjectWithTag("Scoreboard");
+        backgroundImage = GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteRenderer>();
         HidePaused();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         // Uses the ESC button to pause and unpause the game
@@ -50,7 +58,15 @@ public class UIManager : MonoBehaviour
     /// </summary> 
     public void ShowPaused()
     {
-        menuObject.SetActive(true);
+        foreach (GameObject g in pauseObjects)
+            g.SetActive(true);
+
+        if (SceneManager.GetSceneByName("NorseMinigame").isLoaded)
+        {
+            scoreboard.SetActive(false);
+        }
+
+        backgroundImage.color = new Color(0.70f, 0.70f, 0.70f);
     }
 
     /// <summary>
@@ -58,16 +74,24 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void HidePaused()
     {
-        menuObject.SetActive(false);
+        foreach (GameObject g in pauseObjects)
+            g.SetActive(false);
+
+        if (SceneManager.GetSceneByName("NorseMinigame").isLoaded)
+        {
+            scoreboard.SetActive(true);
+        }
+
+        backgroundImage.color = new Color(1, 1, 1);
     }
 
     /// <summary>
     /// Returns Game to Main Menu
     /// </summary>
-    public void MainMenu()
+    public void MapSelect()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene("MapSelect", LoadSceneMode.Single);
     }
 
     /// <summary>
