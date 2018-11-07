@@ -50,12 +50,6 @@ public class UIManager : MonoBehaviour
     /// </summary> 
     public void ShowPaused()
     {
-        /*
-        foreach (GameObject g in pauseObjects)
-        {
-            g.SetActive(true);
-        }
-        */
         menuObject.SetActive(true);
     }
 
@@ -64,12 +58,6 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void HidePaused()
     {
-        /*
-        foreach (GameObject g in pauseObjects)
-        {
-            g.SetActive(false);            
-        }
-        */
         menuObject.SetActive(false);
     }
 
@@ -79,7 +67,7 @@ public class UIManager : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     /// <summary>
