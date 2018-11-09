@@ -79,7 +79,6 @@ public class FoodController : MonoBehaviour
         {
             IncrementLevel();
         }
-
     }
 
     /// <summary>
@@ -206,6 +205,12 @@ public class FoodController : MonoBehaviour
     {
         level++;
 
+        if (level > 1)
+        {
+            // Freeze game for 3 seconds and countdown
+            StartCoroutine(ResumeAfterNSeconds(1.0f));
+        }
+
         // clear any objective information currently stored in the dictionaries
         requiredFoodObjects.Clear();
         collectedFoodObjects.Clear();
@@ -221,8 +226,6 @@ public class FoodController : MonoBehaviour
 
         // Redetermine the objective to be harder (more food)
         SetObjective();
-
-        // Freeze game for 3 seconds and countdown
     }
 
     /// <summary>
@@ -529,13 +532,16 @@ public class FoodController : MonoBehaviour
     }
 
     // https://forum.unity.com/threads/solved-slow-everything-but-the-player.323965/
-    float timer = 0;
+    float timer = 0.0f;
     IEnumerator ResumeAfterNSeconds(float timePeriod)
     {
         yield return new WaitForEndOfFrame();
         timer += Time.unscaledDeltaTime;
         if (timer < timePeriod)
+        {
+            Time.timeScale = 0.25f;
             StartCoroutine(ResumeAfterNSeconds(3.0f));
+        }
         else
         {
             //Resume Game

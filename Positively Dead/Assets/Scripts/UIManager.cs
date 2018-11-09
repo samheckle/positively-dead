@@ -86,6 +86,15 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Restarts the minigame
+    /// </summary>
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    }
+
+    /// <summary>
     /// Returns Game to Main Menu
     /// </summary>
     public void MapSelect()

@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: intro_script.json
-  nextScene: Island 1 - NORSE
+  nextScene: MapSelect
   dialogueBox: {fileID: 1403093764}
   speakerName: {fileID: 1192466406}
   background: {fileID: 228939243}

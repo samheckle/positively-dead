@@ -31,11 +31,26 @@ public class MapSelection : MonoBehaviour
     public void ShowIslands()
     {
         if (norseClicked)
+        {
             norseBtn.interactable = false;
-        if (egyptClicked)
-            egyptBtn.interactable = false;
-        if (diyuClicked)
+            diyuBtn.interactable = true;
+        }            
+        else
+        {
             diyuBtn.interactable = false;
+            egyptBtn.interactable = false;            
+        }
+
+        if (diyuClicked)
+        {
+            diyuBtn.interactable = false;
+            egyptBtn.interactable = true;
+        }            
+        else
+            egyptBtn.interactable = false;
+
+        if (egyptBtn)
+            egyptBtn.interactable = false;
     }
 
     /// <summary>

@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: norse_end_script.json
-  nextScene: MainMenu
+  nextScene: MapSelect
   dialogueBox: {fileID: 1977726852}
   speakerName: {fileID: 491420140}
   background: {fileID: 1408653936}

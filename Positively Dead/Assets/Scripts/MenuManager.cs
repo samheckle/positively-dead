@@ -20,4 +20,12 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Intro", LoadSceneMode.Single);
     }
+    
+    /// <summary>
+    /// Goes to the map selection scene after dialogue finishes
+    /// </summary>
+    public void ToMap()
+    {
+        SceneManager.LoadScene("MapSelection", LoadSceneMode.Single);
+    }
 }
