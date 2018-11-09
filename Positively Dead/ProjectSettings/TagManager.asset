@@ -27,6 +27,9 @@ TagManager:
   - Menu
   - Background
   - Scoreboard
+  - Level
+  - Island
+  - WSIMG
   layers:
   - Default
   - TransparentFX

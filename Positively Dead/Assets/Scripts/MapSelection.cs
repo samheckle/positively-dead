@@ -49,7 +49,7 @@ public class MapSelection : MonoBehaviour
         else
             egyptBtn.interactable = false;
 
-        if (egyptBtn)
+        if (egyptClicked)
             egyptBtn.interactable = false;
     }
 

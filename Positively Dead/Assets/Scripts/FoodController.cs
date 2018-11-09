@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 public class FoodController : MonoBehaviour
 {
-    private Text scoreTxt;
+    private Text scoreTxt, levelTxt;
 
     // Images of food
     private List<Image> foodImages;
@@ -49,6 +49,7 @@ public class FoodController : MonoBehaviour
         levelObjects = new List<GameObject>();
         player = GameObject.FindGameObjectWithTag("Player");
         scoreTxt = GameObject.FindGameObjectWithTag("ScoreTxt").GetComponent<Text>();
+        levelTxt = GameObject.FindGameObjectWithTag("Level").GetComponent<Text>();
         for (int i = 1; i < 10; i++)
         {
             foodImages.Add(GameObject.FindGameObjectWithTag("Image" + i).GetComponent<Image>());
@@ -79,6 +80,11 @@ public class FoodController : MonoBehaviour
         {
             IncrementLevel();
         }
+
+        if (timer != 0)
+            levelTxt.enabled = true;
+        else
+            levelTxt.enabled = false;
     }
 
     /// <summary>
@@ -511,6 +517,14 @@ public class FoodController : MonoBehaviour
         }
     }
 
+    void PopUpText()
+    {
+        levelTxt.text = "Level " + level;
+
+        if (level > 3)
+            levelTxt.text = "";
+    }
+
     List<int> RandomFoodListGenerator(int listSize)
     {
         List<int> validNumbers = new List<int>();
@@ -540,6 +554,7 @@ public class FoodController : MonoBehaviour
         if (timer < timePeriod)
         {
             Time.timeScale = 0.25f;
+            PopUpText();
             StartCoroutine(ResumeAfterNSeconds(3.0f));
         }
         else
