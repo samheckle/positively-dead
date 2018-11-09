@@ -30,9 +30,20 @@ public class OpenScene : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
-
+        asyncLoad.allowSceneActivation = false;
         while (!asyncLoad.isDone)
         {
+            //display the load progress
+            loadingText.text = "Loading " + (asyncLoad.progress * 100) + "%";
+            //provide tap to continue option
+            if (asyncLoad.progress >= 0.9f)
+            {
+                loadingText.text = "Tap to Continue";
+                if(Input.touchCount > 0)
+                {
+                    asyncLoad.allowSceneActivation = true;
+                }
+            }
             yield return null;
         }
     }
