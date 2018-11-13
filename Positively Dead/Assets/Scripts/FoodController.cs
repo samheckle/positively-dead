@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 public class FoodController : MonoBehaviour
 {
-    private Text scoreTxt;
+    private Text scoreTxt, levelTxt;
 
     // Images of food
     private List<Image> foodImages;
@@ -49,6 +49,7 @@ public class FoodController : MonoBehaviour
         levelObjects = new List<GameObject>();
         player = GameObject.FindGameObjectWithTag("Player");
         scoreTxt = GameObject.FindGameObjectWithTag("ScoreTxt").GetComponent<Text>();
+        levelTxt = GameObject.FindGameObjectWithTag("Level").GetComponent<Text>();
         for (int i = 1; i < 10; i++)
         {
             foodImages.Add(GameObject.FindGameObjectWithTag("Image" + i).GetComponent<Image>());
@@ -80,6 +81,10 @@ public class FoodController : MonoBehaviour
             IncrementLevel();
         }
 
+        if (timer != 0)
+            levelTxt.enabled = true;
+        else
+            levelTxt.enabled = false;
     }
 
     /// <summary>
@@ -206,6 +211,12 @@ public class FoodController : MonoBehaviour
     {
         level++;
 
+        if (level > 1)
+        {
+            // Freeze game for 3 seconds and countdown
+            StartCoroutine(ResumeAfterNSeconds(1.0f));
+        }
+
         // clear any objective information currently stored in the dictionaries
         requiredFoodObjects.Clear();
         collectedFoodObjects.Clear();
@@ -219,13 +230,8 @@ public class FoodController : MonoBehaviour
             Destroy(food);
         }
 
-        // Re-center the player's basket
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0.0f, -8.5f, 0.0f);
-
         // Redetermine the objective to be harder (more food)
         SetObjective();
-
-        // Freeze game for 3 seconds and countdown
     }
 
     /// <summary>
@@ -511,6 +517,14 @@ public class FoodController : MonoBehaviour
         }
     }
 
+    void PopUpText()
+    {
+        levelTxt.text = "Level " + level;
+
+        if (level > 3)
+            levelTxt.text = "";
+    }
+
     List<int> RandomFoodListGenerator(int listSize)
     {
         List<int> validNumbers = new List<int>();
@@ -532,13 +546,17 @@ public class FoodController : MonoBehaviour
     }
 
     // https://forum.unity.com/threads/solved-slow-everything-but-the-player.323965/
-    float timer = 0;
+    float timer = 0.0f;
     IEnumerator ResumeAfterNSeconds(float timePeriod)
     {
         yield return new WaitForEndOfFrame();
         timer += Time.unscaledDeltaTime;
         if (timer < timePeriod)
+        {
+            Time.timeScale = 0.25f;
+            PopUpText();
             StartCoroutine(ResumeAfterNSeconds(3.0f));
+        }
         else
         {
             //Resume Game

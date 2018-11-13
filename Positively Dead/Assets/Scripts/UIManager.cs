@@ -8,17 +8,25 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     // Attributes
-    GameObject menuObject;
+    GameObject[] pauseObjects;
+    GameObject scoreboard;
+    SpriteRenderer backgroundImage;
 
-    // Use this for initialization
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
     void Start()
     {
         Time.timeScale = 1.0f;
-        menuObject = GameObject.FindGameObjectWithTag("Menu");
+        pauseObjects = GameObject.FindGameObjectsWithTag("Menu");
+        scoreboard = GameObject.FindGameObjectWithTag("Scoreboard");
+        backgroundImage = GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteRenderer>();
         HidePaused();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         // Uses the ESC button to pause and unpause the game
@@ -50,13 +58,15 @@ public class UIManager : MonoBehaviour
     /// </summary> 
     public void ShowPaused()
     {
-        /*
         foreach (GameObject g in pauseObjects)
-        {
             g.SetActive(true);
+
+        if (SceneManager.GetSceneByName("NorseMinigame").isLoaded)
+        {
+            scoreboard.SetActive(false);
         }
-        */
-        menuObject.SetActive(true);
+
+        backgroundImage.color = new Color(0.70f, 0.70f, 0.70f);
     }
 
     /// <summary>
@@ -64,22 +74,33 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void HidePaused()
     {
-        /*
         foreach (GameObject g in pauseObjects)
+            g.SetActive(false);
+
+        if (SceneManager.GetSceneByName("NorseMinigame").isLoaded)
         {
-            g.SetActive(false);            
+            scoreboard.SetActive(true);
         }
-        */
-        menuObject.SetActive(false);
+
+        backgroundImage.color = new Color(1, 1, 1);
+    }
+
+    /// <summary>
+    /// Restarts the minigame
+    /// </summary>
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
     /// <summary>
     /// Returns Game to Main Menu
     /// </summary>
-    public void MainMenu()
+    public void MapSelect()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MapSelect", LoadSceneMode.Single);
     }
 
     /// <summary>

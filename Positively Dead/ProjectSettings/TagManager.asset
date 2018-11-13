@@ -22,6 +22,14 @@ TagManager:
   - Level1Images
   - Level2Images
   - Level3Images
+  - Start
+  - MenuIMG
+  - Menu
+  - Background
+  - Scoreboard
+  - Level
+  - Island
+  - WSIMG
   layers:
   - Default
   - TransparentFX
