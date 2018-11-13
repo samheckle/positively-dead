@@ -39,7 +39,7 @@ public class OpenScene : MonoBehaviour
             if (asyncLoad.progress >= 0.9f)
             {
                 loadingText.text = "Tap to Continue";
-                if(Input.touchCount > 0)
+                if(Input.touchCount > 0 || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
                 {
                     asyncLoad.allowSceneActivation = true;
                 }
