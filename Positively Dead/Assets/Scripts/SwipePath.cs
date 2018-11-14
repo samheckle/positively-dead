@@ -7,12 +7,14 @@ public class SwipePath : MonoBehaviour
     public List<GameObject> hitObjects;
     GameObject player;
 
+    public GameObject[] fogTypes;
     Vector3 startPosition;
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         startPosition = player.transform.position;
+        SpawnFog();
     }
 
     // Update is called once per frame
@@ -140,6 +142,8 @@ public class SwipePath : MonoBehaviour
                 if (hitObjects[0].tag.Equals("Trap Tile"))
                 {
                     player.transform.position = startPosition;
+                    ClearFog();
+                    SpawnFog();
                     hitObjects.Clear();
                     this.gameObject.GetComponent<TrailRenderer>().enabled = false;
                     this.transform.position = player.transform.position;
@@ -154,6 +158,49 @@ public class SwipePath : MonoBehaviour
         else
         {
             this.transform.position = player.transform.position;
+        }
+    }
+
+    void SpawnFog()
+    {
+        GameObject[] walkTiles = GameObject.FindGameObjectsWithTag("Walk Tile");
+        GameObject[] trapTiles = GameObject.FindGameObjectsWithTag("Trap Tile");
+
+        // Give all walk tiles fog
+        for(int i = 0; i < walkTiles.Length; i++)
+        {
+            int randNum = Random.Range(0, 10);
+            if(randNum < 5)
+            {
+                Instantiate(fogTypes[0], walkTiles[i].transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(fogTypes[1], walkTiles[i].transform.position, Quaternion.identity);
+            }
+        }
+
+        // Give all trap tiles fog
+        for (int i = 0; i < trapTiles.Length; i++)
+        {
+            int randNum = Random.Range(0, 10);
+            if (randNum < 5)
+            {
+                Instantiate(fogTypes[0], trapTiles[i].transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(fogTypes[1], trapTiles[i].transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+    void ClearFog()
+    {
+        GameObject[] fogTiles = GameObject.FindGameObjectsWithTag("Fog");
+        for(int i = 0; i < fogTiles.Length; i++)
+        {
+            Destroy(fogTiles[i]);
         }
     }
 }
