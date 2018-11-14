@@ -911,6 +911,21 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 23.3
       objectReference: {fileID: 0}
+    - target: {fileID: 224767272685673832, guid: a3392df176e49c4479a9982599b3edfe,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 681.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224767272685673832, guid: a3392df176e49c4479a9982599b3edfe,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 560.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114583594208845462, guid: a3392df176e49c4479a9982599b3edfe,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3392df176e49c4479a9982599b3edfe, type: 2}
   m_IsPrefabAsset: 0
@@ -1346,7 +1361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: NorseMinigame
+  scene: MapSelect
   loadingText: {fileID: 619717868}
   loadingPanel: {fileID: 1434887094}
 --- !u!114 &1403093766
