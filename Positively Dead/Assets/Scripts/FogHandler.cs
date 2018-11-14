@@ -15,7 +15,7 @@ public class FogHandler : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         fogColor = this.GetComponent<SpriteRenderer>().color;
-        solidDistance = 15f;
+        solidDistance = 5f;
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class FogHandler : MonoBehaviour
 
         if (distance < solidDistance)
         {
-            this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, (distance * .1f));
+            this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, (distance * .2f));
         }
 
         if (distance <= 0.2f)

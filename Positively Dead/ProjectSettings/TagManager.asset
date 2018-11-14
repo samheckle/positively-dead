@@ -24,6 +24,8 @@ TagManager:
   - Level2Images
   - Level3Images
   - Fog
+  - Start Tile
+  - End Tile
   layers:
   - Default
   - TransparentFX

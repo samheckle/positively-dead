@@ -5,25 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Intro.unity
     guid: 08439e69955cb45be81991b1561e5643
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Island 1 - NORSE.unity
     guid: b457f45748f51354b80424c20bc7a918
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NorseMinigame.unity
     guid: f1b5ec976a45fd9419a4d32beb22017b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Island 1 - NORSE END.unity
     guid: 0ed659ecfd07c40caa9f7fa88883678d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Island 2 - DIYU.unity
     guid: 654a5b9646e1dba40b9efc9d3a983f51
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/ChineseMinigame.unity
+    guid: 1bc266d8dca042c4987a1feeb188ba45
+  - enabled: 0
     path: Assets/Scenes/Island 3 - EGYPT.unity
     guid: fd0ac836f01b00b4eaef49a2282f3b61
   m_configObjects: {}

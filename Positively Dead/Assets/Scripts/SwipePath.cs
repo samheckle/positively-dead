@@ -9,12 +9,14 @@ public class SwipePath : MonoBehaviour
 
     public GameObject[] fogTypes;
     Vector3 startPosition;
+
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = GameObject.FindGameObjectWithTag("Start Tile").transform.position;
         startPosition = player.transform.position;
-        SpawnFog();
+        SetFog();
     }
 
     // Update is called once per frame
@@ -109,7 +111,7 @@ public class SwipePath : MonoBehaviour
         // Check if the player is not currently on the tile at the front of the list
         if (hitObjects.Count > 0)
         {
-            if (player.transform.position != hitObjects[0].transform.position)
+            if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) >= 0.1f)
             {
                 if (player.transform.position.x != hitObjects[0].transform.position.x)
                 {
@@ -134,23 +136,40 @@ public class SwipePath : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                player.transform.position = hitObjects[0].transform.position; // used to smooth the movement
+            }
+
+            // Brighten the tile before walking onto it so the player sees what they are walking into
+            if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) <= 3.0f)
+            {
+                hitObjects[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); 
+            }
 
             // Remove the current front of the list whenever the player has reached that position.
-            if (Vector3.Distance(player.transform.position,hitObjects[0].transform.position) <= 0.01f)
+            if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) <= 0.1f)
             {
                 // "Kill" the player by resetting them to the start if they walk over a trap tile
                 if (hitObjects[0].tag.Equals("Trap Tile"))
                 {
+                    // Move player
                     player.transform.position = startPosition;
-                    ClearFog();
-                    SpawnFog();
+
+                    // Clean up fog and reset tile opacity
+                    SetFog();
+
+                    // Clean out any objects remaining that were hit by the swipe
                     hitObjects.Clear();
+
+                    // Move swipe object back to player
                     this.gameObject.GetComponent<TrailRenderer>().enabled = false;
                     this.transform.position = player.transform.position;
                     this.gameObject.GetComponent<TrailRenderer>().enabled = true;
                 }
                 else
                 {
+                    hitObjects[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); // brighten the tile
                     hitObjects.RemoveAt(0);
                 }
             }
@@ -161,16 +180,26 @@ public class SwipePath : MonoBehaviour
         }
     }
 
-    void SpawnFog()
+    /// <summary>
+    /// Sets up the fog and hides tiles by lowering their visibility.
+    /// </summary>
+    void SetFog()
     {
+        // Clear out existing fog
+        GameObject[] fogTiles = GameObject.FindGameObjectsWithTag("Fog");
+        for (int i = 0; i < fogTiles.Length; i++)
+        {
+            Destroy(fogTiles[i]);
+        }
+
         GameObject[] walkTiles = GameObject.FindGameObjectsWithTag("Walk Tile");
         GameObject[] trapTiles = GameObject.FindGameObjectsWithTag("Trap Tile");
 
-        // Give all walk tiles fog
-        for(int i = 0; i < walkTiles.Length; i++)
+        // Give all walk tiles fog and lower their opacity
+        for (int i = 0; i < walkTiles.Length; i++)
         {
             int randNum = Random.Range(0, 10);
-            if(randNum < 5)
+            if (randNum < 5)
             {
                 Instantiate(fogTypes[0], walkTiles[i].transform.position, Quaternion.identity);
             }
@@ -178,9 +207,11 @@ public class SwipePath : MonoBehaviour
             {
                 Instantiate(fogTypes[1], walkTiles[i].transform.position, Quaternion.identity);
             }
+
+            walkTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 0.2f);
         }
 
-        // Give all trap tiles fog
+        // Give all trap tiles fog and lower their opacity
         for (int i = 0; i < trapTiles.Length; i++)
         {
             int randNum = Random.Range(0, 10);
@@ -192,15 +223,8 @@ public class SwipePath : MonoBehaviour
             {
                 Instantiate(fogTypes[1], trapTiles[i].transform.position, Quaternion.identity);
             }
-        }
-    }
 
-    void ClearFog()
-    {
-        GameObject[] fogTiles = GameObject.FindGameObjectsWithTag("Fog");
-        for(int i = 0; i < fogTiles.Length; i++)
-        {
-            Destroy(fogTiles[i]);
+            trapTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 0.2f);
         }
     }
 }
