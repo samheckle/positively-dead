@@ -23,6 +23,7 @@ TagManager:
   - Level1Images
   - Level2Images
   - Level3Images
+  - Fog
   layers:
   - Default
   - TransparentFX
