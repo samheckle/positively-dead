@@ -106,6 +106,7 @@ public class DialogueManager : MonoBehaviour
                 button2.transform.position = new Vector3(button2.transform.position.x, -4.5f);
                 break;
             default:
+                background.transform.position = new Vector3(background.transform.position.x, -3.0f);
                 break;
         }
     }
