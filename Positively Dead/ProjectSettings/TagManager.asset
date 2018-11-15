@@ -23,9 +23,20 @@ TagManager:
   - Level1Images
   - Level2Images
   - Level3Images
+<<<<<<< HEAD
   - Fog
   - Start Tile
   - End Tile
+=======
+  - Start
+  - MenuIMG
+  - Menu
+  - Background
+  - Scoreboard
+  - Level
+  - Island
+  - WSIMG
+>>>>>>> 5363871e92c5d4c499fd8a9030c9501ea13d6e9b
   layers:
   - Default
   - TransparentFX
