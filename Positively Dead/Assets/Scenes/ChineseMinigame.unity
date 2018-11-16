@@ -142,7 +142,7 @@ TrailRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 34914058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -242,6 +242,9 @@ MonoBehaviour:
   fogTypes:
   - {fileID: 1959504054952564, guid: 6b7b1c8779d7f9146abcb7965f4b82d4, type: 2}
   - {fileID: 1233997328137782, guid: cf0c831da0852f64d85d15272a7acea2, type: 2}
+  - {fileID: 1196670884313334, guid: c639e5f37337dc6469cecd4f6dc495ca, type: 2}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  highlighter: {fileID: 2100000, guid: 421a9b18c84498344a00deb3ec6fd58b, type: 2}
 --- !u!4 &34914061
 Transform:
   m_ObjectHideFlags: 0
@@ -1182,10 +1185,6 @@ Prefab:
       propertyPath: m_Name
       value: Terracotta  v2-01 (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 1863573797859534, guid: 35621c753833e5b4cb3645a1fa93370e, type: 2}
-      propertyPath: m_TagString
-      value: Walk Tile
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35621c753833e5b4cb3645a1fa93370e, type: 2}
   m_IsPrefabAsset: 0
@@ -1961,10 +1960,6 @@ Prefab:
       propertyPath: m_Name
       value: Terracotta  v2-01 (32)
       objectReference: {fileID: 0}
-    - target: {fileID: 1863573797859534, guid: 35621c753833e5b4cb3645a1fa93370e, type: 2}
-      propertyPath: m_TagString
-      value: Walk Tile
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35621c753833e5b4cb3645a1fa93370e, type: 2}
   m_IsPrefabAsset: 0
@@ -2015,6 +2010,11 @@ Prefab:
       propertyPath: m_TagString
       value: Walk Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 212104407180477102, guid: 35621c753833e5b4cb3645a1fa93370e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35621c753833e5b4cb3645a1fa93370e, type: 2}
   m_IsPrefabAsset: 0

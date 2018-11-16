@@ -8,6 +8,8 @@ public class SwipePath : MonoBehaviour
     GameObject player;
 
     public GameObject[] fogTypes;
+    public Material defaultMaterial;
+    public Material highlighter;
     Vector3 startPosition;
 
     // Use this for initialization
@@ -50,7 +52,6 @@ public class SwipePath : MonoBehaviour
                 // If this is the first tile in the list, check to see that it is where the player is
                 if (hitObjects.Count == 0)
                 {
-                    // If they have the same Y (same row)
                     if (Mathf.Abs(hit.collider.gameObject.transform.position.y - player.transform.position.y) <= 0.1f)
                     {
                         if (Mathf.Abs(hit.collider.gameObject.transform.position.x - player.transform.position.x) <= 0.1f)
@@ -58,6 +59,8 @@ public class SwipePath : MonoBehaviour
                             if (!hitObjects.Contains(hit.collider.gameObject))
                             {
                                 Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                                hit.collider.gameObject.GetComponent<SpriteRenderer>().material = highlighter;
+                                hit.collider.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
                                 hitObjects.Add(hit.collider.gameObject);
                             }
                         }
@@ -74,6 +77,8 @@ public class SwipePath : MonoBehaviour
                             if (!hitObjects.Contains(hit.collider.gameObject))
                             {
                                 Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                                hit.collider.gameObject.GetComponent<SpriteRenderer>().material = highlighter;
+                                hit.collider.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
                                 hitObjects.Add(hit.collider.gameObject);
                             }
                         }
@@ -87,6 +92,8 @@ public class SwipePath : MonoBehaviour
                             if (!hitObjects.Contains(hit.collider.gameObject))
                             {
                                 Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                                hit.collider.gameObject.GetComponent<SpriteRenderer>().material = highlighter;
+                                hit.collider.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
                                 hitObjects.Add(hit.collider.gameObject);
                             }
                         }
@@ -144,7 +151,8 @@ public class SwipePath : MonoBehaviour
             // Brighten the tile before walking onto it so the player sees what they are walking into
             if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) <= 3.0f)
             {
-                hitObjects[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); 
+                hitObjects[0].GetComponent<SpriteRenderer>().material = defaultMaterial;
+                hitObjects[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
 
             // Remove the current front of the list whenever the player has reached that position.
@@ -163,9 +171,7 @@ public class SwipePath : MonoBehaviour
                     hitObjects.Clear();
 
                     // Move swipe object back to player
-                    this.gameObject.GetComponent<TrailRenderer>().enabled = false;
                     this.transform.position = player.transform.position;
-                    this.gameObject.GetComponent<TrailRenderer>().enabled = true;
                 }
                 else
                 {
@@ -198,33 +204,49 @@ public class SwipePath : MonoBehaviour
         // Give all walk tiles fog and lower their opacity
         for (int i = 0; i < walkTiles.Length; i++)
         {
+            Vector3 tilePosition = walkTiles[i].transform.position;
             int randNum = Random.Range(0, 10);
             if (randNum < 5)
             {
-                Instantiate(fogTypes[0], walkTiles[i].transform.position, Quaternion.identity);
+                Instantiate(fogTypes[0], new Vector3(tilePosition.x + 0.65f, tilePosition.y - 0.64f), fogTypes[0].transform.rotation);
+                Instantiate(fogTypes[1], new Vector3(tilePosition.x - 0.65f, tilePosition.y + 0.75f), fogTypes[1].transform.rotation);
+                Instantiate(fogTypes[2], new Vector3(tilePosition.x - 0.8f, tilePosition.y - 0.69f), fogTypes[2].transform.rotation);
+                Instantiate(fogTypes[2], new Vector3(tilePosition.x + 0.8f, tilePosition.y + 1f), fogTypes[2].transform.rotation);
             }
             else
             {
-                Instantiate(fogTypes[1], walkTiles[i].transform.position, Quaternion.identity);
+                Instantiate(fogTypes[0], new Vector3(tilePosition.x - 0.65f, tilePosition.y - 0.64f), fogTypes[0].transform.rotation);
+                Instantiate(fogTypes[1], new Vector3(tilePosition.x + 0.75f, tilePosition.y + 0.75f), fogTypes[1].transform.rotation);
+                Instantiate(fogTypes[2], new Vector3(tilePosition.x + 0.8f, tilePosition.y - 0.69f), fogTypes[2].transform.rotation);
+                Instantiate(fogTypes[2], new Vector3(tilePosition.x - 0.8f, tilePosition.y + 1f), fogTypes[2].transform.rotation);
             }
 
-            walkTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 0.2f);
+            walkTiles[i].GetComponent<SpriteRenderer>().material = defaultMaterial;
+            walkTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f, 0.1f);
         }
 
         // Give all trap tiles fog and lower their opacity
         for (int i = 0; i < trapTiles.Length; i++)
         {
+            Vector3 tilePosition = trapTiles[i].transform.position;
             int randNum = Random.Range(0, 10);
             if (randNum < 5)
             {
-                Instantiate(fogTypes[0], trapTiles[i].transform.position, Quaternion.identity);
+                Instantiate(fogTypes[0], new Vector3(tilePosition.x + 0.57f, tilePosition.y - 0.64f), fogTypes[0].transform.rotation);
+                Instantiate(fogTypes[1], new Vector3(tilePosition.x - 0.57f, tilePosition.y + 0.66f), fogTypes[1].transform.rotation);
+                Instantiate(fogTypes[2], new Vector3(tilePosition.x - 0.75f, tilePosition.y - 0.69f), fogTypes[2].transform.rotation);
+                Instantiate(fogTypes[2], new Vector3(tilePosition.x + 0.75f, tilePosition.y + 1f), fogTypes[2].transform.rotation);
             }
             else
             {
-                Instantiate(fogTypes[1], trapTiles[i].transform.position, Quaternion.identity);
+                Instantiate(fogTypes[0], new Vector3(tilePosition.x - 0.57f, tilePosition.y - 0.64f), fogTypes[0].transform.rotation);
+                Instantiate(fogTypes[1], new Vector3(tilePosition.x + 0.57f, tilePosition.y + 0.66f), fogTypes[1].transform.rotation);
+                Instantiate(fogTypes[2], new Vector3(tilePosition.x + 0.75f, tilePosition.y - 0.69f), fogTypes[2].transform.rotation);
+                Instantiate(fogTypes[2], new Vector3(tilePosition.x - 0.75f, tilePosition.y + 1f), fogTypes[2].transform.rotation);
             }
 
-            trapTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 0.2f);
+            trapTiles[i].GetComponent<SpriteRenderer>().material = defaultMaterial;
+            trapTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f, 0.1f);
         }
     }
 }
