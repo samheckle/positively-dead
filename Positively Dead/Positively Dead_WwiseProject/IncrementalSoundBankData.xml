@@ -5,14 +5,14 @@
 			<Language ID="393239870">
 				<File Name="Init" Hash="1491728417" Timestamp="1541528831"/>
 				<File Name="Intro" Hash="3724185927" Timestamp="1537472890"/>
-				<File Name="Music" Hash="3428707182" Timestamp="1541529784"/>
+				<File Name="Music" Hash="3201796585" Timestamp="1542658832"/>
 				<File Name="Music_01" Hash="1862795538" Timestamp="1541529513"/>
 				<File Name="New_SoundBank" Hash="3130342342" Timestamp="1541529481"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="2736996356" Timestamp="1541529784"/>
+				<File Name="" Hash="3706743795" Timestamp="1542658832"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
@@ -21,14 +21,14 @@
 			<Language ID="393239870">
 				<File Name="Init" Hash="872944895" Timestamp="1541528832"/>
 				<File Name="Intro" Hash="3724185927" Timestamp="1537472890"/>
-				<File Name="Music" Hash="3428707182" Timestamp="1541529784"/>
+				<File Name="Music" Hash="3201796585" Timestamp="1542658833"/>
 				<File Name="Music_01" Hash="1862795538" Timestamp="1541529513"/>
 				<File Name="New_SoundBank" Hash="3130342342" Timestamp="1541529483"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="3899221616" Timestamp="1541529784"/>
+				<File Name="" Hash="436892255" Timestamp="1542658833"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
@@ -37,14 +37,14 @@
 			<Language ID="393239870">
 				<File Name="Init" Hash="3121226777" Timestamp="1541528832"/>
 				<File Name="Intro" Hash="3724185927" Timestamp="1537472891"/>
-				<File Name="Music" Hash="3428707182" Timestamp="1541529785"/>
+				<File Name="Music" Hash="3201796585" Timestamp="1542658834"/>
 				<File Name="Music_01" Hash="1862795538" Timestamp="1541529514"/>
 				<File Name="New_SoundBank" Hash="3130342342" Timestamp="1541529484"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="2011893530" Timestamp="1541529785"/>
+				<File Name="" Hash="972356465" Timestamp="1542658834"/>
 			</Language>
 		</XMLInfo>
 	</Platform>

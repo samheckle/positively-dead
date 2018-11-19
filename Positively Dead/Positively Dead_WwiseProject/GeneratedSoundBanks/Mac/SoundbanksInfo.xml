@@ -21,10 +21,17 @@
 			<ShortName>Music</ShortName>
 			<Path>Music.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3769467276" Name="ChinesePlay" ObjectPath="\Events\Default Work Unit\ChinesePlay"/>
+				<Event Id="4218506511" Name="DiyuMinigamePlay" ObjectPath="\Events\Default Work Unit\DiyuMinigamePlay"/>
+				<Event Id="4283076020" Name="DiyuPlay" ObjectPath="\Events\Default Work Unit\DiyuPlay"/>
 				<Event Id="131922971" Name="IntroPlay" ObjectPath="\Events\Default Work Unit\IntroPlay"/>
+				<Event Id="3783761940" Name="NorsePlay" ObjectPath="\Events\Default Work Unit\NorsePlay"/>
+				<Event Id="2970581085" Name="Type" ObjectPath="\Events\Default Work Unit\Type"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="74949864" Language="SFX">
+					<ShortName>text.wav</ShortName>
+					<Path>SFX/text_56D34C19.wem</Path>
+				</File>
 				<File Id="492868150" Language="SFX">
 					<ShortName>chinese03.wav</ShortName>
 					<Path>SFX/chinese03_8956FC97.wem</Path>
@@ -32,6 +39,14 @@
 				<File Id="530089285" Language="SFX">
 					<ShortName>Intro03.wav</ShortName>
 					<Path>SFX/Intro03_8956FC97.wem</Path>
+				</File>
+				<File Id="792703873" Language="SFX">
+					<ShortName>Norse02_07.wav</ShortName>
+					<Path>SFX/Norse02_07_56D34C19.wem</Path>
+				</File>
+				<File Id="967813808" Language="SFX">
+					<ShortName>chinese_slower00.wav</ShortName>
+					<Path>SFX/chinese_slower00_56D34C19.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

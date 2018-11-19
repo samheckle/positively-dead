@@ -6,7 +6,10 @@
 				<SoundBank Name="Music" ID="{618943C9-2499-4AB3-BA28-8C54439FBF5D}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Intro" ID="{AD0AB563-191C-41B0-91F3-470E3BB7731A}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
-						<ObjectRef Name="Chinese" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Diyu_Minigame" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Diyu" ID="{2DF00139-050F-4A95-A3FF-AA4CC0C25966}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Text" ID="{EBA531B1-06AB-4B67-BE52-6B8B00356AD9}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Norse" ID="{D2F86F3A-28A4-4C9A-9D5F-8FCCA9B4C8F3}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

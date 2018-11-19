@@ -24,7 +24,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="ChinesePlay" ID="{D0CD7EBB-099E-4F43-8660-06935EB8E6D7}">
+				<Event Name="DiyuMinigamePlay" ID="{D0CD7EBB-099E-4F43-8660-06935EB8E6D7}">
 					<ChildrenList>
 						<Action Name="" ID="{1EB488AB-F682-4B0B-AB6C-DCC859124D91}" ShortID="35944018">
 							<PropertyList>
@@ -39,7 +39,63 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Chinese" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+									<ObjectRef Name="Diyu_Minigame" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="NorsePlay" ID="{2F4EAFC9-C6D3-4F77-AD67-C6931A36FCFA}">
+					<ChildrenList>
+						<Action Name="" ID="{002AC066-0FF2-4A61-8CFF-933084BC1E4E}" ShortID="13096704">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{0A4B7750-9042-4D65-82F3-9F3D97A62BE6}" ShortID="1040484468">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Norse" ID="{D2F86F3A-28A4-4C9A-9D5F-8FCCA9B4C8F3}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DiyuPlay" ID="{6B6E8F9E-3E23-4DFE-B08F-9245822A4F57}">
+					<ChildrenList>
+						<Action Name="" ID="{39877E01-EE07-4E7B-9C91-6944D3A360EA}" ShortID="55627346">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{B97985FB-D882-4610-A52B-01CFBDF2E785}" ShortID="961664816">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Diyu" ID="{2DF00139-050F-4A95-A3FF-AA4CC0C25966}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Type" ID="{0A4FC394-7C1F-4907-8DBD-94AEDD08D57C}">
+					<ChildrenList>
+						<Action Name="" ID="{29AA4230-61CB-41A3-852B-7D79D22D006C}" ShortID="760994274">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Text" ID="{EBA531B1-06AB-4B67-BE52-6B8B00356AD9}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

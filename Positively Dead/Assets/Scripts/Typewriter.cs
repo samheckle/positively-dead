@@ -53,6 +53,7 @@ public class Typewriter : MonoBehaviour
         animComplete = false;
         for (int i = 0; i < finalText.Length + 1; i++)
         {
+            AkSoundEngine.PostEvent("Type", gameObject);
             animText.text = finalText.Substring(0, i);
             yield return new WaitForSeconds(typeDelay);
         }

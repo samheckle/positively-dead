@@ -3,9 +3,14 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" PersistMode="Standalone">
 			<ChildrenList>
-				<Sound Name="Chinese" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" ShortID="49814272">
+				<Sound Name="Diyu_Minigame" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" ShortID="49814272">
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -45,6 +50,114 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Intro03" ID="{0BF3D8BD-33AC-48BD-9F39-A7BF22FC9838}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Norse" ID="{D2F86F3A-28A4-4C9A-9D5F-8FCCA9B4C8F3}" ShortID="437781252">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Norse02_07" ID="{4C673840-1AE6-427F-BE03-184D24DA501C}" ShortID="792703873">
+							<Language>SFX</Language>
+							<AudioFile>Norse02_07.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Norse02_07" ID="{4C673840-1AE6-427F-BE03-184D24DA501C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Diyu" ID="{2DF00139-050F-4A95-A3FF-AA4CC0C25966}" ShortID="1047759053">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="chinese_slower00" ID="{911D7B08-7344-44F4-BE27-04E7DAE0BCAF}" ShortID="967813808">
+							<Language>SFX</Language>
+							<AudioFile>chinese_slower00.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="chinese_slower00" ID="{911D7B08-7344-44F4-BE27-04E7DAE0BCAF}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Text" ID="{EBA531B1-06AB-4B67-BE52-6B8B00356AD9}" ShortID="480582320">
+					<PropertyList>
+						<Property Name="Lowpass" Type="int16">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{47053B18-D045-4777-95CA-8902A0E636F2}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="OutputBusHighpass" Type="int16">
+							<ValueList>
+								<Value>58</Value>
+							</ValueList>
+						</Property>
+						<Property Name="OutputBusLowpass" Type="int16">
+							<ValueList>
+								<Value>58</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{5A046E6C-BD6D-4B90-A183-CDD95DC2EA69}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="8"/>
+											<Property Name="Min" Type="Real64" Value="-8"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="text" ID="{68B5E70F-4383-42EE-8533-386F422E3FA4}" ShortID="74949864">
+							<Language>SFX</Language>
+							<AudioFile>text.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="text" ID="{68B5E70F-4383-42EE-8533-386F422E3FA4}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
