@@ -1,0 +1,8 @@
+Event	ID	Name			Wwise Object Path	Notes
+	131922971	IntroPlay			\Default Work Unit\IntroPlay	
+	3769467276	ChinesePlay			\Default Work Unit\ChinesePlay	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	492868150	Chinese	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Windows\SFX\chinese03_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\Chinese		20054088
+	530089285	Intro	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Windows\SFX\Intro03_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\Intro		18522464
+
