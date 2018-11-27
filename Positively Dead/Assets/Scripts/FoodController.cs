@@ -519,7 +519,7 @@ public class FoodController : MonoBehaviour
 
     void PopUpText()
     {
-        levelTxt.text = "Level " + level;
+        levelTxt.text = "Tap to Continue";
 
         if (level > 3)
             levelTxt.text = "";
@@ -553,9 +553,14 @@ public class FoodController : MonoBehaviour
         timer += Time.unscaledDeltaTime;
         if (timer < timePeriod)
         {
-            Time.timeScale = 0.25f;
+            Time.timeScale = 0.000001f;
             PopUpText();
-            StartCoroutine(ResumeAfterNSeconds(3.0f));
+            //StartCoroutine(ResumeAfterNSeconds(3.0f));
+            if (Input.touchCount > 0 || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("HI");
+                StartCoroutine(ResumeAfterNSeconds(3.0f));
+            }
         }
         else
         {
