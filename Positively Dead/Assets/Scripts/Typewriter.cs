@@ -49,17 +49,17 @@ public class Typewriter : MonoBehaviour
             StartCoroutine(coroutine);
         }
 
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButton(0))
+        {
+            currentDelay = 0f;
+        }
+        else if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Stationary)
             {
-                currentDelay = 0.000001f;
-            } else
-            {
-                currentDelay = typeDelay;
+                currentDelay = 0f;
             }
-            Debug.Log(currentDelay);
         }
         else
         {
@@ -69,14 +69,6 @@ public class Typewriter : MonoBehaviour
                 animComplete = true;
             }
         }
-
-        /*if (Input.GetMouseButton(0))
-        {
-            currentDelay = 0.000001f;
-        } else
-        {
-            currentDelay = typeDelay;
-        }*/
 
         //Set the test equal to the desired string
         testText = finalText;
@@ -93,10 +85,6 @@ public class Typewriter : MonoBehaviour
         {
             animText.text = finalText.Substring(0, i);
             Debug.Log(currentDelay);
-            yield return new WaitForSeconds(currentDelay);
-        }
-        while (Input.touchCount > 0)
-        {
             yield return new WaitForSeconds(currentDelay);
         }
         coroutineComplete = true;
