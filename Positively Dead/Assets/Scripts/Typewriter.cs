@@ -11,6 +11,8 @@ public class Typewriter : MonoBehaviour
     //The text to be animated
     private Text animText;
 
+    private IEnumerator coroutine;
+
     //Test to see if the string has changed
     private string testText;
 
@@ -20,11 +22,16 @@ public class Typewriter : MonoBehaviour
     //The typing delay
     public float typeDelay;
 
+    public float currentDelay;
+
     public bool animComplete;
+    private bool coroutineComplete;
 
     // Use this for initialization
     void Awake()
     {
+        currentDelay = typeDelay;
+        Debug.Log("Current delay: " + currentDelay);
         animText = gameObject.GetComponent<Text>();
         StartCoroutine(Type());
     }
@@ -37,9 +44,39 @@ public class Typewriter : MonoBehaviour
         {
             //Reset the text and begin the animation again
             StopAllCoroutines();
+            coroutine = Type();
             animText.text = "";
-            StartCoroutine(Type());
+            StartCoroutine(coroutine);
         }
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Stationary)
+            {
+                currentDelay = 0.000001f;
+            } else
+            {
+                currentDelay = typeDelay;
+            }
+            Debug.Log(currentDelay);
+        }
+        else
+        {
+            currentDelay = typeDelay;
+            if(coroutineComplete)
+            {
+                animComplete = true;
+            }
+        }
+
+        /*if (Input.GetMouseButton(0))
+        {
+            currentDelay = 0.000001f;
+        } else
+        {
+            currentDelay = typeDelay;
+        }*/
 
         //Set the test equal to the desired string
         testText = finalText;
@@ -51,11 +88,17 @@ public class Typewriter : MonoBehaviour
     IEnumerator Type()
     {
         animComplete = false;
+        coroutineComplete = false;
         for (int i = 0; i < finalText.Length + 1; i++)
         {
             animText.text = finalText.Substring(0, i);
-            yield return new WaitForSeconds(typeDelay);
+            Debug.Log(currentDelay);
+            yield return new WaitForSeconds(currentDelay);
         }
-        animComplete = true;
+        while (Input.touchCount > 0)
+        {
+            yield return new WaitForSeconds(currentDelay);
+        }
+        coroutineComplete = true;
     }
 }
