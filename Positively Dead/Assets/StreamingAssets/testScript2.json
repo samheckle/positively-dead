@@ -2,7 +2,7 @@
     {
         "speakerName": "Nik",
         "text": "This is version 2 of our dialogue tool. Both of these choices lead to the same response.",
-        "textSpeed": 0.01,
+        "textSpeed": 0.02,
         "responseOptions": [
             "Neat! Go to the next dialogue!",
             "Cool! Go to the next dialogue!"
@@ -11,7 +11,7 @@
     {
         "speakerName": "Nik",
         "text": "Where would you like to go?",
-        "textSpeed": 0.01,
+        "textSpeed": 0.02,
         "responseOptions": [
             "Egypt",
             "China"

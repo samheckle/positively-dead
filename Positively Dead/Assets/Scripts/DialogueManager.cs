@@ -39,7 +39,7 @@ public class DialogueManager : MonoBehaviour
     //Continue buttons
     public GameObject button1;
     public GameObject button2;
-    public GameObject advanceButton;
+    public bool touchAdvance;
 
     //Character images
     public GameObject characterLeft;
@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour
             switch (currentDialogue.ResponseCount)
             {
                 case 0:
-                    advanceButton.SetActive(true);
+                    OnScreenTap();
                     break;
                 case 1:
                     button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
@@ -118,6 +118,7 @@ public class DialogueManager : MonoBehaviour
     void DisplayDialogue(Dialogue dialogue)
     {
         typer.typeDelay = dialogue.TextSpeed;
+        typer.currentDelay = dialogue.TextSpeed;
         typer.finalText = dialogue.Text;
 
         //If there is a new speaker, swap their images
@@ -169,25 +170,51 @@ public class DialogueManager : MonoBehaviour
     /// <param name="index">Index of next dialogue</param>
     public void OnClick(int index)
     {
-        UpdateKarma(currentDialogue.EndsScene);
-
-        //If this is the end of the scene, then load the next unity scene
-        if (currentDialogue.EndsScene)
+        if (typer.animComplete)
         {
-            loadSceneManager.TriggerLoad(nextScene);
+            Debug.Log("Button " + index);
+            UpdateKarma(currentDialogue.EndsScene);
+
+            //If this is the end of the scene, then load the next unity scene
+            if (currentDialogue.EndsScene)
+            {
+                loadSceneManager.TriggerLoad(nextScene);
+            }
+            else
+            {
+                //If the index is beyond the number of options, display the default option
+                if (index >= currentDialogue.DialogueCount) index = 0;
+
+                //Display the dialogue at index and deactivate the buttons
+                currentDialogue = currentDialogue.NextDialogue(index);
+
+                button1.SetActive(false);
+                button2.SetActive(false);
+                DisplayDialogue(currentDialogue);
+            }
         }
-        else
+    }
+
+    public void OnClick()
+    {
+        if (typer.animComplete)
         {
-            //If the index is beyond the number of options, display the default option
-            if (index >= currentDialogue.DialogueCount) index = 0;
+            UpdateKarma(currentDialogue.EndsScene);
 
-            //Display the dialogue at index and deactivate the buttons
-            currentDialogue = currentDialogue.NextDialogue(index);
+            //If this is the end of the scene, then load the next unity scene
+            if (currentDialogue.EndsScene)
+            {
+                loadSceneManager.TriggerLoad(nextScene);
+            }
+            else
+            {
+                //Display the dialogue at index and deactivate the buttons
+                currentDialogue = currentDialogue.NextDialogue(0);
 
-            DisplayDialogue(currentDialogue);
-            advanceButton.SetActive(false);
-            button1.SetActive(false);
-            button2.SetActive(false);
+                button1.SetActive(false);
+                button2.SetActive(false);
+                DisplayDialogue(currentDialogue);
+            }
         }
     }
 
@@ -197,22 +224,17 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void OnScreenTap()
     {
-        UpdateKarma(currentDialogue.EndsScene);
-
-        //If this is the end of the scene, then load the next unity scene
-        if (currentDialogue.EndsScene)
+        if (Input.touchCount > 0)
         {
-            loadSceneManager.TriggerLoad(nextScene);
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                OnClick();
+            }
         }
-        else
+        else if (Input.GetMouseButtonDown(0))
         {
-            //Display the dialogue at index and deactivate the buttons
-            currentDialogue = currentDialogue.NextDialogue(0);
-
-            DisplayDialogue(currentDialogue);
-            advanceButton.SetActive(false);
-            button1.SetActive(false);
-            button2.SetActive(false);
+            OnClick();
         }
     }
 
