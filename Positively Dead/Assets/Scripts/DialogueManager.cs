@@ -43,13 +43,21 @@ public class DialogueManager : MonoBehaviour
 
     //Character images
     public GameObject characterLeft;
+    private SpriteRenderer speakerImg;
     public GameObject characterRight;
+
+    //Character Sprites
+    public Sprite speakerAngry;
+    public Sprite speakerNeutral;
+    public Sprite speakerHappy;
 
     // Use this for initialization
     void Start()
     {
         typer = gameObject.GetComponent<Typewriter>();
         loadSceneManager = gameObject.GetComponent<OpenScene>();
+        speakerImg = characterLeft.GetComponent<SpriteRenderer>();
+
         button1.SetActive(false);
         button2.SetActive(false);
 
@@ -187,6 +195,21 @@ public class DialogueManager : MonoBehaviour
 
                 //Display the dialogue at index and deactivate the buttons
                 currentDialogue = currentDialogue.NextDialogue(index);
+
+
+                //Update speaker image accordingly
+                if(currentDialogue.Karma < -1)
+                {
+                    speakerImg.sprite = speakerAngry;
+                }
+                else if(currentDialogue.Karma > 1)
+                {
+                    speakerImg.sprite = speakerHappy;
+                }
+                else
+                {
+                    speakerImg.sprite = speakerNeutral;
+                }
 
                 button1.SetActive(false);
                 button2.SetActive(false);
