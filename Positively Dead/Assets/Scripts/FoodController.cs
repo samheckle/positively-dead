@@ -27,6 +27,8 @@ public class FoodController : MonoBehaviour
     // The list of food objects that are currently falling on screen
     public List<GameObject> foodObjects;
 
+    public List<GameObject> levelOverObjects;
+
     public List<float> foodSpeeds;
 
     // The foods the player needs to catch to complete the round
@@ -49,7 +51,7 @@ public class FoodController : MonoBehaviour
         levelObjects = new List<GameObject>();
         player = GameObject.FindGameObjectWithTag("Player");
         scoreTxt = GameObject.FindGameObjectWithTag("ScoreTxt").GetComponent<Text>();
-        levelTxt = GameObject.FindGameObjectWithTag("Level").GetComponent<Text>();
+
         for (int i = 1; i < 10; i++)
         {
             foodImages.Add(GameObject.FindGameObjectWithTag("Image" + i).GetComponent<Image>());
@@ -58,6 +60,8 @@ public class FoodController : MonoBehaviour
         {
             levelObjects.Add(GameObject.FindGameObjectWithTag("Level" + i + "Images"));
         }
+
+        levelTxt = levelOverObjects[0].GetComponent<Text>();
 
         // Start the game
         IncrementLevel();
@@ -82,9 +86,12 @@ public class FoodController : MonoBehaviour
         }
 
         if (timer != 0)
-            levelTxt.enabled = true;
+            foreach (GameObject g in levelOverObjects)
+                g.SetActive(true);
+        //levelTxt.enabled = true;
         else
-            levelTxt.enabled = false;
+            foreach (GameObject g in levelOverObjects)
+                g.SetActive(false);
     }
 
     /// <summary>
@@ -214,7 +221,7 @@ public class FoodController : MonoBehaviour
         if (level > 1)
         {
             // Freeze game for 3 seconds and countdown
-            StartCoroutine(ResumeAfterNSeconds(1.0f));
+            StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));
         }
 
         // clear any objective information currently stored in the dictionaries
@@ -519,7 +526,7 @@ public class FoodController : MonoBehaviour
 
     void PopUpText()
     {
-        levelTxt.text = "Level " + level;
+        levelTxt.text = "Tap to Continue";
 
         if (level > 3)
             levelTxt.text = "";
@@ -547,21 +554,21 @@ public class FoodController : MonoBehaviour
 
     // https://forum.unity.com/threads/solved-slow-everything-but-the-player.323965/
     float timer = 0.0f;
-    IEnumerator ResumeAfterNSeconds(float timePeriod)
+    IEnumerator WaitForKeyDown(KeyCode keyCode)
     {
-        yield return new WaitForEndOfFrame();
-        timer += Time.unscaledDeltaTime;
-        if (timer < timePeriod)
+        while (!Input.GetKeyDown(keyCode) || !Input.GetMouseButtonDown(0))
         {
-            Time.timeScale = 0.25f;
+            yield return null;
+            timer += Time.unscaledDeltaTime;
+            Time.timeScale = 0.000001f;
             PopUpText();
-            StartCoroutine(ResumeAfterNSeconds(3.0f));
-        }
-        else
-        {
-            //Resume Game
-            Time.timeScale = 1;
-            timer = 0;
+            if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
+            {
+                //Resume Game
+                Time.timeScale = 1;
+                timer = 0;
+                break;
+            }
         }
     }
 }
