@@ -1,0 +1,91 @@
+[{
+    "speakerName": "Death",
+    "text": "Now we have arrived in Diyu. Don't be fooled by appearances, this is a maze filled with....puzzle devices so that people can redeem themselves.",
+    "textSpeed": 0.02,
+    "karma": 0,
+    "responseOptions": [
+        "Why would they want to redeem themselves?"
+    ],
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "A core part Asian lore is reincarnation. Specifically with Diyu and China, people believe they have to right their wrongs in front of Yama and he can pass them on to their next life.",
+        "textSpeed": 0.02,
+        "karma": 0,
+        "dialogueOptions": [{
+            "speakerName": "Priestess",
+            "text": "Oh, you have finally arrived.",
+            "textSpeed": 0.02,
+            "karma": 0,
+            "responseOptions": [
+                "Uhhhhhhhhhhh",
+                "I am Yama! Worship me and my eternal life!"
+            ],
+            "dialogueOptions": [{
+                    "speakerName": "Guy",
+                    "text": "What do you want from me?",
+                    "textSpeed": 0.02,
+                    "karma": 1,
+                    "responseOptions": [
+                        "I only came to help. Is there something you are struggling with?"
+                    ],
+                    "dialogueOptions": [{
+                        "speakerName": "Guy",
+                        "text": "I'm about to embark on the last levels of Diyu, I think your assistance might be required for me to pass.",
+                        "textSpeed": 0.02,
+                        "karma": 0,
+                        "responseOptions": [
+                            "Okay, what do we have to do?"
+                        ],
+                        "dialogueOptions": [{
+                            "speakerName": "Guy",
+                            "text": "Diyu is a series of mazes going from one level to the next. I have already conquered the first six levels thanks to the glory of Mao. But now I'm stuck here and I am unable to even open the door. I do not know what lies beyond it.",
+                            "textSpeed": 0.02,
+                            "karma": 0,
+                            "responseOptions": [
+                                "I think...if we try this...."
+                            ],
+                            "endsScene": true
+                        }]
+                    }]
+                },
+                {
+                    "speakerName": "Death",
+                    "text": "This isn't the time to joke kid. Apologize so we can continue to help him.",
+                    "textSpeed": 0.02,
+                    "karma": -2,
+                    "responseOptions": [
+                        "It was just a joke, I'm sorry."
+                    ],
+                    "dialogueOptions": [{
+                        "speakerName": "Guy",
+                        "text": "What do you want from me?",
+                        "textSpeed": 0.02,
+                        "karma": 1,
+                        "responseOptions": [
+                            "I only came to help. Is there something you are struggling with?"
+                        ],
+                        "dialogueOptions": [{
+                            "speakerName": "Guy",
+                            "text": "I'm about to embark on the last levels of Diyu, I think your assistance might be required for me to pass.",
+                            "textSpeed": 0.02,
+                            "karma": 0,
+                            "responseOptions": [
+                                "Okay, what do we have to do?"
+                            ],
+                            "dialogueOptions": [{
+                                "speakerName": "Guy",
+                                "text": "Diyu is a series of mazes going from one level to the next. I have already conquered the first six levels thanks to the glory of Mao. But now I'm stuck here and I am unable to even open the door. I do not know what lies beyond it.",
+                                "textSpeed": 0.02,
+                                "karma": 0,
+                                "responseOptions": [
+                                    "I think...if we try this...."
+                                ],
+                                "endsScene": true
+                            }]
+                        }]
+                    }]
+                }
+            ]
+        }]
+    }]
+}]
