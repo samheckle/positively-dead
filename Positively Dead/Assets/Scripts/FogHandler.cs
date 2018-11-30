@@ -5,7 +5,6 @@ using UnityEngine;
 public class FogHandler : MonoBehaviour
 {
     public GameObject player;
-    public float distance;
     public float solidDistance;
 
     private Color fogColor;
@@ -21,16 +20,27 @@ public class FogHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(this.transform.position, player.transform.position);
+        // Adjust opacity based on distance from palyer
+        float distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
 
-        if (distance < solidDistance)
+        if (distanceFromPlayer < solidDistance)
         {
-            this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, (distance * .2f));
+            if (distanceFromPlayer <= 1.25f)
+            {
+                this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, (distanceFromPlayer * .2f));
+            }
         }
 
-        if (distance <= 1.25f)
+        // Adjust opacity based on distance from torches
+        GameObject torch = GameObject.FindGameObjectWithTag("Torch");
+        if (torch != null)
         {
-            Destroy(this.gameObject);
+            float distanceFromTorch = Vector3.Distance(this.transform.position, torch.transform.position);
+
+            if (distanceFromTorch < 5.0f)
+            {
+                this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, (distanceFromTorch * .2f));
+            }
         }
     }
 }

@@ -16,9 +16,9 @@ public class EndTileChecker : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(Vector3.Distance(this.gameObject.transform.position,player.transform.position) <= 0.2f)
+        if (Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= 0.2f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-	}
+    }
 }

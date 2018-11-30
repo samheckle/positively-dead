@@ -5,12 +5,12 @@ using UnityEngine;
 public class SwipePath : MonoBehaviour
 {
     public List<GameObject> hitObjects;
-    GameObject player;
-
     public GameObject[] fogTypes;
     public Material defaultMaterial;
     public Material highlighter;
-    Vector3 startPosition;
+
+    private GameObject player;
+    private Vector3 startPosition;
 
     // Use this for initialization
     void Start()
@@ -120,7 +120,7 @@ public class SwipePath : MonoBehaviour
         {
             if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) >= 0.1f)
             {
-                if (player.transform.position.x != hitObjects[0].transform.position.x)
+                if (Mathf.Abs(player.transform.position.x - hitObjects[0].transform.position.x) >= 0.1f)
                 {
                     if (player.transform.position.x > hitObjects[0].transform.position.x)
                     {
@@ -131,7 +131,7 @@ public class SwipePath : MonoBehaviour
                         player.transform.position += new Vector3(2f * Time.deltaTime, 0.0f);
                     }
                 }
-                if (player.transform.position.y != hitObjects[0].transform.position.y)
+                if (Mathf.Abs(player.transform.position.y - hitObjects[0].transform.position.y) >= 0.1f)
                 {
                     if (player.transform.position.y > hitObjects[0].transform.position.y)
                     {
@@ -163,6 +163,9 @@ public class SwipePath : MonoBehaviour
                 {
                     // Move player
                     player.transform.position = startPosition;
+
+                    // Lower Karma
+                    PlayerPrefs.SetInt("Karma", PlayerPrefs.GetInt("Karma") - 1);
 
                     // Clean up fog and reset tile opacity
                     SetFog();
@@ -222,7 +225,7 @@ public class SwipePath : MonoBehaviour
             }
 
             walkTiles[i].GetComponent<SpriteRenderer>().material = defaultMaterial;
-            walkTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f, 0.1f);
+            walkTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.75f, 0.75f, 0.75f, 0.5f);
         }
 
         // Give all trap tiles fog and lower their opacity
