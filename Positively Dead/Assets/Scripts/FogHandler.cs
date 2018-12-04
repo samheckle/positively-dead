@@ -27,25 +27,25 @@ public class FogHandler : MonoBehaviour
     void Update()
     {
         // Adjust opacity based on distance from palyer
-        float distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
+        float distanceFromPlayer = Vector2.Distance(this.transform.position, player.transform.position);
 
         if (distanceFromPlayer < 2.25f)
         {
             if(player.transform.up == UP)
             {
-                fogRB.AddForce(new Vector2(0.5f, 5f));
+                fogRB.AddForce(new Vector2(0.5f, 15f));
             }
             else if (player.transform.up == DOWN)
             {
-                fogRB.AddForce(new Vector2(-0.5f, -5f));
+                fogRB.AddForce(new Vector2(-0.5f, -15f));
             }
             else if(player.transform.up == LEFT)
             {
-                fogRB.AddForce(new Vector2(-5f, -0.5f));
+                fogRB.AddForce(new Vector2(-15f, -0.5f));
             }
             else if (player.transform.up == RIGHT)
             {
-                fogRB.AddForce(new Vector2(5f, 0.5f));
+                fogRB.AddForce(new Vector2(15f, 0.5f));
             }
         }
 
