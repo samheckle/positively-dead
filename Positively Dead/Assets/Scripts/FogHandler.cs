@@ -8,13 +8,19 @@ public class FogHandler : MonoBehaviour
     public float solidDistance;
 
     private Color fogColor;
+    private Rigidbody2D fogRB;
+
+    private Vector3 UP = new Vector3(0f, 1f);
+    private Vector3 DOWN = new Vector3(0f, -1f);
+    private Vector3 LEFT = new Vector3(-1f, 0f);
+    private Vector3 RIGHT = new Vector3(1f, 0f);
 
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         fogColor = this.GetComponent<SpriteRenderer>().color;
-        solidDistance = 2f;
+        fogRB = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,11 +29,23 @@ public class FogHandler : MonoBehaviour
         // Adjust opacity based on distance from palyer
         float distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
 
-        if (distanceFromPlayer < solidDistance)
+        if (distanceFromPlayer < 2.25f)
         {
-            if (distanceFromPlayer <= 1.25f)
+            if(player.transform.up == UP)
             {
-                this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, (distanceFromPlayer * .2f));
+                fogRB.AddForce(new Vector2(0.5f, 5f));
+            }
+            else if (player.transform.up == DOWN)
+            {
+                fogRB.AddForce(new Vector2(-0.5f, -5f));
+            }
+            else if(player.transform.up == LEFT)
+            {
+                fogRB.AddForce(new Vector2(-5f, -0.5f));
+            }
+            else if (player.transform.up == RIGHT)
+            {
+                fogRB.AddForce(new Vector2(5f, 0.5f));
             }
         }
 
@@ -37,9 +55,13 @@ public class FogHandler : MonoBehaviour
         {
             float distanceFromTorch = Vector3.Distance(this.transform.position, torch.transform.position);
 
-            if (distanceFromTorch < 5.0f)
+            if (distanceFromTorch < 5f)
             {
-                this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, (distanceFromTorch * .2f));
+                this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, 0.5f);
+            }
+            else
+            {
+                this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, 1f);
             }
         }
     }

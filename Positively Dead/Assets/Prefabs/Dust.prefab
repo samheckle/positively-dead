@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4719415158015098}
   - component: {fileID: 212113360762002576}
   - component: {fileID: 114209920739720520}
+  - component: {fileID: 50026734897210968}
   m_Layer: 0
   m_Name: Dust
   m_TagString: Fog
@@ -41,6 +42,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25.313002}
+--- !u!50 &50026734897210968
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959504054952564}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0.25
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &114209920739720520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,7 +74,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  distance: 0
   solidDistance: 0
 --- !u!212 &212113360762002576
 SpriteRenderer:

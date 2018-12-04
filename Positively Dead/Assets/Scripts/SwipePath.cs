@@ -17,8 +17,9 @@ public class SwipePath : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = GameObject.FindGameObjectWithTag("Start Tile").transform.position;
+        player.transform.up = new Vector3(0f, 0f, 0f);
         startPosition = player.transform.position;
-        SetFog();
+        SetupLevel();
     }
 
     // Update is called once per frame
@@ -115,44 +116,45 @@ public class SwipePath : MonoBehaviour
     /// </summary>
     void MovePlayer()
     {
-        // Check if the player is not currently on the tile at the front of the list
+        // Check if the player is not currently on the tile at the front of the list and move them toward it
         if (hitObjects.Count > 0)
         {
-            if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) >= 0.1f)
+            // Brighten the tile before walking onto it so the player sees what they are walking into
+            if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) <= 4f)
             {
-                if (Mathf.Abs(player.transform.position.x - hitObjects[0].transform.position.x) >= 0.1f)
+                hitObjects[0].GetComponent<SpriteRenderer>().material = defaultMaterial;
+                hitObjects[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            }     
+
+            if (Mathf.Abs(player.transform.position.x - hitObjects[0].transform.position.x) >= 0.05f)
+            {
+                if (player.transform.position.x > hitObjects[0].transform.position.x)
                 {
-                    if (player.transform.position.x > hitObjects[0].transform.position.x)
-                    {
-                        player.transform.position -= new Vector3(2f * Time.deltaTime, 0.0f);
-                    }
-                    else
-                    {
-                        player.transform.position += new Vector3(2f * Time.deltaTime, 0.0f);
-                    }
+                    player.transform.position -= new Vector3(2f * Time.deltaTime, 0.0f);
+                    player.transform.up = new Vector3(-1.0f, 0.0f);
                 }
-                if (Mathf.Abs(player.transform.position.y - hitObjects[0].transform.position.y) >= 0.1f)
+                else
                 {
-                    if (player.transform.position.y > hitObjects[0].transform.position.y)
-                    {
-                        player.transform.position -= new Vector3(0.0f, 2f * Time.deltaTime);
-                    }
-                    else
-                    {
-                        player.transform.position += new Vector3(0.0f, 2f * Time.deltaTime);
-                    }
+                    player.transform.position += new Vector3(2f * Time.deltaTime, 0.0f);
+                    player.transform.up = new Vector3(1.0f, 0.0f);
+                }
+            }
+            else if (Mathf.Abs(player.transform.position.y - hitObjects[0].transform.position.y) >= 0.05f)
+            {
+                if (player.transform.position.y > hitObjects[0].transform.position.y)
+                {
+                    player.transform.position -= new Vector3(0.0f, 2f * Time.deltaTime);
+                    player.transform.up = new Vector3(0.0f, -1.0f);
+                }
+                else
+                {
+                    player.transform.position += new Vector3(0.0f, 2f * Time.deltaTime);
+                    player.transform.up = new Vector3(0.0f, 1.0f);
                 }
             }
             else
             {
                 player.transform.position = hitObjects[0].transform.position; // used to smooth the movement
-            }
-
-            // Brighten the tile before walking onto it so the player sees what they are walking into
-            if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) <= 3.0f)
-            {
-                hitObjects[0].GetComponent<SpriteRenderer>().material = defaultMaterial;
-                hitObjects[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
             }
 
             // Remove the current front of the list whenever the player has reached that position.
@@ -168,7 +170,7 @@ public class SwipePath : MonoBehaviour
                     PlayerPrefs.SetInt("Karma", PlayerPrefs.GetInt("Karma") - 1);
 
                     // Clean up fog and reset tile opacity
-                    SetFog();
+                    ResetLevel();
 
                     // Clean out any objects remaining that were hit by the swipe
                     hitObjects.Clear();
@@ -192,7 +194,7 @@ public class SwipePath : MonoBehaviour
     /// <summary>
     /// Sets up the fog and hides tiles by lowering their visibility.
     /// </summary>
-    void SetFog()
+    void SetupLevel()
     {
         // Clear out existing fog
         GameObject[] fogTiles = GameObject.FindGameObjectsWithTag("Fog");
@@ -248,6 +250,44 @@ public class SwipePath : MonoBehaviour
                 Instantiate(fogTypes[2], new Vector3(tilePosition.x - 0.75f, tilePosition.y + 1f), fogTypes[2].transform.rotation);
             }
 
+            trapTiles[i].GetComponent<SpriteRenderer>().material = defaultMaterial;
+            trapTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f, 0.1f);
+        }
+    }
+
+    void ResetLevel()
+    {
+        GameObject[] fogTiles = GameObject.FindGameObjectsWithTag("Fog");
+        GameObject[] walkTiles = GameObject.FindGameObjectsWithTag("Walk Tile");
+        GameObject[] trapTiles = GameObject.FindGameObjectsWithTag("Trap Tile");
+
+        // Reset fog positions
+        for (int i = 0; i < walkTiles.Length; i++)
+        {
+            Vector3 tilePosition = walkTiles[i].transform.position;
+            for(int j = i * 4; j < (i * 4) + 1; j++)
+            {
+                fogTiles[j].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+                fogTiles[j].transform.position = new Vector3(tilePosition.x + 0.57f, tilePosition.y - 0.64f);
+                fogTiles[j + 1].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+                fogTiles[j + 1].transform.position = new Vector3(tilePosition.x - 0.57f, tilePosition.y + 0.66f);
+                fogTiles[j + 2].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+                fogTiles[j + 2].transform.position = new Vector3(tilePosition.x - 0.75f, tilePosition.y - 0.69f);
+                fogTiles[j + 3].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+                fogTiles[j + 3].transform.position = new Vector3(tilePosition.x + 0.75f, tilePosition.y + 1f);
+            }
+        }
+
+        // Reset walk tile opacity
+        for (int i = 0; i < walkTiles.Length; i++)
+        {
+            walkTiles[i].GetComponent<SpriteRenderer>().material = defaultMaterial;
+            walkTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.75f, 0.75f, 0.75f, 0.5f);
+        }
+
+        // Reset trap tile opacity
+        for (int i = 0; i < trapTiles.Length; i++)
+        {
             trapTiles[i].GetComponent<SpriteRenderer>().material = defaultMaterial;
             trapTiles[i].GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f, 0.1f);
         }
