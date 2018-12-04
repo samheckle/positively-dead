@@ -1,14 +1,14 @@
 [{
     "speakerName": "Death",
-    "text": "Now we have arrived in Diyu. Don't be fooled by appearances, this is a maze filled with....puzzle devices so that people can redeem themselves.",
+    "text": "Our final stop - the Field of Reeds. ",
     "textSpeed": 0.02,
     "karma": 0,
     "responseOptions": [
-        "Why would they want to redeem themselves?"
+        "Is this considered heaven?"
     ],
     "dialogueOptions": [{
         "speakerName": "Death",
-        "text": "A core part Asian lore is reincarnation. Specifically with Diyu and China, people believe they have to right their wrongs in front of Yama and he can pass them on to their next life.",
+        "text": "Heaven is a very westernized concept. Here in the afterlife there is the Christian Heaven as a manifestation of those beliefs, along with a Christian Hell. But this . . . is much more than that.",
         "textSpeed": 0.02,
         "karma": 0,
         "dialogueOptions": [{
@@ -17,75 +17,69 @@
             "textSpeed": 0.02,
             "karma": 0,
             "responseOptions": [
-                "Uhhhhhhhhhhh",
-                "I am Yama! Worship me and my eternal life!"
+                "Of course, you were expecting us. "
             ],
             "dialogueOptions": [{
-                    "speakerName": "Guy",
-                    "text": "What do you want from me?",
-                    "textSpeed": 0.02,
-                    "karma": 1,
-                    "responseOptions": [
-                        "I only came to help. Is there something you are struggling with?"
-                    ],
-                    "dialogueOptions": [{
-                        "speakerName": "Guy",
-                        "text": "I'm about to embark on the last levels of Diyu, I think your assistance might be required for me to pass.",
-                        "textSpeed": 0.02,
-                        "karma": 0,
-                        "responseOptions": [
-                            "Okay, what do we have to do?"
-                        ],
-                        "dialogueOptions": [{
-                            "speakerName": "Guy",
-                            "text": "Diyu is a series of mazes going from one level to the next. I have already conquered the first six levels thanks to the glory of Mao. But now I'm stuck here and I am unable to even open the door. I do not know what lies beyond it.",
-                            "textSpeed": 0.02,
-                            "karma": 0,
-                            "responseOptions": [
-                                "I think...if we try this...."
-                            ],
-                            "endsScene": true
-                        }]
-                    }]
-                },
-                {
+                "speakerName": "Priestess",
+                "text": "I have waited a very long time for you. Come, we must look at your heart.",
+                "textSpeed": 0.02,
+                "karma": 0,
+                "responseOptions": [
+                    "What do you mean?"
+                ],
+                "dialogueOptions": [{
                     "speakerName": "Death",
-                    "text": "This isn't the time to joke kid. Apologize so we can continue to help him.",
+                    "text": "In order to get into this place, a person must weigh their heart against a feather.",
                     "textSpeed": 0.02,
-                    "karma": -2,
+                    "karma": 0,
                     "responseOptions": [
-                        "It was just a joke, I'm sorry."
+                        "Is this counting all of my sins?",
+                        "Why in the name of Yama would I do that?"
                     ],
                     "dialogueOptions": [{
-                        "speakerName": "Guy",
-                        "text": "What do you want from me?",
-                        "textSpeed": 0.02,
-                        "karma": 1,
-                        "responseOptions": [
-                            "I only came to help. Is there something you are struggling with?"
-                        ],
-                        "dialogueOptions": [{
-                            "speakerName": "Guy",
-                            "text": "I'm about to embark on the last levels of Diyu, I think your assistance might be required for me to pass.",
+                            "speakerName": "Priestess",
+                            "text": "Sins? No. We look at all of the good and the evil. We measure how human you are. It is your humanity that determines if you get eternal joy. ",
                             "textSpeed": 0.02,
-                            "karma": 0,
-                            "responseOptions": [
-                                "Okay, what do we have to do?"
-                            ],
+                            "karma": 3,
                             "dialogueOptions": [{
-                                "speakerName": "Guy",
-                                "text": "Diyu is a series of mazes going from one level to the next. I have already conquered the first six levels thanks to the glory of Mao. But now I'm stuck here and I am unable to even open the door. I do not know what lies beyond it.",
+                                "speakerName": "Priestess",
+                                "text": "Let us go.",
                                 "textSpeed": 0.02,
                                 "karma": 0,
                                 "responseOptions": [
-                                    "I think...if we try this...."
+                                    "Where are we going?"
                                 ],
                                 "endsScene": true
                             }]
-                        }]
-                    }]
-                }
-            ]
+                        },
+                        {
+                            "speakerName": "Death",
+                            "text": "DO NOT swear like that here. We are charged to keep the peace and NOT use the power of names.",
+                            "textSpeed": 0.02,
+                            "karma": -3,
+                            "responseOptions": [
+                                "Why are names so powerful?"
+                            ],
+                            "dialogueOptions": [{
+                                "speakerName": "Death",
+                                "text": "Names carry the power of their sake. We can't invoke that power without good reason ",
+                                "textSpeed": 0.02,
+                                "karma": 3,
+                                "dialogueOptions": [{
+                                    "speakerName": "Death",
+                                    "text": "In order to get into this place, a person must weigh their heart against a feather.",
+                                    "textSpeed": 0.02,
+                                    "karma": 0,
+                                    "responseOptions": [
+                                        "Is this counting all of my sins?",
+                                        "Why in the name of Yama would I do that?"
+                                    ]
+                                }]
+                            }]
+                        }
+                    ]
+                }]
+            }]
         }]
     }]
 }]

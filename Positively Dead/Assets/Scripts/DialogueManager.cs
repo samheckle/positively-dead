@@ -172,7 +172,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (typer.animComplete)
         {
-            Debug.Log("Button " + index);
             UpdateKarma(currentDialogue.EndsScene);
 
             //If this is the end of the scene, then load the next unity scene

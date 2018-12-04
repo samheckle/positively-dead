@@ -70,6 +70,7 @@ public class Dialogue
 
     public int DialogueCount
     {
+
         get
         {
             if (responseOptions == null)

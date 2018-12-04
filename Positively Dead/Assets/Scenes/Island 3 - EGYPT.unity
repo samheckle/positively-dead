@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: egyptian_script.json
-  nextScene: ChineseMinigame
+  nextScene: EgyptMinigame
   dialogueBox: {fileID: 1210349747}
   speakerName: {fileID: 1949003948}
   background: {fileID: 1517984684}
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: ChineseMinigame
+  scene: EgyptMinigame
   loadingText: {fileID: 502705220}
   loadingPanel: {fileID: 708334068}
 --- !u!114 &1210349749
