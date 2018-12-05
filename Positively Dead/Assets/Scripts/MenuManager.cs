@@ -28,4 +28,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("MapSelection", LoadSceneMode.Single);
     }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+    }
 }
