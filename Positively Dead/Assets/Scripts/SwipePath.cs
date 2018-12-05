@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SwipePath : MonoBehaviour
 {
@@ -124,7 +125,7 @@ public class SwipePath : MonoBehaviour
             {
                 hitObjects[0].GetComponent<SpriteRenderer>().material = defaultMaterial;
                 hitObjects[0].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            }     
+            }
 
             if (Mathf.Abs(player.transform.position.x - hitObjects[0].transform.position.x) >= 0.05f)
             {
@@ -152,10 +153,6 @@ public class SwipePath : MonoBehaviour
                     player.transform.up = new Vector3(0.0f, 1.0f);
                 }
             }
-            //else
-            //{
-            //    player.transform.position = hitObjects[0].transform.position; // used to smooth the movement
-            //}
 
             // Remove the current front of the list whenever the player has reached that position.
             if (Vector3.Distance(player.transform.position, hitObjects[0].transform.position) <= 0.1f)
@@ -255,16 +252,23 @@ public class SwipePath : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Repositions fog tiles and dims coloring/opacity of tiles on the grid.
+    /// </summary>
     void ResetLevel()
     {
         GameObject[] fogTiles = GameObject.FindGameObjectsWithTag("Fog");
         GameObject[] walkTiles = GameObject.FindGameObjectsWithTag("Walk Tile");
         GameObject[] trapTiles = GameObject.FindGameObjectsWithTag("Trap Tile");
+        GameObject[] allTiles = new GameObject[walkTiles.Length + trapTiles.Length];
+        int walkTileArrayLen = walkTiles.Length;
+        Array.Copy(walkTiles, allTiles, walkTiles.Length);
+        Array.Copy(trapTiles, 0, allTiles, walkTiles.Length, trapTiles.Length);
 
         // Reset fog positions
-        for (int i = 0; i < walkTiles.Length; i++)
+        for (int i = 0; i < allTiles.Length; i++)
         {
-            Vector3 tilePosition = walkTiles[i].transform.position;
+            Vector3 tilePosition = allTiles[i].transform.position;
             for(int j = i * 4; j < (i * 4) + 1; j++)
             {
                 fogTiles[j].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
@@ -277,22 +281,6 @@ public class SwipePath : MonoBehaviour
                 fogTiles[j + 3].transform.position = new Vector3(tilePosition.x + 0.75f, tilePosition.y + 1f, -3f);
             }
         }
-
-        //for (int i = 0; i < trapTiles.Length; i++)
-        //{
-        //    Vector3 tilePosition = trapTiles[i].transform.position;
-        //    for (int j = i * 4; j < (i * 4) + 1; j++)
-        //    {
-        //        fogTiles[j].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-        //        fogTiles[j].transform.position = new Vector3(tilePosition.x + 0.57f, tilePosition.y - 0.64f, -3f);
-        //        fogTiles[j + 1].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-        //        fogTiles[j + 1].transform.position = new Vector3(tilePosition.x - 0.57f, tilePosition.y + 0.66f, -3f);
-        //        fogTiles[j + 2].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-        //        fogTiles[j + 2].transform.position = new Vector3(tilePosition.x - 0.75f, tilePosition.y - 0.69f, -3f);
-        //        fogTiles[j + 3].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-        //        fogTiles[j + 3].transform.position = new Vector3(tilePosition.x + 0.75f, tilePosition.y + 1f, -3f);
-        //    }
-        //}
 
         // Reset walk tile opacity
         for (int i = 0; i < walkTiles.Length; i++)

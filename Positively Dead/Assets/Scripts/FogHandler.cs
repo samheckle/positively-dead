@@ -9,7 +9,6 @@ public class FogHandler : MonoBehaviour
 
     private Color fogColor;
     private Rigidbody2D fogRB;
-
     private Vector3 UP = new Vector3(0f, 1f);
     private Vector3 DOWN = new Vector3(0f, -1f);
     private Vector3 LEFT = new Vector3(-1f, 0f);
@@ -28,8 +27,7 @@ public class FogHandler : MonoBehaviour
     {
         // Adjust opacity based on distance from palyer
         float distanceFromPlayer = Vector2.Distance(this.transform.position, player.transform.position);
-
-        if (distanceFromPlayer < 2.25f)
+        if (distanceFromPlayer < 2.45f)
         {
             if(player.transform.up == UP)
             {
@@ -55,9 +53,9 @@ public class FogHandler : MonoBehaviour
         {
             float distanceFromTorch = Vector3.Distance(this.transform.position, torch.transform.position);
 
-            if (distanceFromTorch < 5f)
+            if (distanceFromTorch < 5.5f)
             {
-                this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, 0.5f);
+                this.GetComponent<SpriteRenderer>().color = new Color(fogColor.r, fogColor.g, fogColor.b, 0.3f);
             }
             else
             {
