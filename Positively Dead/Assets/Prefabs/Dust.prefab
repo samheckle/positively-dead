@@ -9,69 +9,78 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1564798252725516}
+  m_RootGameObject: {fileID: 1959504054952564}
   m_IsPrefabAsset: 1
---- !u!1 &1564798252725516
+--- !u!1 &1959504054952564
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4779441435305232}
-  - component: {fileID: 212956904648340594}
-  - component: {fileID: 61321715292435426}
+  - component: {fileID: 4719415158015098}
+  - component: {fileID: 212113360762002576}
+  - component: {fileID: 114209920739720520}
+  - component: {fileID: 50026734897210968}
   m_Layer: 0
-  m_Name: Terracotta tile-01
-  m_TagString: Walk Tile
+  m_Name: Dust
+  m_TagString: Fog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4779441435305232
+--- !u!4 &4719415158015098
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1564798252725516}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.09, y: 29.5, z: -1}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_GameObject: {fileID: 1959504054952564}
+  m_LocalRotation: {x: -0, y: -0, z: -0.21910478, w: 0.97570133}
+  m_LocalPosition: {x: 18.06, y: 22.46, z: 0}
+  m_LocalScale: {x: 1.140263, y: 1.140263, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61321715292435426
-BoxCollider2D:
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25.313002}
+--- !u!50 &50026734897210968
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1564798252725516}
-  m_Enabled: 1
-  m_Density: 1
+  m_GameObject: {fileID: 1959504054952564}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0.5
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.09, y: 2.09}
-    newSize: {x: 2.09, y: 2.09}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.09, y: 2.09}
-  m_EdgeRadius: 0
---- !u!212 &212956904648340594
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &114209920739720520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959504054952564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d22601a10a5ce843a957487ebce531a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  solidDistance: 0
+--- !u!212 &212113360762002576
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1564798252725516}
+  m_GameObject: {fileID: 1959504054952564}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -100,13 +109,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8665e660b9f2e0d4285bf4d1de6b31fa, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 6c56272900c8d1e4cadfe558535b7410, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.09, y: 2.09}
+  m_Size: {x: 2.03, y: 1.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
