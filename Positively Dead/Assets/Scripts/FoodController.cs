@@ -432,7 +432,7 @@ public class FoodController : MonoBehaviour
             collectedFoodObjects.Add(fourthFood.name, 0);
 
             Text objectiveTxt = GameObject.FindGameObjectWithTag("ObjectiveTxt").GetComponent<Text>();
-            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + "     " + " | Collect " + secondFoodAmnt + "      " + " | Collect " + thirdFoodAmnt + "      " + " | Collect " + fourthFoodAmnt + "      ";
+            objectiveTxt.text = "OBJECTIVE\nCollect " + firstFoodAmnt + "     " + " | Collect " + secondFoodAmnt + "     " + "| Collect " + thirdFoodAmnt + "     " + " | Collect " + fourthFoodAmnt + "     ";
 
             switch (firstFood.name)
             {

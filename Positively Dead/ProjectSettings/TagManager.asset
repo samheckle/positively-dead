@@ -9,7 +9,8 @@ TagManager:
   - ObjectiveTxt
   - Small Child
   - Death
-  - Tile
+  - Walk Tile
+  - Trap Tile
   - Image1
   - Image2
   - Image3
@@ -22,6 +23,9 @@ TagManager:
   - Level1Images
   - Level2Images
   - Level3Images
+  - Fog
+  - Start Tile
+  - End Tile
   - Start
   - MenuIMG
   - Menu
@@ -30,6 +34,9 @@ TagManager:
   - Level
   - Island
   - WSIMG
+  - Torch
+  - Good Heart
+  - Bad Heart
   layers:
   - Default
   - TransparentFX

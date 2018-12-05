@@ -31,7 +31,6 @@ public class Typewriter : MonoBehaviour
     void Awake()
     {
         currentDelay = typeDelay;
-        Debug.Log("Current delay: " + currentDelay);
         animText = gameObject.GetComponent<Text>();
         StartCoroutine(Type());
     }

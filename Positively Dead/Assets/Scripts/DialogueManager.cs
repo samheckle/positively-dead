@@ -19,7 +19,13 @@ public class DialogueManager : MonoBehaviour
     //The karma built during this scene
     private int playerKarma;
 
+    private float timer;
+
     private OpenScene loadSceneManager;
+
+    private GameObject goodHeart;
+
+    private GameObject badHeart;
 
     [SerializeField]
     private string sceneName;
@@ -43,13 +49,29 @@ public class DialogueManager : MonoBehaviour
 
     //Character images
     public GameObject characterLeft;
+    private SpriteRenderer speakerImg;
     public GameObject characterRight;
+
+    //Character Sprites
+    public Sprite speakerAngry;
+    public Sprite speakerNeutral;
+    public Sprite speakerHappy;
 
     // Use this for initialization
     void Start()
     {
+        goodHeart = GameObject.FindGameObjectWithTag("Good Heart");
+        goodHeart.SetActive(false);
+
+        badHeart = GameObject.FindGameObjectWithTag("Bad Heart");
+        badHeart.SetActive(false);
+
+        timer = 0;
+
         typer = gameObject.GetComponent<Typewriter>();
         loadSceneManager = gameObject.GetComponent<OpenScene>();
+        speakerImg = characterLeft.GetComponent<SpriteRenderer>();
+
         button1.SetActive(false);
         button2.SetActive(false);
 
@@ -83,6 +105,18 @@ public class DialogueManager : MonoBehaviour
                 default:
                     break;
             }
+        }
+
+        if (goodHeart.activeInHierarchy == true || badHeart.activeInHierarchy == true)
+        {
+            timer += Time.deltaTime;
+
+            if (timer > 3.5f)
+            {
+                goodHeart.SetActive(false);
+                badHeart.SetActive(false);
+                timer = 0;
+            }                
         }
     }
 
@@ -174,6 +208,19 @@ public class DialogueManager : MonoBehaviour
         {
             UpdateKarma(currentDialogue.EndsScene);
 
+            if (currentDialogue.ResponseCount > 1)
+            {
+                if (index == 0)
+                {
+                    goodHeart.SetActive(true);
+                }
+
+                else if (index == 1)
+                {
+                    badHeart.SetActive(true);
+                }
+            }            
+
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
             {
@@ -186,6 +233,21 @@ public class DialogueManager : MonoBehaviour
 
                 //Display the dialogue at index and deactivate the buttons
                 currentDialogue = currentDialogue.NextDialogue(index);
+
+
+                //Update speaker image accordingly
+                if(currentDialogue.Karma < -1)
+                {
+                    speakerImg.sprite = speakerAngry;
+                }
+                else if(currentDialogue.Karma > 1)
+                {
+                    speakerImg.sprite = speakerHappy;
+                }
+                else
+                {
+                    speakerImg.sprite = speakerNeutral;
+                }
 
                 button1.SetActive(false);
                 button2.SetActive(false);
