@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: NorseMinigame
+  scene: ChineseMinigame
   loadingText: {fileID: 1558173547}
   loadingPanel: {fileID: 1349150438}
 --- !u!114 &1681576020

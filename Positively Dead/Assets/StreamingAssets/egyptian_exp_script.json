@@ -1,0 +1,12 @@
+[{
+    "speakerName": "Priestess",
+    "text": "Here. We will place your actions on the scale to reveal if you are truly worthy.",
+    "textSpeed": 0.02,
+    "karma": 0,
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "Good luck kid",
+        "textSpeed": 0.02,
+        "karma": 0
+    }]
+}]

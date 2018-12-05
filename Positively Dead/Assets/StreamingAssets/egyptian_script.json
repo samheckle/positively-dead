@@ -1,0 +1,85 @@
+[{
+    "speakerName": "Death",
+    "text": "Our final stop - the Field of Reeds. ",
+    "textSpeed": 0.02,
+    "karma": 0,
+    "responseOptions": [
+        "Is this considered heaven?"
+    ],
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "Heaven is a very westernized concept. Here in the afterlife there is the Christian Heaven as a manifestation of those beliefs, along with a Christian Hell. But this . . . is much more than that.",
+        "textSpeed": 0.02,
+        "karma": 0,
+        "dialogueOptions": [{
+            "speakerName": "Priestess",
+            "text": "Oh, you have finally arrived.",
+            "textSpeed": 0.02,
+            "karma": 0,
+            "responseOptions": [
+                "Of course, you were expecting us. "
+            ],
+            "dialogueOptions": [{
+                "speakerName": "Priestess",
+                "text": "I have waited a very long time for you. Come, we must look at your heart.",
+                "textSpeed": 0.02,
+                "karma": 0,
+                "responseOptions": [
+                    "What do you mean?"
+                ],
+                "dialogueOptions": [{
+                    "speakerName": "Death",
+                    "text": "In order to get into this place, a person must weigh their heart against a feather.",
+                    "textSpeed": 0.02,
+                    "karma": 0,
+                    "responseOptions": [
+                        "Is this counting all of my sins?",
+                        "Why in the name of Yama would I do that?"
+                    ],
+                    "dialogueOptions": [{
+                            "speakerName": "Priestess",
+                            "text": "Sins? No. We look at all of the good and the evil. We measure how human you are. It is your humanity that determines if you get eternal joy. ",
+                            "textSpeed": 0.02,
+                            "karma": 3,
+                            "dialogueOptions": [{
+                                "speakerName": "Priestess",
+                                "text": "Let us go.",
+                                "textSpeed": 0.02,
+                                "karma": 0,
+                                "responseOptions": [
+                                    "Where are we going?"
+                                ],
+                                "endsScene": true
+                            }]
+                        },
+                        {
+                            "speakerName": "Death",
+                            "text": "DO NOT swear like that here. We are charged to keep the peace and NOT use the power of names.",
+                            "textSpeed": 0.02,
+                            "karma": -3,
+                            "responseOptions": [
+                                "Why are names so powerful?"
+                            ],
+                            "dialogueOptions": [{
+                                "speakerName": "Death",
+                                "text": "Names carry the power of their sake. We can't invoke that power without good reason ",
+                                "textSpeed": 0.02,
+                                "karma": 3,
+                                "dialogueOptions": [{
+                                    "speakerName": "Death",
+                                    "text": "In order to get into this place, a person must weigh their heart against a feather.",
+                                    "textSpeed": 0.02,
+                                    "karma": 0,
+                                    "responseOptions": [
+                                        "Is this counting all of my sins?",
+                                        "Why in the name of Yama would I do that?"
+                                    ]
+                                }]
+                            }]
+                        }
+                    ]
+                }]
+            }]
+        }]
+    }]
+}]
