@@ -19,8 +19,6 @@ public class DialogueManager : MonoBehaviour
     //The karma built during this scene
     private int playerKarma;
 
-    private int spawnKarma;
-
     private float timer;
 
     private OpenScene loadSceneManager;
@@ -56,8 +54,6 @@ public class DialogueManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        spawnKarma = playerKarma;
-
         goodHeart = GameObject.FindGameObjectWithTag("Good Heart");
         goodHeart.SetActive(false);
 
@@ -103,29 +99,16 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if (goodHeart.active == true)
+        if (goodHeart.activeInHierarchy == true || badHeart.activeInHierarchy == true)
         {
-            Debug.Log(timer);
             timer += Time.deltaTime;
 
-            if (timer > 5.0f)
+            if (timer > 3.5f)
             {
                 goodHeart.SetActive(false);
+                badHeart.SetActive(false);
                 timer = 0;
-            }
-                
-        }
-
-        if (badHeart.active == true)
-        {
-            Debug.Log(timer);
-            timer += Time.deltaTime;
-
-            if (timer > 5.0f)
-            {
-                goodHeart.SetActive(false);
-                timer = 0;
-            }
+            }                
         }
     }
 
@@ -215,8 +198,20 @@ public class DialogueManager : MonoBehaviour
     {
         if (typer.animComplete)
         {
-            Debug.Log("Button " + index);
             UpdateKarma(currentDialogue.EndsScene);
+
+            if (currentDialogue.ResponseCount > 1)
+            {
+                if (index == 0)
+                {
+                    goodHeart.SetActive(true);
+                }
+
+                else if (index == 1)
+                {
+                    badHeart.SetActive(true);
+                }
+            }            
 
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
@@ -243,22 +238,6 @@ public class DialogueManager : MonoBehaviour
         if (typer.animComplete)
         {
             UpdateKarma(currentDialogue.EndsScene);
-
-            int oldValue = spawnKarma;
-            spawnKarma = playerKarma;
-
-            Debug.Log(spawnKarma);
-
-            if (spawnKarma > oldValue)
-            {                
-                goodHeart.SetActive(true);
-                
-            }
-
-            else if (spawnKarma < oldValue)
-            {
-                badHeart.SetActive(true);                
-            }
 
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
