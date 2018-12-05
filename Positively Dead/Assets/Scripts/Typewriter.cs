@@ -84,7 +84,6 @@ public class Typewriter : MonoBehaviour
         for (int i = 0; i < finalText.Length + 1; i++)
         {
             animText.text = finalText.Substring(0, i);
-            Debug.Log(currentDelay);
             yield return new WaitForSeconds(currentDelay);
         }
         coroutineComplete = true;
