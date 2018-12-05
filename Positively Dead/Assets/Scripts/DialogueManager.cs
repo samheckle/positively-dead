@@ -19,7 +19,15 @@ public class DialogueManager : MonoBehaviour
     //The karma built during this scene
     private int playerKarma;
 
+    private int spawnKarma;
+
+    private float timer;
+
     private OpenScene loadSceneManager;
+
+    private GameObject goodHeart;
+
+    private GameObject badHeart;
 
     [SerializeField]
     private string sceneName;
@@ -48,6 +56,16 @@ public class DialogueManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        spawnKarma = playerKarma;
+
+        goodHeart = GameObject.FindGameObjectWithTag("Good Heart");
+        goodHeart.SetActive(false);
+
+        badHeart = GameObject.FindGameObjectWithTag("Bad Heart");
+        badHeart.SetActive(false);
+
+        timer = 0;
+
         typer = gameObject.GetComponent<Typewriter>();
         loadSceneManager = gameObject.GetComponent<OpenScene>();
         button1.SetActive(false);
@@ -82,6 +100,31 @@ public class DialogueManager : MonoBehaviour
                     break;
                 default:
                     break;
+            }
+        }
+
+        if (goodHeart.active == true)
+        {
+            Debug.Log(timer);
+            timer += Time.deltaTime;
+
+            if (timer > 5.0f)
+            {
+                goodHeart.SetActive(false);
+                timer = 0;
+            }
+                
+        }
+
+        if (badHeart.active == true)
+        {
+            Debug.Log(timer);
+            timer += Time.deltaTime;
+
+            if (timer > 5.0f)
+            {
+                goodHeart.SetActive(false);
+                timer = 0;
             }
         }
     }
@@ -200,6 +243,22 @@ public class DialogueManager : MonoBehaviour
         if (typer.animComplete)
         {
             UpdateKarma(currentDialogue.EndsScene);
+
+            int oldValue = spawnKarma;
+            spawnKarma = playerKarma;
+
+            Debug.Log(spawnKarma);
+
+            if (spawnKarma > oldValue)
+            {                
+                goodHeart.SetActive(true);
+                
+            }
+
+            else if (spawnKarma < oldValue)
+            {
+                badHeart.SetActive(true);                
+            }
 
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
