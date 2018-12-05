@@ -35,6 +35,8 @@ TagManager:
   - Island
   - WSIMG
   - Torch
+  - Good Heart
+  - Bad Heart
   layers:
   - Default
   - TransparentFX

@@ -1,7 +1,7 @@
 [{
     "speakerName": "Death",
     "text": "...hey...",
-    "textSpeed": 0.01,
+    "textSpeed": 0.02,
     "karma": 0,
     "responseOptions": [
         "......"
@@ -9,7 +9,7 @@
     "dialogueOptions": [{
         "speakerName": "Death",
         "text": "HEY.......!!",
-        "textSpeed": 0.01,
+        "textSpeed": 0.02,
         "karma": 0,
         "responseOptions": [
             ".......?"
@@ -17,7 +17,7 @@
         "dialogueOptions": [{
             "speakerName": "Death",
             "text": "Wake up you buffoon you overslept and the moon is half past virgo.",
-            "textSpeed": 0.01,
+            "textSpeed": 0.02,
             "karma": 0,
             "responseOptions": [
                 "??????????????"
@@ -25,7 +25,7 @@
             "dialogueOptions": [{
                 "speakerName": "Death",
                 "text": "Meaning we are running SO late today.",
-                "textSpeed": 0.01,
+                "textSpeed": 0.02,
                 "karma": 0,
                 "responseOptions": [
                     "..."
@@ -33,7 +33,7 @@
                 "dialogueOptions": [{
                     "speakerName": "Death",
                     "text": "...",
-                    "textSpeed": 0.01,
+                    "textSpeed": 0.02,
                     "karma": 0,
                     "responseOptions": [
                         "..."
@@ -41,7 +41,7 @@
                     "dialogueOptions": [{
                         "speakerName": "Death",
                         "text": "Oh! I forgot you forgot. We’ve got to check up on everything again today. You know, finish what were supposed to be our morning rounds, feed a three-headed dog....or something. Make sure that you’re fit for the job. ",
-                        "textSpeed": 0.01,
+                        "textSpeed": 0.02,
                         "karma": 0,
                         "responseOptions": [
                             " What job?"
@@ -49,7 +49,7 @@
                         "dialogueOptions": [{
                             "speakerName": "Death",
                             "text": " Ugh I hate that you do this. Every time. Every morning. Ya know, the job you are supposed to take over from me one day? Being in charge of the dead and dying. Things like that.",
-                            "textSpeed": 0.01,
+                            "textSpeed": 0.02,
                             "karma": 0,
                             "responseOptions": [
                                 "..."
@@ -57,7 +57,7 @@
                             "dialogueOptions": [{
                                 "speakerName": "Death",
                                 "text": "...",
-                                "textSpeed": 0.01,
+                                "textSpeed": 0.02,
                                 "karma": 0,
                                 "responseOptions": [
                                     "..."
@@ -65,7 +65,7 @@
                                 "dialogueOptions": [{
                                     "speakerName": "Death",
                                     "text": "Cmon you slowpoke we gotta go to the tutorial…….I mean Valhalla. I’ll explain more when we get there. Some real “hands on” training.",
-                                    "textSpeed": 0.01,
+                                    "textSpeed": 0.02,
                                     "karma": 0,
                                     "responseOptions": [
                                         "..."

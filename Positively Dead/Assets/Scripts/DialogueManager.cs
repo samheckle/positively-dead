@@ -19,7 +19,13 @@ public class DialogueManager : MonoBehaviour
     //The karma built during this scene
     private int playerKarma;
 
+    private float timer;
+
     private OpenScene loadSceneManager;
+
+    private GameObject goodHeart;
+
+    private GameObject badHeart;
 
     [SerializeField]
     private string sceneName;
@@ -39,17 +45,33 @@ public class DialogueManager : MonoBehaviour
     //Continue buttons
     public GameObject button1;
     public GameObject button2;
-    public GameObject advanceButton;
+    public bool touchAdvance;
 
     //Character images
     public GameObject characterLeft;
+    private SpriteRenderer speakerImg;
     public GameObject characterRight;
+
+    //Character Sprites
+    public Sprite speakerAngry;
+    public Sprite speakerNeutral;
+    public Sprite speakerHappy;
 
     // Use this for initialization
     void Start()
     {
+        goodHeart = GameObject.FindGameObjectWithTag("Good Heart");
+        goodHeart.SetActive(false);
+
+        badHeart = GameObject.FindGameObjectWithTag("Bad Heart");
+        badHeart.SetActive(false);
+
+        timer = 0;
+
         typer = gameObject.GetComponent<Typewriter>();
         loadSceneManager = gameObject.GetComponent<OpenScene>();
+        speakerImg = characterLeft.GetComponent<SpriteRenderer>();
+
         button1.SetActive(false);
         button2.SetActive(false);
 
@@ -68,7 +90,7 @@ public class DialogueManager : MonoBehaviour
             switch (currentDialogue.ResponseCount)
             {
                 case 0:
-                    advanceButton.SetActive(true);
+                    OnScreenTap();
                     break;
                 case 1:
                     button1.GetComponentInChildren<Text>().text = currentDialogue.ResponseOptions[0];
@@ -83,6 +105,18 @@ public class DialogueManager : MonoBehaviour
                 default:
                     break;
             }
+        }
+
+        if (goodHeart.activeInHierarchy == true || badHeart.activeInHierarchy == true)
+        {
+            timer += Time.deltaTime;
+
+            if (timer > 3.5f)
+            {
+                goodHeart.SetActive(false);
+                badHeart.SetActive(false);
+                timer = 0;
+            }                
         }
     }
 
@@ -106,6 +140,7 @@ public class DialogueManager : MonoBehaviour
                 button2.transform.position = new Vector3(button2.transform.position.x, -4.5f);
                 break;
             default:
+                background.transform.position = new Vector3(background.transform.position.x, -3.0f);
                 break;
         }
     }
@@ -117,6 +152,7 @@ public class DialogueManager : MonoBehaviour
     void DisplayDialogue(Dialogue dialogue)
     {
         typer.typeDelay = dialogue.TextSpeed;
+        typer.currentDelay = dialogue.TextSpeed;
         typer.finalText = dialogue.Text;
 
         //If there is a new speaker, swap their images
@@ -168,25 +204,78 @@ public class DialogueManager : MonoBehaviour
     /// <param name="index">Index of next dialogue</param>
     public void OnClick(int index)
     {
-        UpdateKarma(currentDialogue.EndsScene);
-
-        //If this is the end of the scene, then load the next unity scene
-        if (currentDialogue.EndsScene)
+        if (typer.animComplete)
         {
-            loadSceneManager.TriggerLoad(nextScene);
+            UpdateKarma(currentDialogue.EndsScene);
+
+            if (currentDialogue.ResponseCount > 1)
+            {
+                if (index == 0)
+                {
+                    goodHeart.SetActive(true);
+                }
+
+                else if (index == 1)
+                {
+                    badHeart.SetActive(true);
+                }
+            }            
+
+            //If this is the end of the scene, then load the next unity scene
+            if (currentDialogue.EndsScene)
+            {
+                loadSceneManager.TriggerLoad(nextScene);
+            }
+            else
+            {
+                //If the index is beyond the number of options, display the default option
+                if (index >= currentDialogue.DialogueCount) index = 0;
+
+                //Display the dialogue at index and deactivate the buttons
+                currentDialogue = currentDialogue.NextDialogue(index);
+
+
+                //Update speaker image accordingly
+                if(currentDialogue.Karma < -1)
+                {
+                    speakerImg.sprite = speakerAngry;
+                }
+                else if(currentDialogue.Karma > 1)
+                {
+                    speakerImg.sprite = speakerHappy;
+                }
+                else
+                {
+                    speakerImg.sprite = speakerNeutral;
+                }
+
+                button1.SetActive(false);
+                button2.SetActive(false);
+                DisplayDialogue(currentDialogue);
+            }
         }
-        else
+    }
+
+    public void OnClick()
+    {
+        if (typer.animComplete)
         {
-            //If the index is beyond the number of options, display the default option
-            if (index >= currentDialogue.DialogueCount) index = 0;
+            UpdateKarma(currentDialogue.EndsScene);
 
-            //Display the dialogue at index and deactivate the buttons
-            currentDialogue = currentDialogue.NextDialogue(index);
+            //If this is the end of the scene, then load the next unity scene
+            if (currentDialogue.EndsScene)
+            {
+                loadSceneManager.TriggerLoad(nextScene);
+            }
+            else
+            {
+                //Display the dialogue at index and deactivate the buttons
+                currentDialogue = currentDialogue.NextDialogue(0);
 
-            DisplayDialogue(currentDialogue);
-            advanceButton.SetActive(false);
-            button1.SetActive(false);
-            button2.SetActive(false);
+                button1.SetActive(false);
+                button2.SetActive(false);
+                DisplayDialogue(currentDialogue);
+            }
         }
     }
 
@@ -196,22 +285,17 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void OnScreenTap()
     {
-        UpdateKarma(currentDialogue.EndsScene);
-
-        //If this is the end of the scene, then load the next unity scene
-        if (currentDialogue.EndsScene)
+        if (Input.touchCount > 0)
         {
-            loadSceneManager.TriggerLoad(nextScene);
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                OnClick();
+            }
         }
-        else
+        else if (Input.GetMouseButtonDown(0))
         {
-            //Display the dialogue at index and deactivate the buttons
-            currentDialogue = currentDialogue.NextDialogue(0);
-
-            DisplayDialogue(currentDialogue);
-            advanceButton.SetActive(false);
-            button1.SetActive(false);
-            button2.SetActive(false);
+            OnClick();
         }
     }
 

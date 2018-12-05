@@ -1,7 +1,7 @@
 [{
     "speakerName": "Small Child",
     "text": "Woooooow!! You got so many! Thanks so much for helping me!",
-    "textSpeed": 0.01,
+    "textSpeed": 0.02,
     "karma": 0,
     "responseOptions": [
         "You are very welcome!",
@@ -10,12 +10,12 @@
     "dialogueOptions": [{
         "speakerName": "Small Child",
         "text": "I won't forget what you did for me today!",
-        "textSpeed": 0.01,
+        "textSpeed": 0.02,
         "karma": 2,
         "dialogueOptions": [{
             "speakerName": "Death",
             "text": "Nice work kid. This is what makes the job immensely important",
-            "textSpeed": 0.01,
+            "textSpeed": 0.02,
             "karma": 0,
             "responseOptions": [
                 "Why is that?"
@@ -23,7 +23,7 @@
             "dialogueOptions": [{
                 "speakerName": "Death",
                 "text": "Well, we are here to soothe the souls of the departed. If they can't get to where they need to go, they will spend the afterlife in agony over something they couldn't change on their own.",
-                "textSpeed": 0.01,
+                "textSpeed": 0.02,
                 "karma": 0,
                 "responseOptions": [
                     "So we provide them peace?"
@@ -31,7 +31,7 @@
                 "dialogueOptions": [{
                     "speakerName": "Death",
                     "text": "Something like that. We are the embodiment of hope and restoration. All these people want is a happy ending.",
-                    "textSpeed": 0.01,
+                    "textSpeed": 0.02,
                     "karma": 0,
                     "endsScene": true
                                 
@@ -42,12 +42,12 @@
     {
         "speakerName": "Small Child",
         "text": "Oh..okay. Well thanks anyway. I guess...",
-        "textSpeed": 0.01,
+        "textSpeed": 0.02,
         "karma": -2,
         "dialogueOptions": [{
             "speakerName": "Death",
             "text": "Huh. Who knew where that came from.",
-            "textSpeed": 0.01,
+            "textSpeed": 0.02,
             "karma": 0,
             "responseOptions": [
                 "What do you mean?"
@@ -55,7 +55,7 @@
             "dialogueOptions": [{
                 "speakerName": "Death",
                 "text": "I didn't expect you to be so harsh. The kid just died after all.",
-                "textSpeed": 0.01,
+                "textSpeed": 0.02,
                 "karma": 0,
                 "endsScene": true
             }]
