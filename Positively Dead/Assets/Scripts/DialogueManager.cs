@@ -19,7 +19,13 @@ public class DialogueManager : MonoBehaviour
     //The karma built during this scene
     private int playerKarma;
 
+    private float timer;
+
     private OpenScene loadSceneManager;
+
+    private GameObject goodHeart;
+
+    private GameObject badHeart;
 
     [SerializeField]
     private string sceneName;
@@ -54,6 +60,14 @@ public class DialogueManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        goodHeart = GameObject.FindGameObjectWithTag("Good Heart");
+        goodHeart.SetActive(false);
+
+        badHeart = GameObject.FindGameObjectWithTag("Bad Heart");
+        badHeart.SetActive(false);
+
+        timer = 0;
+
         typer = gameObject.GetComponent<Typewriter>();
         loadSceneManager = gameObject.GetComponent<OpenScene>();
         speakerImg = characterLeft.GetComponent<SpriteRenderer>();
@@ -91,6 +105,18 @@ public class DialogueManager : MonoBehaviour
                 default:
                     break;
             }
+        }
+
+        if (goodHeart.activeInHierarchy == true || badHeart.activeInHierarchy == true)
+        {
+            timer += Time.deltaTime;
+
+            if (timer > 3.5f)
+            {
+                goodHeart.SetActive(false);
+                badHeart.SetActive(false);
+                timer = 0;
+            }                
         }
     }
 
@@ -180,8 +206,20 @@ public class DialogueManager : MonoBehaviour
     {
         if (typer.animComplete)
         {
-            Debug.Log("Button " + index);
             UpdateKarma(currentDialogue.EndsScene);
+
+            if (currentDialogue.ResponseCount > 1)
+            {
+                if (index == 0)
+                {
+                    goodHeart.SetActive(true);
+                }
+
+                else if (index == 1)
+                {
+                    badHeart.SetActive(true);
+                }
+            }            
 
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)

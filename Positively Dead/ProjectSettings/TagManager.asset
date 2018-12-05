@@ -30,6 +30,8 @@ TagManager:
   - Level
   - Island
   - WSIMG
+  - Good Heart
+  - Bad Heart
   layers:
   - Default
   - TransparentFX

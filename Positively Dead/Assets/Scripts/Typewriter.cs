@@ -31,7 +31,6 @@ public class Typewriter : MonoBehaviour
     void Awake()
     {
         currentDelay = typeDelay;
-        Debug.Log("Current delay: " + currentDelay);
         animText = gameObject.GetComponent<Text>();
         StartCoroutine(Type());
     }
@@ -84,7 +83,6 @@ public class Typewriter : MonoBehaviour
         for (int i = 0; i < finalText.Length + 1; i++)
         {
             animText.text = finalText.Substring(0, i);
-            Debug.Log(currentDelay);
             yield return new WaitForSeconds(currentDelay);
         }
         coroutineComplete = true;

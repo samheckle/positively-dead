@@ -143,11 +143,11 @@ RectTransform:
   m_Children:
   - {fileID: 1448508491}
   m_Father: {fileID: 405395594}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -457}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 83}
   m_SizeDelta: {x: 316.6, y: 83.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176416715
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 405395591}
   - component: {fileID: 405395595}
   m_Layer: 5
-  m_Name: StartCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,9 +322,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 2024441900}
   - {fileID: 176416714}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -663,7 +664,7 @@ GameObject:
   - component: {fileID: 2024441899}
   - component: {fileID: 2024441901}
   m_Layer: 0
-  m_Name: Menu 3
+  m_Name: Background Image
   m_TagString: MenuIMG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -704,7 +705,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d0849c8b89e278f45868602c3453d078, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2eea31543fa091841a33a0423a65171c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -722,11 +723,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2024441898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.028, y: 0, z: 92}
-  m_LocalScale: {x: 1.1250365, y: 0.92499995, z: 1}
+  m_LocalPosition: {x: -1.7280003, y: 0, z: 216.00003}
+  m_LocalScale: {x: 121.011246, y: 99.90001, z: 108.000015}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 405395594}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2024441901
 Animator:
