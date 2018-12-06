@@ -31,8 +31,8 @@ MonoBehaviour:
     List: []
   BankWwu:
   - Guid: '{1A543FE4-643D-41D7-A5AA-D84E69D0A8A2}'
-    m_lastTimePart2: -1999223785
-    m_lastTimePsrt1: 715559552
+    m_lastTimePart2: -1999220974
+    m_lastTimePsrt1: 422490496
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks/Default Work Unit.wwu
     List:
@@ -47,19 +47,31 @@ MonoBehaviour:
         ObjectType: 7
   EventWwu:
   - Guid: '{435687BC-D8D4-4805-8469-6AE5F4472CA0}'
-    m_lastTimePart2: -1999223786
-    m_lastTimePsrt1: 1400526848
+    m_lastTimePart2: -1999220971
+    m_lastTimePsrt1: 1037588608
     ParentPhysicalPath: 
     PhysicalPath: Events/Default Work Unit.wwu
     List:
     - Guid: bb7ecdd09e09434f866006935eb8e6d7
-      ID: -525500020
-      Name: ChinesePlay
-      Path: Default Work Unit/ChinesePlay
+      ID: -76460785
+      Name: DiyuMinigamePlay
+      Path: Default Work Unit/DiyuMinigamePlay
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: ChinesePlay
+      - ElementName: DiyuMinigamePlay
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 9e8f6e6b233efe4db08f9245822a4f57
+      ID: -11891276
+      Name: DiyuPlay
+      Path: Default Work Unit/DiyuPlay
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: DiyuPlay
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
@@ -72,6 +84,30 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: IntroPlay
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: c9af4e2fd3c6774fad67c6931a36fcfa
+      ID: -511205356
+      Name: NorsePlay
+      Path: Default Work Unit/NorsePlay
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: NorsePlay
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 94c34f0a1f7c07498dbd94aedd08d57c
+      ID: -1324386211
+      Name: Type
+      Path: Default Work Unit/Type
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Type
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0

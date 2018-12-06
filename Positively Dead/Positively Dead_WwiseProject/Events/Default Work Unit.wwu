@@ -29,6 +29,8 @@
 						<Action Name="" ID="{1EB488AB-F682-4B0B-AB6C-DCC859124D91}" ShortID="35944018">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
 								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList/>
@@ -36,6 +38,8 @@
 						<Action Name="" ID="{5968821F-3AEE-4DBA-A207-EF09A20CD985}" ShortID="247807726">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="FadeInCurve" Type="int16" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -95,7 +99,42 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Text" ID="{EBA531B1-06AB-4B67-BE52-6B8B00356AD9}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+									<ObjectRef Name="Text_Container" ID="{DAD399AB-D12F-486A-8D03-AFDCE27F44C2}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="EgyptPlay" ID="{D75C6260-7410-47DB-850F-CFB5006AB446}">
+					<ChildrenList>
+						<Action Name="" ID="{B9D53A6E-FBA9-45DE-91AC-DAF106DF6535}" ShortID="610695965">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{587259FF-6271-43D4-A469-33517B8C6619}" ShortID="64771379">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Egypt" ID="{976E8B44-DFA6-4988-AA93-F61DB214DCBF}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Button" ID="{47B78BB9-45E3-4946-8D11-011E8B74484F}">
+					<ChildrenList>
+						<Action Name="" ID="{555E3CD9-30A6-408A-8F19-E2B4D0752C04}" ShortID="132728658">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Button" ID="{559F5A42-DE3F-4F81-845C-0EADB80D86C7}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

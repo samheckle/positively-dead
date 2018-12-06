@@ -6,24 +6,32 @@
 				<SoundcasterSession Name="MainSession" ID="{FCF854F2-08FF-48D2-826A-C76DB8033C5A}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Intro" ID="{AD0AB563-191C-41B0-91F3-470E3BB7731A}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+							<ObjectRef Name="IntroPlay" ID="{8018A57E-CD0B-4D83-A423-67BC667E16B1}" WorkUnitID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Diyu" ID="{2DF00139-050F-4A95-A3FF-AA4CC0C25966}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+							<ObjectRef Name="DiyuPlay" ID="{6B6E8F9E-3E23-4DFE-B08F-9245822A4F57}" WorkUnitID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}"/>
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Norse" ID="{D2F86F3A-28A4-4C9A-9D5F-8FCCA9B4C8F3}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+							<ObjectRef Name="DiyuMinigamePlay" ID="{D0CD7EBB-099E-4F43-8660-06935EB8E6D7}" WorkUnitID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}"/>
 							<Position X="0" Y="2"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Diyu_Minigame" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+							<ObjectRef Name="Button" ID="{47B78BB9-45E3-4946-8D11-011E8B74484F}" WorkUnitID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="EgyptPlay" ID="{D75C6260-7410-47DB-850F-CFB5006AB446}" WorkUnitID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}"/>
 							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Text" ID="{EBA531B1-06AB-4B67-BE52-6B8B00356AD9}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+							<ObjectRef Name="Type" ID="{0A4FC394-7C1F-4907-8DBD-94AEDD08D57C}" WorkUnitID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}"/>
 							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="NorsePlay" ID="{2F4EAFC9-C6D3-4F77-AD67-C6931A36FCFA}" WorkUnitID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}"/>
+							<Position X="2" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>

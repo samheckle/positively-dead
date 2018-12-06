@@ -5,10 +5,13 @@
 			<PropertyList>
 				<Property Name="AudioFilesImporter\Path" Type="string" Value="Y:\Music\Logic\positively-dead"/>
 				<Property Name="Event Action List\{0A4FC394-7C1F-4907-8DBD-94AEDD08D57C}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{1B59DFAA-3513-46A2-93AE-2007820F7EA9}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{2F4EAFC9-C6D3-4F77-AD67-C6931A36FCFA}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{47B78BB9-45E3-4946-8D11-011E8B74484F}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{6B6E8F9E-3E23-4DFE-B08F-9245822A4F57}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{8018A57E-CD0B-4D83-A423-67BC667E16B1}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{D0CD7EBB-099E-4F43-8660-06935EB8E6D7}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{D75C6260-7410-47DB-850F-CFB5006AB446}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
@@ -102,6 +105,7 @@
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
+				<Property Name="Soundcaster\PreviousSession" Type="string" Value="{FCF854F2-08FF-48D2-826A-C76DB8033C5A}"/>
 			</PropertyList>
 		</UserProjectSettings>
 	</UserProjectSettingsInfo>

@@ -1,14 +1,23 @@
 Event	ID	Name			Wwise Object Path	Notes
+	82181492	EgyptPlay			\Default Work Unit\EgyptPlay	
 	131922971	IntroPlay			\Default Work Unit\IntroPlay	
+	977454165	Button			\Default Work Unit\Button	
 	2970581085	Type			\Default Work Unit\Type	
 	3783761940	NorsePlay			\Default Work Unit\NorsePlay	
 	4218506511	DiyuMinigamePlay			\Default Work Unit\DiyuMinigamePlay	
 	4283076020	DiyuPlay			\Default Work Unit\DiyuPlay	
 
+Effect plug-ins	ID	Name	Type				Notes
+	86245554	Attack_Remover	Wwise Compressor			
+	1904434771	Medium_Room1	Wwise Matrix Reverb			
+	4286906788	Gentle_Program_Compressor_Minus_20dB_RMS	Wwise Compressor			
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	74949864	Text	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Mac\SFX\text_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text		34960
+	62060259	Egypt	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Mac\SFX\egypt02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Egypt		23699164
+	74949864	Text	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Mac\SFX\text_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Container\Text		34960
 	492868150	Diyu_Minigame	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Mac\SFX\chinese03_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\Diyu_Minigame		20054088
 	530089285	Intro	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Mac\SFX\Intro03_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\Intro		18522464
+	775515894	Button	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Mac\SFX\button_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Button		557196
 	792703873	Norse	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Mac\SFX\Norse02_07_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Norse		32928240
 	967813808	Diyu	Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\.cache\Mac\SFX\chinese_slower00_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Diyu		21168496
 

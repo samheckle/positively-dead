@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="89">
-	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1542595532" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1544034506" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
@@ -9,19 +9,19 @@
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Effects\Factory Effects.wwu" DateLow="1541528419" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Events\Default Work Unit.wwu" DateLow="1542595532" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Events\Default Work Unit.wwu" DateLow="1542738197" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Positively Dead_WwiseProject.crossover.wsettings" DateLow="1542595814" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Positively Dead_WwiseProject.crossover.wsettings" DateLow="1544034739" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Positively Dead_WwiseProject.wproj" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Presets\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Queries\Factory Queries.wwu" DateLow="1541528419" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1542595532" DateHigh="0"/>
-	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1542736847" DateHigh="0"/>
+	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1542738175" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\States\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>
 	<ValidationCacheItem File="Z:\repos\positively-dead\Positively Dead\Positively Dead_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1541528419" DateHigh="0"/>

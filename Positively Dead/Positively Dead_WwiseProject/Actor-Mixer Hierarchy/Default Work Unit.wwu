@@ -104,38 +104,400 @@
 						<ActiveSource Name="chinese_slower00" ID="{911D7B08-7344-44F4-BE27-04E7DAE0BCAF}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="Text" ID="{EBA531B1-06AB-4B67-BE52-6B8B00356AD9}" ShortID="480582320">
+				<RandomSequenceContainer Name="Text_Container" ID="{DAD399AB-D12F-486A-8D03-AFDCE27F44C2}" ShortID="119949068">
 					<PropertyList>
-						<Property Name="Lowpass" Type="int16">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{47053B18-D045-4777-95CA-8902A0E636F2}"/>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 						<Property Name="OutputBusHighpass" Type="int16">
 							<ValueList>
-								<Value>58</Value>
+								<Value>32</Value>
 							</ValueList>
 						</Property>
 						<Property Name="OutputBusLowpass" Type="int16">
 							<ValueList>
-								<Value>58</Value>
+								<Value>36</Value>
 							</ValueList>
 						</Property>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{5A046E6C-BD6D-4B90-A183-CDD95DC2EA69}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="8"/>
-											<Property Name="Min" Type="Real64" Value="-8"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
+						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-12</Value>
+							</ValueList>
 						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+						</Reference>
+						<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+							<ObjectRef Name="Medium_Room1" ID="{71B802A7-03E2-4998-B241-B2B84FE9DDFF}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="Effect1" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Attack_Remover" ID="{174E7B9A-A16F-4CA7-86D0-530212B5A6AA}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="Effect2" CompanyID="4095" PluginID="65535" PluginType="15">
+							<ObjectRef Name="Gentle_Program_Compressor_Minus_20dB_RMS" ID="{D3F1F88E-4123-4C05-946B-1B036BAC2DFD}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Text" ID="{EBA531B1-06AB-4B67-BE52-6B8B00356AD9}" ShortID="480582320">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{47053B18-D045-4777-95CA-8902A0E636F2}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{5A046E6C-BD6D-4B90-A183-CDD95DC2EA69}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+													<Property Name="Min" Type="Real64" Value="-8"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="text" ID="{68B5E70F-4383-42EE-8533-386F422E3FA4}" ShortID="74949864">
+									<Language>SFX</Language>
+									<AudioFile>text.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="text" ID="{68B5E70F-4383-42EE-8533-386F422E3FA4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Text_03" ID="{09475E94-1BF3-4B6E-A5A2-9C9DD883868D}" ShortID="467259202">
+							<PropertyList>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{2C7D3838-B5C7-4482-8B06-D958519D719B}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+													<Property Name="Min" Type="Real64" Value="-8"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-96</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="text" ID="{68A57AFB-E279-4F51-BA78-048155E51CEA}" ShortID="498471227">
+									<Language>SFX</Language>
+									<AudioFile>text.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="74949864"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="text" ID="{68A57AFB-E279-4F51-BA78-048155E51CEA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Text_01" ID="{CF4F38E0-8FF4-4757-BA58-29268931C71F}" ShortID="986958014">
+							<PropertyList>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E46BAE2A-BBB1-42ED-AACA-DACCC8104EB1}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+													<Property Name="Min" Type="Real64" Value="-8"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="text" ID="{5F1A7BAF-26B3-48A9-8162-548E6CC52C7B}" ShortID="907391291">
+									<Language>SFX</Language>
+									<AudioFile>text.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="74949864"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="text" ID="{5F1A7BAF-26B3-48A9-8162-548E6CC52C7B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Text_02" ID="{ACDB4A0E-8560-463A-AA6A-8C2F9E5BD5FF}" ShortID="657700999">
+							<PropertyList>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{0E452541-D1AD-450E-9CAB-AD817110446F}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+													<Property Name="Min" Type="Real64" Value="-8"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="text" ID="{81A915AF-9ACF-4F89-8F52-BF49AAA64D34}" ShortID="411783182">
+									<Language>SFX</Language>
+									<AudioFile>text.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="74949864"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="text" ID="{81A915AF-9ACF-4F89-8F52-BF49AAA64D34}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Text_04" ID="{85CCF305-4C50-4794-B2E4-63967BBEF170}" ShortID="107361308">
+							<PropertyList>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{8FEF4DFC-169D-4DBF-9491-B0DA04A1BEBA}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+													<Property Name="Min" Type="Real64" Value="-8"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-96</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="text" ID="{51566D24-D46E-4A61-A0EC-175A789D01BF}" ShortID="956240846">
+									<Language>SFX</Language>
+									<AudioFile>text.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="74949864"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="text" ID="{51566D24-D46E-4A61-A0EC-175A789D01BF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Text_05" ID="{8A8825B6-0617-4A9A-BB1A-118832DAEC0D}" ShortID="877816426">
+							<PropertyList>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F9C278E1-982B-4040-BB62-FF06783EF6DD}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+													<Property Name="Min" Type="Real64" Value="-8"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-96</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="text" ID="{8A6D25D0-246D-407E-97EF-060344CDF7DB}" ShortID="1028191585">
+									<Language>SFX</Language>
+									<AudioFile>text.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="74949864"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="text" ID="{8A6D25D0-246D-407E-97EF-060344CDF7DB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Text_06" ID="{74F03677-7351-4DA2-AA09-B3E2781A8439}" ShortID="527677991">
+							<PropertyList>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{A9EF2ABF-C661-42EF-9FA2-D37BE8B92DB5}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
+													<Property Name="Min" Type="Real64" Value="-8"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-96</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="text" ID="{86DEEAA2-337A-4AF4-BB16-60B98F1A05ED}" ShortID="264775918">
+									<Language>SFX</Language>
+									<AudioFile>text.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="74949864"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="text" ID="{86DEEAA2-337A-4AF4-BB16-60B98F1A05ED}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="Egypt" ID="{976E8B44-DFA6-4988-AA93-F61DB214DCBF}" ShortID="796986189">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FED3277D-115E-41AE-B44F-D8CD80EF16DD}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B9CB2B5F-4EFC-4BEE-9F56-D7725C178C79}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="egypt02" ID="{D0A647D7-352A-464B-AF4D-9F39DEDE8208}" ShortID="62060259">
+							<Language>SFX</Language>
+							<AudioFile>egypt02.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="egypt02" ID="{D0A647D7-352A-464B-AF4D-9F39DEDE8208}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Button" ID="{559F5A42-DE3F-4F81-845C-0EADB80D86C7}" ShortID="293921427">
+					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-3</Value>
@@ -151,13 +513,13 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="text" ID="{68B5E70F-4383-42EE-8533-386F422E3FA4}" ShortID="74949864">
+						<AudioFileSource Name="button" ID="{95616350-1DE6-4611-B4CC-2353E98E0019}" ShortID="775515894">
 							<Language>SFX</Language>
-							<AudioFile>text.wav</AudioFile>
+							<AudioFile>button.wav</AudioFile>
 						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="text" ID="{68B5E70F-4383-42EE-8533-386F422E3FA4}" Platform="Linked"/>
+						<ActiveSource Name="button" ID="{95616350-1DE6-4611-B4CC-2353E98E0019}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
