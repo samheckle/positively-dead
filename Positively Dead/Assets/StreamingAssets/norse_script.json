@@ -65,12 +65,13 @@
                                             "speakerName": "Small Child",
                                             "text": "I think there is an eating competition happening soon. Can you help me eat more than the giants? I think I can do it, but I need help.                                            ",
                                             "textSpeed": 0.02,
-                                            "karma": -4,
+                                            "karma": 3,
                                             "responseOptions": [
                                                 "to minigame!"
                                             ],
                                             "endsScene":true
-                                        }]
+                                        }
+                                    ]
                                     }]
                                 }]
                             }]
