@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Author: Nikolas Whiteside
@@ -57,20 +58,26 @@ public class DialogueManager : MonoBehaviour
     public Sprite speakerNeutral;
     public Sprite speakerHappy;
 
+    public AudioSource textAudio;
+
     // Use this for initialization
     void Start()
     {
-        goodHeart = GameObject.FindGameObjectWithTag("Good Heart");
-        goodHeart.SetActive(false);
-
-        badHeart = GameObject.FindGameObjectWithTag("Bad Heart");
-        badHeart.SetActive(false);
-
         timer = 0;
 
         typer = gameObject.GetComponent<Typewriter>();
         loadSceneManager = gameObject.GetComponent<OpenScene>();
-        speakerImg = characterLeft.GetComponent<SpriteRenderer>();
+
+        if (SceneManager.GetActiveScene().name != "Intro")
+        {
+            goodHeart = GameObject.FindGameObjectWithTag("Good Heart");
+            goodHeart.SetActive(false);
+
+            badHeart = GameObject.FindGameObjectWithTag("Bad Heart");
+            badHeart.SetActive(false);
+
+            speakerImg = characterLeft.GetComponent<SpriteRenderer>();
+        }        
 
         button1.SetActive(false);
         button2.SetActive(false);
@@ -106,18 +113,20 @@ public class DialogueManager : MonoBehaviour
                     break;
             }
         }
-
-        if (goodHeart.activeInHierarchy == true || badHeart.activeInHierarchy == true)
+        if (SceneManager.GetActiveScene().name != "Intro")
         {
-            timer += Time.deltaTime;
-
-            if (timer > 3.5f)
+            if (goodHeart.activeInHierarchy == true || badHeart.activeInHierarchy == true)
             {
-                goodHeart.SetActive(false);
-                badHeart.SetActive(false);
-                timer = 0;
-            }                
-        }
+                timer += Time.deltaTime;
+
+                if (timer > 3.5f)
+                {
+                    goodHeart.SetActive(false);
+                    badHeart.SetActive(false);
+                    timer = 0;
+                }
+            }
+        }        
     }
 
     /// <summary>
@@ -154,6 +163,8 @@ public class DialogueManager : MonoBehaviour
         typer.typeDelay = dialogue.TextSpeed;
         typer.currentDelay = dialogue.TextSpeed;
         typer.finalText = dialogue.Text;
+
+        textAudio.Play();
 
         //If there is a new speaker, swap their images
         if (speakerName.text != "" && speakerName.text != dialogue.SpeakerName)
@@ -206,6 +217,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (typer.animComplete)
         {
+            textAudio.Stop();
+
             UpdateKarma(currentDialogue.EndsScene);
 
             if (currentDialogue.ResponseCount > 1)
@@ -234,20 +247,22 @@ public class DialogueManager : MonoBehaviour
                 //Display the dialogue at index and deactivate the buttons
                 currentDialogue = currentDialogue.NextDialogue(index);
 
-
-                //Update speaker image accordingly
-                if(currentDialogue.Karma < -1)
+                if (SceneManager.GetActiveScene().name != "Intro")
                 {
-                    speakerImg.sprite = speakerAngry;
-                }
-                else if(currentDialogue.Karma > 1)
-                {
-                    speakerImg.sprite = speakerHappy;
-                }
-                else
-                {
-                    speakerImg.sprite = speakerNeutral;
-                }
+                    //Update speaker image accordingly
+                    if (currentDialogue.Karma < -1)
+                    {
+                        speakerImg.sprite = speakerAngry;
+                    }
+                    else if (currentDialogue.Karma > 1)
+                    {
+                        speakerImg.sprite = speakerHappy;
+                    }
+                    else
+                    {
+                        speakerImg.sprite = speakerNeutral;
+                    }
+                }                    
 
                 button1.SetActive(false);
                 button2.SetActive(false);

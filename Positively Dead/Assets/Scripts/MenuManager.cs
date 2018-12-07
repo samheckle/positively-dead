@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 /// <summary>
 /// Author: JaJuan Webster
@@ -7,10 +8,17 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class MenuManager : MonoBehaviour
 {
+    public List<GameObject> menuUI;
+    public List<GameObject> creditsUI;
+
     // Use this for initialization
     void Start()
     {
+        foreach (GameObject g in menuUI)
+            g.SetActive(true);
 
+        foreach (GameObject g in creditsUI)
+            g.SetActive(false);
     }
 
     /// <summary>
@@ -31,6 +39,19 @@ public class MenuManager : MonoBehaviour
 
     public void Credits()
     {
-        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+        foreach (GameObject g in creditsUI)
+            g.SetActive(true);
+
+        foreach (GameObject g in menuUI)
+            g.SetActive(false);
+    }
+
+    public void ToMenu()
+    {
+        foreach (GameObject g in menuUI)
+            g.SetActive(true);
+
+        foreach (GameObject g in creditsUI)
+            g.SetActive(false);
     }
 }

@@ -37,6 +37,8 @@ TagManager:
   - Torch
   - Good Heart
   - Bad Heart
+  - Credits
+  - Menus
   layers:
   - Default
   - TransparentFX
