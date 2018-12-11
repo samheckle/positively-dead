@@ -2,23 +2,74 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class EndTileChecker : MonoBehaviour {
-
+public class EndTileChecker : MonoBehaviour
+{
     GameObject player;
 
-	// Use this for initialization
-	void Start ()
+    private Text levelTxt;
+
+    private Text levelTxt2;
+
+    public List<GameObject> levelOverObjects;
+
+    // Use this for initialization
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        levelTxt = levelOverObjects[0].GetComponent<Text>();
+        levelTxt2 = levelOverObjects[2].GetComponent<Text>();
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         if (Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= 0.2f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (SceneManager.GetActiveScene().name != "ChineseMinigame4")
+                StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));            
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (timer != 0)
+            foreach (GameObject g in levelOverObjects)
+                g.SetActive(true);
+        else
+            foreach (GameObject g in levelOverObjects)
+                g.SetActive(false);
+    }
+
+    void PopUpText()
+    {
+        levelTxt.text = "Tap to Continue";
+        levelTxt2.text = "You Made It!";
+
+        if (SceneManager.GetActiveScene().name == "ChineseMinigame4")
+        {
+            levelTxt.text = "";
+            levelTxt2.text = "";
+        }            
+    }
+
+    float timer = 0.0f;
+    IEnumerator WaitForKeyDown(KeyCode keyCode)
+    {
+        while (!Input.GetKeyDown(keyCode) || !Input.GetMouseButtonDown(0))
+        {
+            yield return null;
+            timer += Time.unscaledDeltaTime;
+            Time.timeScale = 0.000001f;
+            PopUpText();
+            if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
+            {
+                //Resume Game
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Time.timeScale = 1;                
+                timer = 0;
+                break;
+            }
         }
     }
 }

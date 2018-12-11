@@ -88,7 +88,6 @@ public class FoodController : MonoBehaviour
         if (timer != 0)
             foreach (GameObject g in levelOverObjects)
                 g.SetActive(true);
-        //levelTxt.enabled = true;
         else
             foreach (GameObject g in levelOverObjects)
                 g.SetActive(false);
@@ -220,7 +219,7 @@ public class FoodController : MonoBehaviour
 
         if (level > 1)
         {
-            // Freeze game for 3 seconds and countdown
+            // Freeze game for input
             StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));
         }
 
