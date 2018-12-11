@@ -58,8 +58,6 @@ public class DialogueManager : MonoBehaviour
     public Sprite speakerNeutral;
     public Sprite speakerHappy;
 
-    public AudioSource textAudio;
-
     // Use this for initialization
     void Start()
     {
@@ -77,7 +75,7 @@ public class DialogueManager : MonoBehaviour
             badHeart.SetActive(false);
 
             speakerImg = characterLeft.GetComponent<SpriteRenderer>();
-        }        
+        }
 
         button1.SetActive(false);
         button2.SetActive(false);
@@ -126,7 +124,7 @@ public class DialogueManager : MonoBehaviour
                     timer = 0;
                 }
             }
-        }        
+        }
     }
 
     /// <summary>
@@ -163,8 +161,6 @@ public class DialogueManager : MonoBehaviour
         typer.typeDelay = dialogue.TextSpeed;
         typer.currentDelay = dialogue.TextSpeed;
         typer.finalText = dialogue.Text;
-
-        textAudio.Play();
 
         //If there is a new speaker, swap their images
         if (speakerName.text != "" && speakerName.text != dialogue.SpeakerName)
@@ -217,8 +213,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (typer.animComplete)
         {
-            textAudio.Stop();
-
             UpdateKarma(currentDialogue.EndsScene);
 
             if (currentDialogue.ResponseCount > 1)
@@ -232,7 +226,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     badHeart.SetActive(true);
                 }
-            }            
+            }
 
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
@@ -262,7 +256,7 @@ public class DialogueManager : MonoBehaviour
                     {
                         speakerImg.sprite = speakerNeutral;
                     }
-                }                    
+                }
 
                 button1.SetActive(false);
                 button2.SetActive(false);

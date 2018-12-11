@@ -547,8 +547,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 13a8b2b6d366ea041b89ff76f175381c, type: 3}
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 421c6f4bdf6d24d4aa9d776a940e016f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -558,138 +558,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1210349745
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1210349751}
-  - component: {fileID: 1210349750}
-  - component: {fileID: 1210349747}
-  - component: {fileID: 1210349749}
-  - component: {fileID: 1210349746}
-  - component: {fileID: 1210349748}
-  m_Layer: 5
-  m_Name: DialogueBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1210349746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1210349745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77dc7507e7c2f5444b345807c62b74e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: egyptian_script.json
-  nextScene: EgyptMinigame
-  dialogueBox: {fileID: 1210349747}
-  speakerName: {fileID: 1949003948}
-  background: {fileID: 1517984684}
-  button1: {fileID: 1672436175}
-  button2: {fileID: 1367151140}
-  touchAdvance: 0
-  characterLeft: {fileID: 1268708794}
-  characterRight: {fileID: 599898055}
-  speakerAngry: {fileID: 21300000, guid: 313bb31ab420b8446bc9f6da8a82cbb7, type: 3}
-  speakerNeutral: {fileID: 21300000, guid: b17c2a0210a5fd74d9bde00394b1c09c, type: 3}
-  speakerHappy: {fileID: 21300000, guid: 641e9d55ad574bd4a8751098afe58836, type: 3}
-  textAudio: {fileID: 1517984687}
---- !u!114 &1210349747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1210349745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: ff98e58544ea7804296c0bcc39b7de33, type: 3}
-    m_FontSize: 48
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 60
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 0.8
-  m_Text: This is sample dialogue!
---- !u!114 &1210349748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1210349745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: EgyptMinigame
-  loadingText: {fileID: 502705220}
-  loadingPanel: {fileID: 708334068}
---- !u!114 &1210349749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1210349745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28d300190112cae4089e55a4bafd979d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finalText: 
-  typeDelay: 2
-  currentDelay: 0
-  animComplete: 0
---- !u!222 &1210349750
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1210349745}
-  m_CullTransparentMesh: 0
---- !u!224 &1210349751
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1210349745}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.07}
-  m_LocalScale: {x: 0.007270232, y: 0.007270232, z: 0.007270232}
-  m_Children: []
-  m_Father: {fileID: 1517984686}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.027325166, y: -0.38218573}
-  m_SizeDelta: {x: 1703.3, y: 184.7}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1268708794
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,9 +784,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1210349746}
+      - m_Target: {fileID: 1621742682}
         m_MethodName: OnClick
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -959,7 +827,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7bcddcbd5dd1b1a45a551a934765ee47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8fa7d3154517704f8aaab218e56b52d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1101,7 +969,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7385dd4b94b708a4ba67db05bc1efd07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db475f56daa4f154691354c051cc35c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1119,10 +987,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1517984684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5337, y: -345, z: 382}
-  m_LocalScale: {x: 137.5472, y: 137.5472, z: 137.5472}
+  m_LocalPosition: {x: -5, y: -218, z: 382}
+  m_LocalScale: {x: 82.52832, y: 82.52832, z: 82.52832}
   m_Children:
-  - {fileID: 1210349751}
+  - {fileID: 1621742680}
   - {fileID: 1949003950}
   m_Father: {fileID: 263366784}
   m_RootOrder: 5
@@ -1321,7 +1189,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1538859189198140, guid: a3392df176e49c4479a9982599b3edfe, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3392df176e49c4479a9982599b3edfe, type: 2}
@@ -1420,6 +1288,137 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1621742679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1621742680}
+  - component: {fileID: 1621742685}
+  - component: {fileID: 1621742684}
+  - component: {fileID: 1621742683}
+  - component: {fileID: 1621742682}
+  - component: {fileID: 1621742681}
+  m_Layer: 5
+  m_Name: DialogueBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1621742680
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621742679}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.11666656}
+  m_LocalScale: {x: 0.012111322, y: 0.012111322, z: 0.012111322}
+  m_Children: []
+  m_Father: {fileID: 1517984686}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.039075077, y: -0.61}
+  m_SizeDelta: {x: 1703.3, y: 184.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1621742681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621742679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: EgyptMinigame
+  loadingText: {fileID: 502705220}
+  loadingPanel: {fileID: 708334068}
+--- !u!114 &1621742682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621742679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dc7507e7c2f5444b345807c62b74e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: egyptian_script.json
+  nextScene: EgyptMinigame
+  dialogueBox: {fileID: 1621742684}
+  speakerName: {fileID: 1949003948}
+  background: {fileID: 1517984684}
+  button1: {fileID: 1672436175}
+  button2: {fileID: 1367151140}
+  touchAdvance: 0
+  characterLeft: {fileID: 1268708794}
+  characterRight: {fileID: 599898055}
+  speakerAngry: {fileID: 21300000, guid: 313bb31ab420b8446bc9f6da8a82cbb7, type: 3}
+  speakerNeutral: {fileID: 21300000, guid: b17c2a0210a5fd74d9bde00394b1c09c, type: 3}
+  speakerHappy: {fileID: 21300000, guid: 641e9d55ad574bd4a8751098afe58836, type: 3}
+--- !u!114 &1621742683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621742679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d300190112cae4089e55a4bafd979d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalText: 
+  typeDelay: 2
+  currentDelay: 0
+  animComplete: 0
+--- !u!114 &1621742684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621742679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: ff98e58544ea7804296c0bcc39b7de33, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 60
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.8
+  m_Text: This is sample dialogue!
+--- !u!222 &1621742685
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1621742679}
+  m_CullTransparentMesh: 0
 --- !u!1 &1672436175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,9 +1476,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1210349746}
+      - m_Target: {fileID: 1621742682}
         m_MethodName: OnClick
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1520,7 +1519,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7bcddcbd5dd1b1a45a551a934765ee47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8fa7d3154517704f8aaab218e56b52d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1842,9 +1841,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: ff98e58544ea7804296c0bcc39b7de33, type: 3}
     m_FontSize: 51
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 300
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1874,6 +1873,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.468529, y: 0.75451505}
-  m_SizeDelta: {x: 481.6, y: 80.4}
+  m_AnchoredPosition: {x: 7.296, y: 1.202}
+  m_SizeDelta: {x: 828.203, y: 203.636}
   m_Pivot: {x: 0.5, y: 0.5}

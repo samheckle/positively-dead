@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EndTileChecker : MonoBehaviour
 {
-    GameObject player;
+    private GameObject player;
 
     private Text levelTxt;
 
@@ -28,9 +28,9 @@ public class EndTileChecker : MonoBehaviour
         if (Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= 0.2f)
         {
             if (SceneManager.GetActiveScene().name != "ChineseMinigame4")
-                StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));            
-            else
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));
+            //else
+                
         }
 
         if (timer != 0)
@@ -44,32 +44,20 @@ public class EndTileChecker : MonoBehaviour
     void PopUpText()
     {
         levelTxt.text = "Tap to Continue";
-        levelTxt2.text = "You Made It!";
-
-        if (SceneManager.GetActiveScene().name == "ChineseMinigame4")
-        {
-            levelTxt.text = "";
-            levelTxt2.text = "";
-        }            
+        levelTxt2.text = "You Made It!";       
     }
 
     float timer = 0.0f;
     IEnumerator WaitForKeyDown(KeyCode keyCode)
     {
-        while (!Input.GetKeyDown(keyCode) || !Input.GetMouseButtonDown(0))
+        timer += Time.unscaledDeltaTime;
+        PopUpText();
+        if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
         {
-            yield return null;
-            timer += Time.unscaledDeltaTime;
-            Time.timeScale = 0.000001f;
-            PopUpText();
-            if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
-            {
-                //Resume Game
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                Time.timeScale = 1;                
-                timer = 0;
-                break;
-            }
+            //Resume Game
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            timer = 0;
         }
+        yield return null;
     }
 }
