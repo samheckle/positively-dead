@@ -91,8 +91,6 @@ public class FoodController : MonoBehaviour
         else
             foreach (GameObject g in levelOverObjects)
                 g.SetActive(false);
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     /// <summary>
