@@ -98,7 +98,7 @@ public class FoodController : MonoBehaviour
     /// </summary>
     void SpawnFoodObjects()
     {
-        if (foodObjects.Count < 15)
+        if (foodObjects.Count < 5)
         {
             GameObject newFood = new GameObject();
 
@@ -161,19 +161,37 @@ public class FoodController : MonoBehaviour
             List<string> keyList = new List<string>(requiredFoodObjects.Keys);
             for (int j = 0; j < keyList.Count; j++)
             {
-                if (foodObjects[i].GetComponent<SpriteRenderer>().sprite.name.Equals(keyList[j]) && collectedFoodObjects[keyList[j]] < requiredFoodObjects[keyList[j]])
+                if (foodObjects[i].GetComponent<PolygonCollider2D>().IsTouching(player.GetComponent<PolygonCollider2D>()))
                 {
-                    if (foodObjects[i].GetComponent<PolygonCollider2D>().IsTouching(player.GetComponent<PolygonCollider2D>()))
+                    if (foodObjects[i].GetComponent<SpriteRenderer>().sprite.name.Equals(keyList[j]) && collectedFoodObjects[keyList[j]] < requiredFoodObjects[keyList[j]])
                     {
-                        collectedFoodObjects[keyList[j]] += 1;
                         GameObject fallenFood = foodObjects[i];
                         foodObjects.Remove(fallenFood);
                         foodSpeeds.Remove(i);
                         Destroy(fallenFood);
+                        collectedFoodObjects[keyList[j]] += 1;
                         currentScore++;
+                    } else if(!keyList.Contains(foodObjects[i].GetComponent<SpriteRenderer>().sprite.name))
+                    {
+                        GameObject fallenFood = foodObjects[i];
+                        foodObjects.Remove(fallenFood);
+                        foodSpeeds.Remove(i);
+                        Destroy(fallenFood);
+                        if(currentScore > 0) currentScore--;
+                        ClearCollection();
                     }
                 }
             }
+        }
+    }
+
+    void ClearCollection()
+    {
+        List<string> keyList = new List<string>(requiredFoodObjects.Keys);
+
+        for (int i = 0; i < keyList.Count; i++)
+        {
+            collectedFoodObjects[keyList[i]] = 0;
         }
     }
 
