@@ -1767,6 +1767,12 @@ Prefab:
       propertyPath: m_TagString
       value: End Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 212956904648340594, guid: 74f0f4a11d244904ab714b104ff5473d,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34d155f03759f14408715582dfb494a4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74f0f4a11d244904ab714b104ff5473d, type: 2}
   m_IsPrefabAsset: 0

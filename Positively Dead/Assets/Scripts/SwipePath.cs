@@ -60,7 +60,7 @@ public class SwipePath : MonoBehaviour
                         {
                             if (!hitObjects.Contains(hit.collider.gameObject))
                             {
-                                Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                                //Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
                                 hit.collider.gameObject.GetComponent<SpriteRenderer>().material = highlighter;
                                 hit.collider.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
                                 hitObjects.Add(hit.collider.gameObject);
@@ -78,7 +78,7 @@ public class SwipePath : MonoBehaviour
                             // If there are other tiles already existing in the list, check to see if the next tile is adjacent to the previous
                             if (!hitObjects.Contains(hit.collider.gameObject))
                             {
-                                Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                                //Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
                                 hit.collider.gameObject.GetComponent<SpriteRenderer>().material = highlighter;
                                 hit.collider.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
                                 hitObjects.Add(hit.collider.gameObject);
@@ -93,7 +93,7 @@ public class SwipePath : MonoBehaviour
                             // If there are other tiles already existing in the list, check to see if the next tile is adjacent to the previous
                             if (!hitObjects.Contains(hit.collider.gameObject))
                             {
-                                Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                                //Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
                                 hit.collider.gameObject.GetComponent<SpriteRenderer>().material = highlighter;
                                 hit.collider.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
                                 hitObjects.Add(hit.collider.gameObject);

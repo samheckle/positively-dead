@@ -196,8 +196,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 13a8b2b6d366ea041b89ff76f175381c, type: 3}
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 421c6f4bdf6d24d4aa9d776a940e016f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 813433464}
   - component: {fileID: 813433465}
   m_Layer: 8
-  m_Name: Diyu Guy
+  m_Name: Guy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1466,7 +1466,6 @@ MonoBehaviour:
   speakerAngry: {fileID: 21300000, guid: a8505777da637004d872c04c15a22b19, type: 3}
   speakerNeutral: {fileID: 21300000, guid: 2ffce33d3230d4df79c86b9fe36a0872, type: 3}
   speakerHappy: {fileID: 21300000, guid: 8dc579beba08cc845800875a6263e69b, type: 3}
-  textAudio: {fileID: 1909654583}
 --- !u!114 &1681576018
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2522,6 +2522,12 @@ Prefab:
       propertyPath: m_TagString
       value: End Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 212278224027210128, guid: 14b81f5748945f64abbafc9c0f8dda1c,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34d155f03759f14408715582dfb494a4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14b81f5748945f64abbafc9c0f8dda1c, type: 2}
   m_IsPrefabAsset: 0
@@ -2781,7 +2787,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759571926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1380079157}

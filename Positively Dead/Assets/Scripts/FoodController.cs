@@ -74,14 +74,8 @@ public class FoodController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayScore();
-        SpawnFoodObjects();
-        MoveFoodObjects();
-        CheckCollisions();
-        HandleTimer();
-
         // Check the score to see if the player has completed the objective
-        if (level > 3)
+        if (level == 3 && currentScore == requiredScore)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -89,6 +83,12 @@ public class FoodController : MonoBehaviour
         {
             IncrementLevel();
         }
+
+        SpawnFoodObjects();
+        MoveFoodObjects();
+        CheckCollisions();
+        DisplayScore();
+        HandleTimer();
 
         if (timer != 0)
             foreach (GameObject g in levelOverObjects)
