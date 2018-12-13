@@ -152,8 +152,7 @@ public class FoodController : MonoBehaviour
         timeText.text = ((int)timeRemaining).ToString() + " seconds left";
         if(timeRemaining <= 0)
         {
-            level--;
-            IncrementLevel();
+            RetryLevel();
         }
     }
 
@@ -267,8 +266,37 @@ public class FoodController : MonoBehaviour
         if (level > 1)
         {
             // Freeze game for input
+            PopUpText();
             StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));
         }
+
+        // clear any objective information currently stored in the dictionaries
+        requiredFoodObjects.Clear();
+        collectedFoodObjects.Clear();
+
+        // Delete all current food objects
+        for (int i = 0; i < foodObjects.Count; i++)
+        {
+            GameObject food = foodObjects[i];
+            foodObjects.Remove(food);
+            foodSpeeds.Remove(i);
+            Destroy(food);
+        }
+
+        // Redetermine the objective to be harder (more food)
+        SetObjective();
+    }
+
+    /// <summary>
+    /// Resets the current level
+    /// </summary>
+    void RetryLevel()
+    {
+        timeRemaining = 60.0f;
+
+        StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));
+
+        levelTxt.text = "Time Up! Tap to Retry";
 
         // clear any objective information currently stored in the dictionaries
         requiredFoodObjects.Clear();
@@ -302,6 +330,7 @@ public class FoodController : MonoBehaviour
             int firstFoodAmnt = Random.Range(2, 5);
             int secondFoodAmnt = Random.Range(2, 5);
             requiredScore = firstFoodAmnt + secondFoodAmnt;
+            currentScore = 0;
 
             Sprite firstFood = foodSprites[foodTypes[0]];
             Sprite secondFood = foodSprites[foodTypes[1]];
@@ -368,7 +397,8 @@ public class FoodController : MonoBehaviour
             int firstFoodAmnt = Random.Range(3, 6);
             int secondFoodAmnt = Random.Range(3, 6);
             int thirdFoodAmnt = Random.Range(3, 6);
-            requiredScore = (firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt) + currentScore;
+            requiredScore = (firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt);
+            currentScore = 0;
 
             Sprite firstFood = foodSprites[foodTypes[0]];
             Sprite secondFood = foodSprites[foodTypes[1]];
@@ -461,7 +491,8 @@ public class FoodController : MonoBehaviour
             int secondFoodAmnt = Random.Range(5, 8);
             int thirdFoodAmnt = Random.Range(5, 8);
             int fourthFoodAmnt = Random.Range(5, 8);
-            requiredScore = (firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt + fourthFoodAmnt) + currentScore;
+            requiredScore = (firstFoodAmnt + secondFoodAmnt + thirdFoodAmnt + fourthFoodAmnt);
+            currentScore = 0;
 
             Sprite firstFood = foodSprites[foodTypes[0]];
             Sprite secondFood = foodSprites[foodTypes[1]];
@@ -607,7 +638,6 @@ public class FoodController : MonoBehaviour
             yield return null;
             timer += Time.unscaledDeltaTime;
             Time.timeScale = 0.000001f;
-            PopUpText();
             if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
             {
                 //Resume Game
