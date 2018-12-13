@@ -62,11 +62,6 @@ public class EndTileChecker : MonoBehaviour
         PopUpText();
         if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
         {
-<<<<<<< HEAD
-            yield return null;
-            timer += Time.unscaledDeltaTime;
-            Time.timeScale = 0.000001f;
-            PopUpText();
             if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
             {
                 //Resume Game
@@ -77,13 +72,7 @@ public class EndTileChecker : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 Time.timeScale = 1;                
                 timer = 0;
-                break;
             }
-=======
-            //Resume Game
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            timer = 0;
->>>>>>> master
         }
         yield return null;
     }
