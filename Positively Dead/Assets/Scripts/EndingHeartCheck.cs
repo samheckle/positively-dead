@@ -16,6 +16,9 @@ public class EndingHeartCheck : MonoBehaviour {
 	private float leftHeight;
 	private float rightHeight;
 
+	private float timer;
+	private int count;
+
 	// karma number to show if the player is positive
 	private int karma;
 
@@ -28,8 +31,12 @@ public class EndingHeartCheck : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		timer = 0;
+		count = 0;
+
 		rotate = scaleArms.transform.rotation.z;
 		leftHeight = leftBasket.transform.position.y;
+		PlayerPrefs.SetInt ("Karma", 1);
 		karma = PlayerPrefs.GetInt ("Karma", 1);
 
 		if (karma < 0) {
@@ -45,24 +52,55 @@ public class EndingHeartCheck : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (karma >= 0) {
+
+		timer += Time.deltaTime * 2;
+		if (timer < 2) {
 			Increase ();
-		} else {
+		} else if (timer <= 6) {
 			Decrease ();
+		} else if (timer <= 7) {
+			timer = 0;
+			count++;
 		}
 
+		if (count == 2) {
+			timer = 10;
+		}
+		if (timer == 10) {
+			if (karma >= 0) {
+				if (rotate <= .1)
+					Increase ();
+				else {
+					PlayerPrefs.SetFloat ("arms", rotate);
+					PlayerPrefs.SetFloat ("rightBasketRed", rightHeight);
+					PlayerPrefs.SetFloat ("leftBasket", leftHeight);
+					timer++;
+				}
+			} else {
+				if (rotate >= -.1) {
+					Decrease ();
+				} else {
+					PlayerPrefs.SetFloat ("arms", rotate);
+					PlayerPrefs.SetFloat ("rightBasketRed", rightHeight);
+					PlayerPrefs.SetFloat ("leftBasket", leftHeight);
+					timer++;
+				}
+			}
+		}
+
+		if (timer == 11) {
+			SceneManager.LoadScene ("EgyptMinigame3");
+		}
 	}
 
 	/// <summary>
 	/// For positive karma increases the heart scale side
 	/// </summary>
 	private void Increase () {
-		if (rotate <= .1) {
-			rotate += Time.deltaTime / 10;
-			leftHeight -= Time.deltaTime / 1.6f;
-			rightHeight += Time.deltaTime / 2f;
-			SetNewPosition ();
-		}
+		rotate += Time.deltaTime / 10;
+		leftHeight -= .01f;
+		rightHeight += .009f;
+		SetNewPosition ();
 
 	}
 
@@ -70,12 +108,11 @@ public class EndingHeartCheck : MonoBehaviour {
 	/// For negative karma, increases the feather scale side
 	/// </summary>
 	private void Decrease () {
-		if (rotate >= -.1) {
-			rotate -= Time.deltaTime / 10;
-			leftHeight += Time.deltaTime / 2f;
-			rightHeight -= Time.deltaTime / 1.6f;
-			SetNewPosition ();
-		}
+		rotate -= Time.deltaTime / 10;
+		leftHeight += .01f;
+		rightHeight -= .009f;
+		SetNewPosition ();
+
 	}
 
 	/// <summary>

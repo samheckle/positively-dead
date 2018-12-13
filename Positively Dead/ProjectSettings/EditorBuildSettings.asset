@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EgyptMinigame2.unity
     guid: b2a86abdb66ea49859ced2c7f3eab7d0
+  - enabled: 1
+    path: Assets/Scenes/EgyptMinigame3.unity
+    guid: 315c529bca53e44f8ac41a790c3abcd3
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

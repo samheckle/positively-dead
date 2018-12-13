@@ -76,7 +76,6 @@ public class EndTileChecker : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 Time.timeScale = 1;                
                 timer = 0;
-                break;
             }
         }
         yield return null;

@@ -65,11 +65,6 @@ public class DialogueManager : MonoBehaviour
     {
         timer = 0;
 
-        Debug.Log(useLoadingScreen);
-        if(useLoadingScreen == null){
-            useLoadingScreen = true;
-        }
-
         typer = gameObject.GetComponent<Typewriter>();
         loadSceneManager = gameObject.GetComponent<OpenScene>();
 
@@ -235,11 +230,14 @@ public class DialogueManager : MonoBehaviour
                 }
             }
 
+            Debug.Log(currentDialogue.EndsScene);
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
             {
-                if(useLoadingScreen)
+                
+                if(useLoadingScreen){
                     loadSceneManager.TriggerLoad(nextScene);
+                }
                 else
                     SceneManager.LoadScene(nextScene);
             }
@@ -284,7 +282,11 @@ public class DialogueManager : MonoBehaviour
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
             {
-                loadSceneManager.TriggerLoad(nextScene);
+                if(useLoadingScreen){
+                    loadSceneManager.TriggerLoad(nextScene);
+                }
+                else
+                    SceneManager.LoadScene(nextScene);
             }
             else
             {
