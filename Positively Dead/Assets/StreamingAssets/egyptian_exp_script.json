@@ -5,8 +5,12 @@
     "karma": 0,
     "dialogueOptions": [{
         "speakerName": "Death",
-        "text": "Good luck kid",
+        "text": "Good luck kid.",
         "textSpeed": 0.02,
-        "karma": 0
+        "karma": 0,
+        "responseOptions": [
+            "I might need it."
+        ],
+        "endsScene": true
     }]
 }]

@@ -58,10 +58,17 @@ public class DialogueManager : MonoBehaviour
     public Sprite speakerNeutral;
     public Sprite speakerHappy;
 
+    public bool useLoadingScreen;
+
     // Use this for initialization
     void Start()
     {
         timer = 0;
+
+        Debug.Log(useLoadingScreen);
+        if(useLoadingScreen == null){
+            useLoadingScreen = true;
+        }
 
         typer = gameObject.GetComponent<Typewriter>();
         loadSceneManager = gameObject.GetComponent<OpenScene>();
@@ -231,7 +238,10 @@ public class DialogueManager : MonoBehaviour
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
             {
-                loadSceneManager.TriggerLoad(nextScene);
+                if(useLoadingScreen)
+                    loadSceneManager.TriggerLoad(nextScene);
+                else
+                    SceneManager.LoadScene(nextScene);
             }
             else
             {

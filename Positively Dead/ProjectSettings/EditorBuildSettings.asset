@@ -45,6 +45,9 @@ EditorBuildSettings:
     path: Assets/Scenes/EgyptMinigame.unity
     guid: f5779bbd7daf44dc9b1c6294501f2780
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 4f36bc231239f754eac3d59d5400a0db
+    path: Assets/Scenes/EgyptMinigame2.unity
+    guid: b2a86abdb66ea49859ced2c7f3eab7d0
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
