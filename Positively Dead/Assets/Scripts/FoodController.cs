@@ -48,7 +48,7 @@ public class FoodController : MonoBehaviour
         level = 0;
         currentScore = 0;
         requiredScore = 0;
-        timeRemaining = 30.0f;
+        timeRemaining = 60.0f;
         requiredFoodObjects = new Dictionary<string, int>();
         collectedFoodObjects = new Dictionary<string, int>();
         foodImages = new List<Image>();
@@ -103,7 +103,7 @@ public class FoodController : MonoBehaviour
     /// </summary>
     void SpawnFoodObjects()
     {
-        if (foodObjects.Count < 5)
+        if (foodObjects.Count < 10)
         {
             GameObject newFood = new GameObject();
 
@@ -149,7 +149,7 @@ public class FoodController : MonoBehaviour
     void HandleTimer()
     {
         timeRemaining -= Time.deltaTime;
-        timeText.text = "Time Remaining " + ((int)timeRemaining).ToString();
+        timeText.text = ((int)timeRemaining).ToString() + " seconds left";
         if(timeRemaining <= 0)
         {
             level--;
@@ -213,6 +213,8 @@ public class FoodController : MonoBehaviour
     {
         List<string> keyList = new List<string>(requiredFoodObjects.Keys);
 
+        Handheld.Vibrate();
+
         for (int i = 0; i < keyList.Count; i++)
         {
             collectedFoodObjects[keyList[i]] = 0;
@@ -250,6 +252,8 @@ public class FoodController : MonoBehaviour
                 scoreTxt.text += " | ";
             }
         }
+
+        Debug.Log(scoreTxt.text);
     }
 
     /// <summary>
@@ -258,7 +262,7 @@ public class FoodController : MonoBehaviour
     void IncrementLevel()
     {
         level++;
-        timeRemaining = 30.0f;
+        timeRemaining = 60.0f;
 
         if (level > 1)
         {
