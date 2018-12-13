@@ -619,21 +619,21 @@ Prefab:
     - target: {fileID: 224599099457549072, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.941618
+      value: 1.0271506
       objectReference: {fileID: 0}
     - target: {fileID: 224599099457549072, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.941618
+      value: 1.0271506
       objectReference: {fileID: 0}
     - target: {fileID: 224599099457549072, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.941618
+      value: 1.0271506
       objectReference: {fileID: 0}
     - target: {fileID: 1538859189198140, guid: a3392df176e49c4479a9982599b3edfe, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3392df176e49c4479a9982599b3edfe, type: 2}
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: EgyptMinigame2
+  scene: End
   loadingText: {fileID: 1177073197}
   loadingPanel: {fileID: 1177073198}
 --- !u!114 &1911294386
@@ -1527,8 +1527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77dc7507e7c2f5444b345807c62b74e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: egyptian_exp_script.json
-  nextScene: EgyptMinigame2
+  sceneName: egyptian_exp_script2.json
+  nextScene: End
   dialogueBox: {fileID: 1911294388}
   speakerName: {fileID: 519756256}
   background: {fileID: 1940844724}
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   speakerAngry: {fileID: 21300000, guid: 313bb31ab420b8446bc9f6da8a82cbb7, type: 3}
   speakerNeutral: {fileID: 21300000, guid: b17c2a0210a5fd74d9bde00394b1c09c, type: 3}
   speakerHappy: {fileID: 21300000, guid: 641e9d55ad574bd4a8751098afe58836, type: 3}
-  useLoadingScreen: 0
+  useLoadingScreen: 1
 --- !u!114 &1911294387
 MonoBehaviour:
   m_ObjectHideFlags: 0

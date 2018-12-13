@@ -1,0 +1,16 @@
+[{
+    "speakerName": "Priestess",
+    "text": "Hmm, interesting.",
+    "textSpeed": 0.02,
+    "karma": 0,
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "Okay kid. Let's see how well you do next time.",
+        "textSpeed": 0.02,
+        "karma": 0,
+        "responseOptions": [
+            "What does that mean?"
+        ],
+        "endsScene": true
+    }]
+}]
