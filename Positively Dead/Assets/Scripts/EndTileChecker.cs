@@ -14,10 +14,18 @@ public class EndTileChecker : MonoBehaviour
 
     public List<GameObject> levelOverObjects;
 
+    private GameObject canvas = null;
+    private OpenScene loadSceneManager;
+
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        if (canvas)
+        {
+            loadSceneManager = canvas.GetComponent<OpenScene>();
+        }
         levelTxt = levelOverObjects[0].GetComponent<Text>();
         levelTxt2 = levelOverObjects[2].GetComponent<Text>();
     }
@@ -65,6 +73,10 @@ public class EndTileChecker : MonoBehaviour
             if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
             {
                 //Resume Game
+                if(canvas && loadSceneManager)
+                {
+                    loadSceneManager.TriggerLoad("MapSelect");
+                }
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 Time.timeScale = 1;                
                 timer = 0;

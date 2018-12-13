@@ -31,6 +31,9 @@ public class FoodController : MonoBehaviour
 
     public List<float> foodSpeeds;
 
+    public float timeRemaining;
+    public Text timeText;
+
     // The foods the player needs to catch to complete the round
     public Dictionary<string, int> requiredFoodObjects;
 
@@ -45,6 +48,7 @@ public class FoodController : MonoBehaviour
         level = 0;
         currentScore = 0;
         requiredScore = 0;
+        timeRemaining = 30.0f;
         requiredFoodObjects = new Dictionary<string, int>();
         collectedFoodObjects = new Dictionary<string, int>();
         foodImages = new List<Image>();
@@ -70,10 +74,11 @@ public class FoodController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DisplayScore();
         SpawnFoodObjects();
         MoveFoodObjects();
         CheckCollisions();
-        DisplayScore();
+        HandleTimer();
 
         // Check the score to see if the player has completed the objective
         if (level > 3)
@@ -139,6 +144,20 @@ public class FoodController : MonoBehaviour
     }
 
     /// <summary>
+    /// Decrements the timer
+    /// </summary>
+    void HandleTimer()
+    {
+        timeRemaining -= Time.deltaTime;
+        timeText.text = "Time Remaining " + ((int)timeRemaining).ToString();
+        if(timeRemaining <= 0)
+        {
+            level--;
+            IncrementLevel();
+        }
+    }
+
+    /// <summary>
     /// Checks collisions between the food, basket and the floor
     /// </summary>
     void CheckCollisions()
@@ -177,7 +196,12 @@ public class FoodController : MonoBehaviour
                         foodObjects.Remove(fallenFood);
                         foodSpeeds.Remove(i);
                         Destroy(fallenFood);
-                        if(currentScore > 0) currentScore--;
+                        currentScore = 0;
+                        // impact karma value
+                        if (PlayerPrefs.HasKey("Karma"))
+                        {
+                            PlayerPrefs.SetInt("Karma", PlayerPrefs.GetInt("Karma") - 1);
+                        }
                         ClearCollection();
                     }
                 }
@@ -234,6 +258,7 @@ public class FoodController : MonoBehaviour
     void IncrementLevel()
     {
         level++;
+        timeRemaining = 30.0f;
 
         if (level > 1)
         {
