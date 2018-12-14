@@ -1,15 +1,15 @@
 [{
     "speakerName": "Priestess",
-    "text": "Here. We will place your actions on the scale to reveal if you are truly worthy.",
+    "text": "Hmm, interesting.",
     "textSpeed": 0.02,
     "karma": 0,
     "dialogueOptions": [{
         "speakerName": "Death",
-        "text": "Good luck kid.",
+        "text": "Okay kid. Let's see how well you do next time.",
         "textSpeed": 0.02,
         "karma": 0,
         "responseOptions": [
-            "I might need it."
+            "What does that mean?"
         ],
         "endsScene": true
     }]
