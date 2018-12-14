@@ -1,0 +1,19 @@
+[{
+    "speakerName": "Death",
+    "text": "Here it is pretty simple. You play this game and you help the kid. All you have to do is catch the required food. Check the status bar to see what you have gathered.",
+    "textSpeed": 0.02,
+    "karma": 0,
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "If you pick up the wrong item, you lose everything in your basket, so be extra careful when you are trying to get the right food.",
+        "textSpeed": 0.02,
+        "karma": 0,
+        "dialogueOptions": [{
+            "speakerName": "Death",
+            "text": "If you are on mobile, you can tilt the screen. Otherwise use the arrow keys to move the basket.",
+            "textSpeed": 0.02,
+            "karma": 0,
+            "endsScene": true
+        }]
+    }]
+}]
