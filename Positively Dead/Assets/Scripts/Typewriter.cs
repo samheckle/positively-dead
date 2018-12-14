@@ -13,6 +13,8 @@ public class Typewriter : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    private AKPostEvent akPostScript;
+
     //Test to see if the string has changed
     private string testText;
 
@@ -82,6 +84,9 @@ public class Typewriter : MonoBehaviour
         coroutineComplete = false;
         for (int i = 0; i < finalText.Length + 1; i++)
         {
+            akPostScript = GameObject.Find("Music").GetComponent<AKPostEvent>();
+            akPostScript.PlayText();
+
             animText.text = finalText.Substring(0, i);
             yield return new WaitForSeconds(currentDelay);
         }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>/Users/justin/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/z:/repos/positively-dead/Positively Dead/Positively Dead_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/justin/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/z:/repos/positively-dead/Positively Dead/Positively Dead_WwiseProject/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/justin/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/z:/repos/positively-dead/Positively Dead/Positively Dead_WwiseProject/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/justin/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/z:/repos/positively-dead/Positively Dead/Positively Dead_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3991942870" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music</ObjectPath>
+			<ShortName>Music</ShortName>
+			<Path>Music.bnk</Path>
+			<IncludedEvents>
+				<Event Id="977454165" Name="Button" ObjectPath="\Events\Default Work Unit\Button"/>
+				<Event Id="4218506511" Name="DiyuMinigamePlay" ObjectPath="\Events\Default Work Unit\DiyuMinigamePlay"/>
+				<Event Id="4283076020" Name="DiyuPlay" ObjectPath="\Events\Default Work Unit\DiyuPlay"/>
+				<Event Id="82181492" Name="EgyptPlay" ObjectPath="\Events\Default Work Unit\EgyptPlay"/>
+				<Event Id="131922971" Name="IntroPlay" ObjectPath="\Events\Default Work Unit\IntroPlay"/>
+				<Event Id="3783761940" Name="NorsePlay" ObjectPath="\Events\Default Work Unit\NorsePlay"/>
+				<Event Id="2970581085" Name="Type" ObjectPath="\Events\Default Work Unit\Type"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="62060259" Language="SFX">
+					<ShortName>egypt02.wav</ShortName>
+					<Path>SFX/egypt02_56D34C19.wem</Path>
+				</File>
+				<File Id="74949864" Language="SFX">
+					<ShortName>text.wav</ShortName>
+					<Path>SFX/text_56D34C19.wem</Path>
+				</File>
+				<File Id="492868150" Language="SFX">
+					<ShortName>chinese03.wav</ShortName>
+					<Path>SFX/chinese03_8956FC97.wem</Path>
+				</File>
+				<File Id="530089285" Language="SFX">
+					<ShortName>Intro03.wav</ShortName>
+					<Path>SFX/Intro03_8956FC97.wem</Path>
+				</File>
+				<File Id="775515894" Language="SFX">
+					<ShortName>button.wav</ShortName>
+					<Path>SFX/button_56D34C19.wem</Path>
+				</File>
+				<File Id="792703873" Language="SFX">
+					<ShortName>Norse02_07.wav</ShortName>
+					<Path>SFX/Norse02_07_56D34C19.wem</Path>
+				</File>
+				<File Id="967813808" Language="SFX">
+					<ShortName>chinese_slower00.wav</ShortName>
+					<Path>SFX/chinese_slower00_56D34C19.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

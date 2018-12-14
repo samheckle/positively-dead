@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1A543FE4-643D-41D7-A5AA-D84E69D0A8A2}" SchemaVersion="89">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{1A543FE4-643D-41D7-A5AA-D84E69D0A8A2}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Music" ID="{618943C9-2499-4AB3-BA28-8C54439FBF5D}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Intro" ID="{AD0AB563-191C-41B0-91F3-470E3BB7731A}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Text_Container" ID="{DAD399AB-D12F-486A-8D03-AFDCE27F44C2}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Diyu_Minigame" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Egypt" ID="{976E8B44-DFA6-4988-AA93-F61DB214DCBF}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Diyu" ID="{2DF00139-050F-4A95-A3FF-AA4CC0C25966}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Norse" ID="{D2F86F3A-28A4-4C9A-9D5F-8FCCA9B4C8F3}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Button" ID="{559F5A42-DE3F-4F81-845C-0EADB80D86C7}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

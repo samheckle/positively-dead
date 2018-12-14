@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed1a7ac7099d498faedd74b6bebf590, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 2b0cbcb5d868d0488e388aacf69b313d
+    m_lastTime: -8586568544064775808
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 5f2bcbb9fc4eee4b9f56d7725c178c79
+    m_lastTime: -8586568544094775808
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: e43f541a3d64d741a5aad84e69d0a8a2
+    m_lastTime: -8586568544064775808
+    List:
+    - name: Music
+      guid: c94389619924b34aba288c54439fbf5d
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 7
+      Path: Default Work Unit/Music
+  EventWwu:
+  - PhysicalPath: Events/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: bc875643d4d8054884696ae5f4472ca0
+    m_lastTime: -8586568544124775808
+    List:
+    - name: Button
+      guid: b98bb747e34546498d11011e8b74484f
+      id: 977454165
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Button
+        ObjectType: 3
+      Path: Default Work Unit/Button
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DiyuMinigamePlay
+      guid: bb7ecdd09e09434f866006935eb8e6d7
+      id: 4218506511
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: DiyuMinigamePlay
+        ObjectType: 3
+      Path: Default Work Unit/DiyuMinigamePlay
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DiyuPlay
+      guid: 9e8f6e6b233efe4db08f9245822a4f57
+      id: 4283076020
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: DiyuPlay
+        ObjectType: 3
+      Path: Default Work Unit/DiyuPlay
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: EgyptPlay
+      guid: 60625cd71074db47850fcfb5006ab446
+      id: 82181492
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: EgyptPlay
+        ObjectType: 3
+      Path: Default Work Unit/EgyptPlay
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: IntroPlay
+      guid: 7ea518800bcd834da42367bc667e16b1
+      id: 131922971
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: IntroPlay
+        ObjectType: 3
+      Path: Default Work Unit/IntroPlay
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: NorsePlay
+      guid: c9af4e2fd3c6774fad67c6931a36fcfa
+      id: 3783761940
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: NorsePlay
+        ObjectType: 3
+      Path: Default Work Unit/NorsePlay
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Type
+      guid: 94c34f0a1f7c07498dbd94aedd08d57c
+      id: 2970581085
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Type
+        ObjectType: 3
+      Path: Default Work Unit/Type
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  RtpcWwu:
+  - PhysicalPath: Game Parameters/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 3d0b11ec1b440b439a9f6e775a005b47
+    m_lastTime: -8586568544124775808
+    List: []
+  StateWwu:
+  - PhysicalPath: States/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 478cf896735f3641a6022938f4ec0d8a
+    m_lastTime: -8586568544064775808
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: fc09d3a33b7b9d46be255e0a057e56c3
+    m_lastTime: -8586568544064775808
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: f37337530b4b2e4da2d01108abd481bd
+    m_lastTime: -8586568544064775808
+    List: []
+  ExpandedItems: []
+  autoPopulateEnabled: 1
+  CurrentPluginConfig: 

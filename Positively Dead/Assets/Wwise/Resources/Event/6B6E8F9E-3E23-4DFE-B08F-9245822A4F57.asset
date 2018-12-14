@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2444c41fd776041b6a53499e759b9a81, type: 3}
+  m_Name: 6B6E8F9E-3E23-4DFE-B08F-9245822A4F57
+  m_EditorClassIdentifier: 
+  objectName: DiyuPlay
+  id: 4283076020
+  guid: 6B6E8F9E-3E23-4DFE-B08F-9245822A4F57

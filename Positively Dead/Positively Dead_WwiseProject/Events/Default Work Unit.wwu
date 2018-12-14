@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}" SchemaVersion="89">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{435687BC-D8D4-4805-8469-6AE5F4472CA0}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="IntroPlay" ID="{8018A57E-CD0B-4D83-A423-67BC667E16B1}">
+					<ChildrenList>
+						<Action Name="" ID="{B264DCD1-E45A-4FF3-A552-38267057C3B4}" ShortID="77283651">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{A438E7CF-87C1-4854-B5A0-1FB71F7585ED}" ShortID="583473311">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Intro" ID="{AD0AB563-191C-41B0-91F3-470E3BB7731A}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DiyuMinigamePlay" ID="{D0CD7EBB-099E-4F43-8660-06935EB8E6D7}">
+					<ChildrenList>
+						<Action Name="" ID="{1EB488AB-F682-4B0B-AB6C-DCC859124D91}" ShortID="35944018">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{5968821F-3AEE-4DBA-A207-EF09A20CD985}" ShortID="247807726">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="FadeInCurve" Type="int16" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Diyu_Minigame" ID="{ECFDC8D1-E122-490A-B76F-867AA90B667B}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="NorsePlay" ID="{2F4EAFC9-C6D3-4F77-AD67-C6931A36FCFA}">
+					<ChildrenList>
+						<Action Name="" ID="{002AC066-0FF2-4A61-8CFF-933084BC1E4E}" ShortID="13096704">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{0A4B7750-9042-4D65-82F3-9F3D97A62BE6}" ShortID="1040484468">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Norse" ID="{D2F86F3A-28A4-4C9A-9D5F-8FCCA9B4C8F3}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DiyuPlay" ID="{6B6E8F9E-3E23-4DFE-B08F-9245822A4F57}">
+					<ChildrenList>
+						<Action Name="" ID="{39877E01-EE07-4E7B-9C91-6944D3A360EA}" ShortID="55627346">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{B97985FB-D882-4610-A52B-01CFBDF2E785}" ShortID="961664816">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Diyu" ID="{2DF00139-050F-4A95-A3FF-AA4CC0C25966}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Type" ID="{0A4FC394-7C1F-4907-8DBD-94AEDD08D57C}">
+					<ChildrenList>
+						<Action Name="" ID="{29AA4230-61CB-41A3-852B-7D79D22D006C}" ShortID="760994274">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Text_Container" ID="{DAD399AB-D12F-486A-8D03-AFDCE27F44C2}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="EgyptPlay" ID="{D75C6260-7410-47DB-850F-CFB5006AB446}">
+					<ChildrenList>
+						<Action Name="" ID="{B9D53A6E-FBA9-45DE-91AC-DAF106DF6535}" ShortID="610695965">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{587259FF-6271-43D4-A469-33517B8C6619}" ShortID="64771379">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Egypt" ID="{976E8B44-DFA6-4988-AA93-F61DB214DCBF}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Button" ID="{47B78BB9-45E3-4946-8D11-011E8B74484F}">
+					<ChildrenList>
+						<Action Name="" ID="{555E3CD9-30A6-408A-8F19-E2B4D0752C04}" ShortID="132728658">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Button" ID="{559F5A42-DE3F-4F81-845C-0EADB80D86C7}" WorkUnitID="{D25E3B46-A22A-4B5A-AC2B-C76AED6BFC42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
