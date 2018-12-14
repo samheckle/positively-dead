@@ -1,0 +1,22 @@
+[{
+    "speakerName": "Death",
+    "text": "This time we are working directly with the...puzzle devices...of Diyu. We need to guide the light through the mazes to descend through the layers.",
+    "textSpeed": 0.02,
+    "karma": 0,
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "The reason this is problematic is the peril that lies within Diyu. Essentially it is a torture chamber. If you hit a trap, you die and lose karma.",
+        "textSpeed": 0.02,
+        "karma": 0,
+        "responseOptions":[
+            "What is karma?"
+        ],
+        "dialogueOptions": [{
+            "speakerName": "Death",
+            "text": "Uhhhh, that will be explained later. All you need to focus on now is tracing the correct path through each maze to get to the stairs at the end.",
+            "textSpeed": 0.02,
+            "karma": 0,
+            "endsScene": true
+        }]
+    }]
+}]

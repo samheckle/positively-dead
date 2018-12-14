@@ -665,7 +665,7 @@ Prefab:
     - target: {fileID: 224767272685673832, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114583594208845462, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
@@ -720,7 +720,7 @@ Prefab:
     - target: {fileID: 224413747026644556, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224256146622194292, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
@@ -730,17 +730,17 @@ Prefab:
     - target: {fileID: 224429320813261322, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224829574438352380, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224215158963669722, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224414638015731540, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
@@ -1936,7 +1936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: norse_script.json
-  nextScene: NorseMinigame
+  nextScene: NorseTutorial
   dialogueBox: {fileID: 1977726852}
   speakerName: {fileID: 491420140}
   background: {fileID: 1408653936}
@@ -1948,7 +1948,7 @@ MonoBehaviour:
   speakerAngry: {fileID: 21300000, guid: 53456521d99acc343b3886748a2779d9, type: 3}
   speakerNeutral: {fileID: 21300000, guid: 4bc4a52d0a2b1944884c585d4e4a4b69, type: 3}
   speakerHappy: {fileID: 21300000, guid: 83dad006cce908649a3327bf8f016573, type: 3}
-  useLoadingScreen: 1
+  useLoadingScreen: 0
 --- !u!114 &1977726852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,6 +2033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: NorseMinigame
+  scene: NorseTutorial
   loadingText: {fileID: 460653836}
   loadingPanel: {fileID: 460653837}

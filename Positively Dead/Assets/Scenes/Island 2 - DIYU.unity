@@ -819,7 +819,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 813433463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1543, y: -332, z: 576.42865}
+  m_LocalPosition: {x: -1326, y: -332, z: 576.42865}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 599631468}
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: chinese_script.json
-  nextScene: ChineseMinigame1
+  nextScene: ChineseTutorial
   dialogueBox: {fileID: 1681576018}
   speakerName: {fileID: 159996616}
   background: {fileID: 1909654580}
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   speakerAngry: {fileID: 21300000, guid: a8505777da637004d872c04c15a22b19, type: 3}
   speakerNeutral: {fileID: 21300000, guid: 2ffce33d3230d4df79c86b9fe36a0872, type: 3}
   speakerHappy: {fileID: 21300000, guid: 8dc579beba08cc845800875a6263e69b, type: 3}
-  useLoadingScreen: 1
+  useLoadingScreen: 0
 --- !u!114 &1681576018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: ChineseMinigame1
+  scene: ChineseTutorial
   loadingText: {fileID: 1558173547}
   loadingPanel: {fileID: 1349150438}
 --- !u!114 &1681576020
