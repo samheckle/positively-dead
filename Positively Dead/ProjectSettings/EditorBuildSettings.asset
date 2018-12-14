@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Island 1 - NORSE.unity
     guid: b457f45748f51354b80424c20bc7a918
   - enabled: 1
+    path: Assets/Scenes/NorseTutorial.unity
+    guid: 15c3b98fd70eb43938b056d546651111
+  - enabled: 1
     path: Assets/Scenes/NorseMinigame.unity
     guid: f1b5ec976a45fd9419a4d32beb22017b
   - enabled: 1
