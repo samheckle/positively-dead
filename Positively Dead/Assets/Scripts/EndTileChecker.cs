@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EndTileChecker : MonoBehaviour
-{
+public class EndTileChecker : MonoBehaviour {
     private GameObject player;
 
     private Text levelTxt;
@@ -18,65 +17,49 @@ public class EndTileChecker : MonoBehaviour
     private OpenScene loadSceneManager;
 
     // Use this for initialization
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
-        if (canvas)
-        {
-            loadSceneManager = canvas.GetComponent<OpenScene>();
+    void Start () {
+        player = GameObject.FindGameObjectWithTag ("Player");
+        canvas = GameObject.FindGameObjectWithTag ("Canvas");
+        if (canvas) {
+            loadSceneManager = canvas.GetComponent<OpenScene> ();
         }
-        levelTxt = levelOverObjects[0].GetComponent<Text>();
-        levelTxt2 = levelOverObjects[2].GetComponent<Text>();
+        levelTxt = levelOverObjects[0].GetComponent<Text> ();
+        levelTxt2 = levelOverObjects[2].GetComponent<Text> ();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= 0.2f)
-        {
-            if (SceneManager.GetActiveScene().name != "ChineseMinigame4")
-                StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));
+    void Update () {
+        if (Vector3.Distance (this.gameObject.transform.position, player.transform.position) <= 0.2f) {
+            if (SceneManager.GetActiveScene ().name != "ChineseMinigame4")
+                StartCoroutine (WaitForKeyDown (KeyCode.KeypadEnter));
             //else
-                
+
         }
 
         if (timer != 0)
             foreach (GameObject g in levelOverObjects)
-                g.SetActive(true);
+                g.SetActive (true);
         else
             foreach (GameObject g in levelOverObjects)
-                g.SetActive(false);
+                g.SetActive (false);
     }
 
-    void PopUpText()
-    {
+    void PopUpText () {
         levelTxt.text = "Tap to Continue";
-        levelTxt2.text = "You Made It!";       
+        levelTxt2.text = "You Made It!";
     }
 
     float timer = 0.0f;
-    IEnumerator WaitForKeyDown(KeyCode keyCode)
-    {
+    IEnumerator WaitForKeyDown (KeyCode keyCode) {
         timer += Time.unscaledDeltaTime;
-        PopUpText();
-        if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
-        {
-            yield return null;
-            timer += Time.unscaledDeltaTime;
-            Time.timeScale = 0.000001f;
-            PopUpText();
-            if (Input.touchCount > 0 || Input.GetKeyDown(keyCode) || Input.GetMouseButtonDown(0))
-            {
-                //Resume Game
-                if(canvas && loadSceneManager)
-                {
-                    loadSceneManager.TriggerLoad("MapSelect");
-                }
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                Time.timeScale = 1;                
-                timer = 0;
+        PopUpText ();
+        if (Input.touchCount > 0 || Input.GetKeyDown (keyCode) || Input.GetMouseButtonDown (0)) {
+
+            //Resume Game
+            if (canvas && loadSceneManager) {
+                loadSceneManager.TriggerLoad ("MapSelect");
             }
+            timer = 0;
         }
         yield return null;
     }
