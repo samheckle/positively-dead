@@ -720,7 +720,7 @@ Prefab:
     - target: {fileID: 224413747026644556, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224256146622194292, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
@@ -730,7 +730,7 @@ Prefab:
     - target: {fileID: 224429320813261322, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224829574438352380, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
@@ -1936,7 +1936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: norse_script.json
-  nextScene: NorseMinigame
+  nextScene: NorseTutorial
   dialogueBox: {fileID: 1977726852}
   speakerName: {fileID: 491420140}
   background: {fileID: 1408653936}
@@ -2033,6 +2033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab8784571b3bd04d82cc9e2a675faf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: NorseMinigame
+  scene: NorseTutorial
   loadingText: {fileID: 460653836}
   loadingPanel: {fileID: 460653837}
