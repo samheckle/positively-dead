@@ -69,6 +69,8 @@ public class FoodController : MonoBehaviour
 
         // Start the game
         IncrementLevel();
+
+        InvokeRepeating("SpawnFoodObjects", 1.0f, 0.5f);
     }
 
     // Update is called once per frame
@@ -84,7 +86,6 @@ public class FoodController : MonoBehaviour
             IncrementLevel();
         }
 
-        SpawnFoodObjects();
         MoveFoodObjects();
         CheckCollisions();
         DisplayScore();
@@ -103,7 +104,7 @@ public class FoodController : MonoBehaviour
     /// </summary>
     void SpawnFoodObjects()
     {
-        if (foodObjects.Count < 10)
+        for (int i = 0; i < (1 + level); i++)
         {
             GameObject newFood = new GameObject();
 
@@ -251,8 +252,6 @@ public class FoodController : MonoBehaviour
                 scoreTxt.text += " | ";
             }
         }
-
-        Debug.Log(scoreTxt.text);
     }
 
     /// <summary>
@@ -261,7 +260,6 @@ public class FoodController : MonoBehaviour
     void IncrementLevel()
     {
         level++;
-        timeRemaining = 60.0f;
 
         if (level > 1)
         {
@@ -285,6 +283,7 @@ public class FoodController : MonoBehaviour
 
         // Redetermine the objective to be harder (more food)
         SetObjective();
+        timeRemaining = 45.0f + (15f * level);
     }
 
     /// <summary>
@@ -292,10 +291,8 @@ public class FoodController : MonoBehaviour
     /// </summary>
     void RetryLevel()
     {
-        timeRemaining = 60.0f;
-
         StartCoroutine(WaitForKeyDown(KeyCode.KeypadEnter));
-
+        
         levelTxt.text = "Time Up! Tap to Retry";
 
         // clear any objective information currently stored in the dictionaries
@@ -313,6 +310,8 @@ public class FoodController : MonoBehaviour
 
         // Redetermine the objective to be harder (more food)
         SetObjective();
+
+        timeRemaining = 45.0f + (15f * level);
     }
 
     /// <summary>
