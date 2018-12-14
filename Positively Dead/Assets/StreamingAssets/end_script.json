@@ -1,0 +1,37 @@
+[{
+    "speakerName": "Death",
+    "text": "So, what did you think?",
+    "textSpeed": 0.02,
+    "karma": 0,
+    "responseOptions": [
+        "I think I did okay. But what did you mean earlier?"
+    ],
+    "dialogueOptions": [{
+        "speakerName": "Death",
+        "text": "Well, after we finish everything we have to determine whether or not you can be the new Death.",
+        "textSpeed": 0.02,
+        "karma": 0,
+        "responseOptions": [
+            "Huh?"
+        ],
+        "dialogueOptions": [{
+            "speakerName": "Death",
+            "text": "Yeah. I'm supposed to hand over the reins, but I don't think I'm just ready to do that. ",
+            "textSpeed": 0.02,
+            "karma": 0,
+            "responseOptions": [
+                "Why is that?"
+            ],
+            "dialogueOptions": [{
+                "speakerName": "Death",
+                "text": "Let's just say you need more practice...",
+                "textSpeed": 0.02,
+                "karma": 0,
+                "responseOptions": [
+                    "Wait, we are doing this all over again??"
+                ],
+                "endsScene": true
+            }]
+        }]
+    }]
+}]

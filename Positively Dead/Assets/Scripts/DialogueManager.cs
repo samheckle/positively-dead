@@ -58,6 +58,8 @@ public class DialogueManager : MonoBehaviour
     public Sprite speakerNeutral;
     public Sprite speakerHappy;
 
+    public bool useLoadingScreen;
+
     // Use this for initialization
     void Start()
     {
@@ -228,10 +230,16 @@ public class DialogueManager : MonoBehaviour
                 }
             }
 
+            Debug.Log(currentDialogue.EndsScene);
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
             {
-                loadSceneManager.TriggerLoad(nextScene);
+                
+                if(useLoadingScreen){
+                    loadSceneManager.TriggerLoad(nextScene);
+                }
+                else
+                    SceneManager.LoadScene(nextScene);
             }
             else
             {
@@ -274,7 +282,11 @@ public class DialogueManager : MonoBehaviour
             //If this is the end of the scene, then load the next unity scene
             if (currentDialogue.EndsScene)
             {
-                loadSceneManager.TriggerLoad(nextScene);
+                if(useLoadingScreen){
+                    loadSceneManager.TriggerLoad(nextScene);
+                }
+                else
+                    SceneManager.LoadScene(nextScene);
             }
             else
             {
