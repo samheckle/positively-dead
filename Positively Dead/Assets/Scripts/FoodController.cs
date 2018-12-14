@@ -31,6 +31,9 @@ public class FoodController : MonoBehaviour
 
     public List<float> foodSpeeds;
 
+    public float timeRemaining;
+    public Text timeText;
+
     // The foods the player needs to catch to complete the round
     public Dictionary<string, int> requiredFoodObjects;
 
@@ -45,6 +48,7 @@ public class FoodController : MonoBehaviour
         level = 0;
         currentScore = 0;
         requiredScore = 0;
+        timeRemaining = 60.0f;
         requiredFoodObjects = new Dictionary<string, int>();
         collectedFoodObjects = new Dictionary<string, int>();
         foodImages = new List<Image>();
@@ -98,7 +102,7 @@ public class FoodController : MonoBehaviour
     /// </summary>
     void SpawnFoodObjects()
     {
-        if (foodObjects.Count < 15)
+        if (foodObjects.Count < 10)
         {
             GameObject newFood = new GameObject();
 
@@ -139,6 +143,20 @@ public class FoodController : MonoBehaviour
     }
 
     /// <summary>
+    /// Decrements the timer
+    /// </summary>
+    void HandleTimer()
+    {
+        timeRemaining -= Time.deltaTime;
+        timeText.text = ((int)timeRemaining).ToString() + " seconds left";
+        if(timeRemaining <= 0)
+        {
+            level--;
+            IncrementLevel();
+        }
+    }
+
+    /// <summary>
     /// Checks collisions between the food, basket and the floor
     /// </summary>
     void CheckCollisions()
@@ -161,19 +179,44 @@ public class FoodController : MonoBehaviour
             List<string> keyList = new List<string>(requiredFoodObjects.Keys);
             for (int j = 0; j < keyList.Count; j++)
             {
-                if (foodObjects[i].GetComponent<SpriteRenderer>().sprite.name.Equals(keyList[j]) && collectedFoodObjects[keyList[j]] < requiredFoodObjects[keyList[j]])
+                if (foodObjects[i].GetComponent<PolygonCollider2D>().IsTouching(player.GetComponent<PolygonCollider2D>()))
                 {
-                    if (foodObjects[i].GetComponent<PolygonCollider2D>().IsTouching(player.GetComponent<PolygonCollider2D>()))
+                    if (foodObjects[i].GetComponent<SpriteRenderer>().sprite.name.Equals(keyList[j]) && collectedFoodObjects[keyList[j]] < requiredFoodObjects[keyList[j]])
                     {
-                        collectedFoodObjects[keyList[j]] += 1;
                         GameObject fallenFood = foodObjects[i];
                         foodObjects.Remove(fallenFood);
                         foodSpeeds.Remove(i);
                         Destroy(fallenFood);
+                        collectedFoodObjects[keyList[j]] += 1;
                         currentScore++;
+                    } else if(!keyList.Contains(foodObjects[i].GetComponent<SpriteRenderer>().sprite.name))
+                    {
+                        GameObject fallenFood = foodObjects[i];
+                        foodObjects.Remove(fallenFood);
+                        foodSpeeds.Remove(i);
+                        Destroy(fallenFood);
+                        currentScore = 0;
+                        // impact karma value
+                        if (PlayerPrefs.HasKey("Karma"))
+                        {
+                            PlayerPrefs.SetInt("Karma", PlayerPrefs.GetInt("Karma") - 1);
+                        }
+                        ClearCollection();
                     }
                 }
             }
+        }
+    }
+
+    void ClearCollection()
+    {
+        List<string> keyList = new List<string>(requiredFoodObjects.Keys);
+
+        Handheld.Vibrate();
+
+        for (int i = 0; i < keyList.Count; i++)
+        {
+            collectedFoodObjects[keyList[i]] = 0;
         }
     }
 
@@ -208,6 +251,8 @@ public class FoodController : MonoBehaviour
                 scoreTxt.text += " | ";
             }
         }
+
+        Debug.Log(scoreTxt.text);
     }
 
     /// <summary>
@@ -216,6 +261,7 @@ public class FoodController : MonoBehaviour
     void IncrementLevel()
     {
         level++;
+        timeRemaining = 60.0f;
 
         if (level > 1)
         {

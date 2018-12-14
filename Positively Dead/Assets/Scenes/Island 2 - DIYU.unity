@@ -1466,6 +1466,7 @@ MonoBehaviour:
   speakerAngry: {fileID: 21300000, guid: a8505777da637004d872c04c15a22b19, type: 3}
   speakerNeutral: {fileID: 21300000, guid: 2ffce33d3230d4df79c86b9fe36a0872, type: 3}
   speakerHappy: {fileID: 21300000, guid: 8dc579beba08cc845800875a6263e69b, type: 3}
+  useLoadingScreen: 1
 --- !u!114 &1681576018
 MonoBehaviour:
   m_ObjectHideFlags: 0

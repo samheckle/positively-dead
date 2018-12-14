@@ -393,7 +393,7 @@ Prefab:
     - target: {fileID: 224767272685673832, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114583594208845462, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
@@ -453,12 +453,12 @@ Prefab:
     - target: {fileID: 224429320813261322, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224414638015731540, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224413747026644556, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
@@ -468,12 +468,12 @@ Prefab:
     - target: {fileID: 224215158963669722, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224829574438352380, guid: a3392df176e49c4479a9982599b3edfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3392df176e49c4479a9982599b3edfe, type: 2}
@@ -1566,6 +1566,7 @@ MonoBehaviour:
   speakerAngry: {fileID: 21300000, guid: 53456521d99acc343b3886748a2779d9, type: 3}
   speakerNeutral: {fileID: 21300000, guid: 83dad006cce908649a3327bf8f016573, type: 3}
   speakerHappy: {fileID: 21300000, guid: 83dad006cce908649a3327bf8f016573, type: 3}
+  useLoadingScreen: 1
 --- !u!114 &1403093764
 MonoBehaviour:
   m_ObjectHideFlags: 0
