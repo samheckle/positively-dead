@@ -213,11 +213,23 @@ public class FoodController : MonoBehaviour
     {
         List<string> keyList = new List<string>(requiredFoodObjects.Keys);
 
-        Handheld.Vibrate();
+        StartCoroutine(FlashLoss());
 
         for (int i = 0; i < keyList.Count; i++)
         {
             collectedFoodObjects[keyList[i]] = 0;
+        }
+    }
+
+    private IEnumerator FlashLoss()
+    {
+        for (int i = 1; i <= 2; i++)
+        {
+            scoreTxt.color = Color.red;
+            Handheld.Vibrate();
+            yield return new WaitForSeconds(0.1f);
+            scoreTxt.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
