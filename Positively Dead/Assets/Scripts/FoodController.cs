@@ -226,7 +226,7 @@ public class FoodController : MonoBehaviour
         for (int i = 1; i <= 2; i++)
         {
             scoreTxt.color = Color.red;
-            Handheld.Vibrate();
+            //Handheld.Vibrate();
             yield return new WaitForSeconds(0.1f);
             scoreTxt.color = Color.white;
             yield return new WaitForSeconds(0.1f);

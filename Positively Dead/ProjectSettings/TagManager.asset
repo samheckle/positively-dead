@@ -40,6 +40,7 @@ TagManager:
   - Credits
   - Menus
   - Panel
+  - Canvas
   layers:
   - Default
   - TransparentFX

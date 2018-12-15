@@ -30,10 +30,14 @@ public class EndTileChecker : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (Vector3.Distance (this.gameObject.transform.position, player.transform.position) <= 0.2f) {
-            if (SceneManager.GetActiveScene ().name != "ChineseMinigame4")
+            if (SceneManager.GetActiveScene ().name == "ChineseMinigame4") {
+                canvas.SetActive (true);
+                foreach (GameObject g in levelOverObjects)
+                    g.SetActive (false);
+                loadSceneManager.TriggerLoad ("MapSelect");
+            } else {
                 StartCoroutine (WaitForKeyDown (KeyCode.KeypadEnter));
-            //else
-
+            }
         }
 
         if (timer != 0)
@@ -54,12 +58,11 @@ public class EndTileChecker : MonoBehaviour {
         timer += Time.unscaledDeltaTime;
         PopUpText ();
         if (Input.touchCount > 0 || Input.GetKeyDown (keyCode) || Input.GetMouseButtonDown (0)) {
-
-            //Resume Game
-            if (canvas && loadSceneManager) {
-                loadSceneManager.TriggerLoad ("MapSelect");
+            if (SceneManager.GetActiveScene ().name != "ChineseMinigame4") {
+                SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+                Time.timeScale = 1;
+                timer = 0;
             }
-            timer = 0;
         }
         yield return null;
     }
